@@ -9,11 +9,15 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
 
-\author{Name1 Surname1, Degree Programme, ID number (matricola)
-\\Name2 Surname2, Degree Programme, ID number (matricola)}
-\date{}
-\title{Project Title}
+\author{Federico , matricola 
+\\Federica Santisi, matricola
+\\Giorgia Pirelli, matricola}
+\date{Dicembre 2024}
+\title{Analisi delle Collaborazioni Musicali su Spotify: Una Prospettiva di Social Network Analysis}
 
 \begin{document}
 \maketitle
@@ -21,44 +25,95 @@
 \section{Introduction}
 \label{introduction}
 
-The context includes: the general field (e.g., literature, history,
-archaeology, tourism, biology, forensics, religious studies); the
-specific application (e.g., literary analysis, quantitative history,
-genetics, virology, forensics intelligence, tourism planning, biblical
-quantitative studies).
+L'industria musicale ha subito trasformazioni radicali negli ultimi due
+decenni, passando da un modello tradizionale basato sulla vendita fisica di
+dischi a un ecosistema digitale dominato dalle piattaforme di streaming.
+Spotify, lanciato nel 2008, è diventato il principale servizio di streaming
+musicale a livello globale, con oltre 500 milioni di utenti attivi e un
+catalogo che supera i 100 milioni di brani.
 
+In questo nuovo panorama, le collaborazioni musicali, comunemente note come
+"featuring", hanno assunto un ruolo centrale. Se in passato le collaborazioni
+erano eventi relativamente rari e spesso limitati a progetti speciali, oggi
+rappresentano una strategia fondamentale per artisti di ogni livello di
+popolarità. Le collaborazioni permettono agli artisti di raggiungere nuove
+audience, sperimentare con generi musicali diversi, aumentare la propria
+visibilità sulle piattaforme di streaming e creare connessioni strategiche
+all'interno dell'industria musicale.
 
+La Social Network Analysis (SNA) offre strumenti metodologici potenti per
+studiare queste dinamiche relazionali. Rappresentando gli artisti come nodi e
+le loro collaborazioni come archi, è possibile costruire una rete che cattura
+la complessità delle interazioni nel panorama musicale contemporaneo.
+Attraverso metriche di centralità, analisi di comunità e studio dei pattern di
+connessione, possiamo identificare quali artisti occupano posizioni
+strategiche, come si formano le comunità musicali e quali fattori influenzano
+il successo delle collaborazioni.
+
+Questo studio si concentra sull'analisi delle collaborazioni tra artisti su
+Spotify utilizzando un dataset che include artisti di diverse nazionalità, con
+particolare attenzione, ma non esclusiva, alla scena italiana. Tuttavia,
+l'analisi non si limita al contesto italiano. Per comprendere appieno le
+dinamiche delle collaborazioni musicali è necessario adottare una prospettiva
+globale, esaminando come gli artisti di diverse nazionalità interagiscano tra
+loro, quali siano i pattern di collaborazione transnazionale e come il successo
+in un mercato locale possa tradursi in visibilità internazionale. In
+particolare, è interessante analizzare se esistano "ponti" tra scene musicali
+diverse, quali artisti fungano da connettori tra mercati geograficamente e
+culturalmente distanti, e se determinati generi musicali siano più propensi
+alla collaborazione internazionale rispetto ad altri.
+
+L'obiettivo di questo studio è quindi duplice: da un lato, fornire un'analisi
+approfondita della struttura della rete di collaborazioni musicali su Spotify,
+identificando pattern, comunità e artisti chiave; dall'altro, utilizzare questa
+analisi per rispondere a domande di ricerca specifiche relative alla popolarità
+degli artisti, alle strategie di collaborazione E all'identificazione di
+talenti emergenti.
 
 \section{Problem and Motivation}
 \label{problem-and-motivation}
 
-What are the problems you want to address? Why are those problems
-important (impact, theoretical and/or practical needs, etc.)? What are
-the main contributions of the project?
+L'obiettivo principale di questo studio è comprendere le dinamiche delle
+collaborazioni musicali e il loro impatto sul successo e sulla visibilità degli
+artisti. In particolare, ci proponiamo di affrontare le seguenti questioni di
+ricerca:
+
+\begin{itemize}[leftmargin=*, itemsep=10pt]
+    \item \textbf{Identificazione del grado di popolarità degli artisti:} attraverso metriche di centralità (degree centrality, betweenness centrality, closeness centrality), si intende individuare quali artisti occupano posizioni strategiche nella rete delle collaborazioni. Un artista con alta degree centrality collabora con numerosi altri artisti, indicando una forte integrazione e un ruolo attivo nella scena musicale. Un artista con alta betweenness centrality funge da "ponte" tra diversi gruppi di artisti, potenzialmente collegando scene musicali o generi diversi e facilitando la circolazione di stili e influenze. L'obiettivo è verificare se e come queste metriche di centralità correlino con indicatori di successo commerciale quali il numero di follower su Spotify, gli stream totali e le presenze nelle classifiche globali, permettendo di comprendere se una posizione centrale nella rete di collaborazioni si traduca effettivamente in maggiore popolarità presso il pubblico.
+
+    \item \textbf{Propensione alle collaborazioni transnazionali:} si intende analizzare se e in che misura gli artisti tendano a collaborare prevalentemente con artisti della stessa nazionalità o se mostrino apertura verso collaborazioni internazionali. Questo aspetto è particolarmente rilevante per comprendere le dinamiche di globalizzazione della musica contemporanea. L'analisi mira a identificare eventuali barriere linguistiche, culturali o geografiche che limitano le collaborazioni transnazionali, e a verificare se determinati generi musicali (come il rap, la musica elettronica o il pop) favoriscano una maggiore apertura internazionale rispetto ad altri. Particolare attenzione sarà dedicata all'identificazione di artisti che fungono da "ambasciatori" culturali, connettendo la propria scena nazionale con mercati esteri e facilitando lo scambio artistico tra diverse aree geografiche.
+
+    \item \textbf{Identificazione di artisti emergenti tramite analisi di rete:} attraverso l'analisi della struttura della rete e l'evoluzione temporale delle metriche di centralità, si cercherà di identificare artisti emergenti, ovvero quelli che stanno rapidamente acquisendo rilevanza attraverso collaborazioni strategiche con artisti già affermati. Un artista emergente può essere caratterizzato da un pattern di crescita nelle collaborazioni con artisti di alto profilo, da un rapido incremento del numero di follower, o da una posizione nella rete che suggerisce un elevato potenziale di crescita futura. Questa analisi può fornire insights preziosi per l'industria musicale nell'identificare talenti prima che raggiungano il mainstream, permettendo a produttori e case discografiche di individuare opportunità di investimento promettenti.
+
+    \item \textbf{Diffusione internazionale e successo transnazionale:} si intende esaminare il grado di penetrazione degli artisti nei mercati esteri attraverso l'analisi delle presenze nelle classifiche internazionali (chart\_hits) e la distribuzione geografica del loro pubblico. L'obiettivo è identificare quali artisti e generi musicali abbiano maggiore appeal globale e comprendere i fattori che facilitano o ostacolano il successo internazionale. In particolare, si vuole verificare se il successo in un mercato domestico sia un prerequisito necessario per l'affermazione internazionale, o se esistano percorsi alternativi in cui artisti raggiungono popolarità all'estero prima di consolidarsi nel proprio paese d'origine. L'analisi permetterà inoltre di valutare quali generi musicali (rap/trap, pop, indie, cantautorale, elettronica) abbiano maggiore capacità di attraversare confini nazionali e in quali mercati geografici specifici ottengano maggiore successo.
+
+    \item \textbf{Inferenza di generi musicali attraverso pattern di collaborazione:} per gli artisti per cui manca l'informazione sul genere musicale nel dataset, si propone di inferirlo attraverso l'analisi sistematica delle loro collaborazioni. L'approccio si basa sul presupposto che artisti che collaborano frequentemente tendano a condividere generi musicali simili o compatibili, riflettendo affinità stilistiche e artistiche. Stabilendo una soglia minima di collaborazioni e applicando tecniche di classificazione basate sulla rete (ad esempio, analizzando i generi più frequenti tra i collaboratori di un artista), sarà possibile attribuire con ragionevole confidenza un genere musicale agli artisti non classificati. Questo metodo assume che, sebbene esistano collaborazioni cross-genre, queste siano meno frequenti rispetto alle collaborazioni intra-genre, e che quindi il "vicinato" di un artista nella rete fornisca informazioni significative sulla sua identità musicale.
+
+    \item \textbf{Generi musicali e propensione al successo internazionale:} si vuole identificare quali generi musicali mostrino maggiore propensione al successo sui mercati internazionali, analizzando sistematicamente la presenza nelle classifiche estere degli artisti appartenenti a ciascuna categoria di genere. L'analisi mira a comprendere se generi con forte connotazione linguistica e culturale (come il cantautorato italiano) siano strutturalmente svantaggiati rispetto a generi più "universali" come l'elettronica, il rap o il pop, o se al contrario l'autenticità e l'unicità culturale possano rappresentare un elemento distintivo che favorisce il successo in mercati di nicchia o presso specifici segmenti di pubblico. Particolare attenzione sarà dedicata all'identificazione di eventuali correlazioni tra caratteristiche del genere (presenza di testo, lingua, complessità musicale) e capacità di penetrazione internazionale.
+
+    \item \textbf{Community detection e caratterizzazione per macro-generi:} applicando algoritmi di community detection (come il metodo di Louvain o il metodo di Girvan-Newman) alla rete di collaborazioni, si intende identificare gruppi di artisti densamente connessi tra loro e analizzare come questi cluster si caratterizzino rispetto ai macro-generi musicali (pop/mainstream, rap/trap/urban, rock/indie, cantautorale, elettronica). L'obiettivo è verificare se le comunità rilevate algoritmicamente corrispondano effettivamente a raggruppamenti per genere musicale, o se emergano pattern più complessi influenzati da fattori geografici, generazionali, appartenenza a specifiche etichette discografiche o affiliazioni a particolari movimenti artistici. L'analisi delle connessioni inter-comunitarie può inoltre rivelare quali generi siano più aperti alla collaborazione cross-genre, quali artisti fungano da "ponti" tra comunità diverse facilitando la contaminazione stilistica, e se esistano barriere strutturali che limitano l'interazione tra determinate scene musicali.
+\end{itemize}
 
 
 \section{Datasets}
 \label{datasets}
 
-How did you gather the data? Did you digitise it? How? Is the material
-publicly available? What tools did you use 1) to handle (store,
-manipulate) the data and 2) to compute measures on the data?
-
-
+[Qui inserire la descrizione dei dataset utilizzati, le fonti, i metodi di raccolta e preprocessing, e gli strumenti utilizzati per l'analisi]
 
 \section{Validity and Reliability}
 \label{validity-and-reliability-not-needed-for-the-project-proposal}
 
-How closely does the model of your dataset represent reality (validity)?
-How does the way you treat the data affect the reproducibility of the study (reliability)?
-
+How closely does the model of your dataset represent reality (validity)? How
+does the way you treat the data affect the reproducibility of the study
+(reliability)?
 
 \section{Measures and Results}
 \label{measures}
 
-What measures did you apply (brief explanation of how they work)? How do
-they relate to the intent of the study? Why are they relevant? What is the connection among the gathered data, the applied measures,
-and the properties found?
+What measures did you apply (brief explanation of how they work)? How do they
+relate to the intent of the study? Why are they relevant? What is the
+connection among the gathered data, the applied measures, and the properties
+found?
 
 \section{Conclusion}
 \label{conclusion}
@@ -68,10 +123,9 @@ Qualitative analysis of the quantitative findings of the study.
 \section{Critique}
 \label{critique}
 
-Do you think your work solves the problem presented above? To which
-extent (completely, what parts)? Why? What could you have done
-differently to answer your research problems (e.g., gather data with
-additional information, build your model differently, apply alternative
-measures)?
+Do you think your work solves the problem presented above? To which extent
+(completely, what parts)? Why? What could you have done differently to answer
+your research problems (e.g., gather data with additional information, build
+your model differently, apply alternative measures)?
 
 \end{document}
