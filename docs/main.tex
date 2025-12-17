@@ -98,7 +98,46 @@ ricerca:
 \section{Datasets}
 \label{datasets}
 
-[Qui inserire la descrizione dei dataset utilizzati, le fonti, i metodi di raccolta e preprocessing, e gli strumenti utilizzati per l'analisi]
+Il dataset di partenza utilizzato per questa analisi è stato scaricato da \href{https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network}{Spotify Artist Feature \& Collaboration Network} \cite{spotify_kaggle}. Dopo un'attenta verifica, è stato considerato una fonte affidabile poiché derivato da dati pubblici provenienti da Spotify API, già pre-processati per rappresentare le relazioni di collaborazione tra artisti.
+
+Il dataset è strutturato sotto forma di grafo orientato, composto da due file principali:
+\begin{itemize}
+    \item \textbf{nodes.csv} -- contiene i nodi del grafo, dove ogni nodo rappresenta un artista. Le colonne includono:
+    \begin{itemize}
+        \item \texttt{id}: identificativo univoco dell’artista.
+        \item \texttt{name}: nome dell’artista.
+        \item \texttt{followers}: numero di follower dell’artista su Spotify.
+        \item \texttt{popularity}: indice di popolarità (0–100), calcolato da Spotify in base a stream recenti e visibilità.
+        \item \texttt{genres}: lista dei generi associati all’artista.
+    \end{itemize}
+    \item \textbf{edges.csv} -- contiene gli archi del grafo, che rappresentano una collaborazione tra due artisti. Le colonne includono:
+    \begin{itemize}
+        \item \texttt{source}: ID dell’artista che collabora.
+        \item \texttt{target}: ID dell’artista con cui collabora.
+        \item \texttt{weight}: valore numerico che rappresenta l’intensità della collaborazione (ad esempio numero di brani condivisi).
+    \end{itemize}
+\end{itemize}
+
+L’obiettivo iniziale è stato quello di arricchire il grafo con ulteriori informazioni sugli artisti, in particolare la \textbf{nazionalità} e il \textbf{genere musicale prevalente}, per poter effettuare analisi sociali e culturali più approfondite sulla rete.
+
+\subsection{Aggiunta della nazionalità dell’artista}
+\label{subsec:nazionalita}
+
+Per associare una nazionalità agli artisti, sono state seguite due strategie complementari:
+
+\begin{enumerate}
+    \item \textbf{Inferenza tramite genere musicale.}  
+    In un primo approccio, la nazionalità è stata dedotta analizzando il genere di appartenenza. Ad esempio, un artista associato al genere \texttt{italian hip hop} è stato etichettato come \emph{italiano}. Questo metodo ha permesso di assegnare automaticamente una nazionalità a un sottoinsieme consistente di artisti, ma non era applicabile a tutti i casi, poiché molti generi non contenevano riferimenti geografici espliciti.
+
+    \item \textbf{Completamento tramite dataset esterno (MusicBrainz).}  
+    Per gli artisti privi di nazionalità nel primo passaggio, sono stati integrati i dati provenienti dal database \texttt{MusicBrainz Dump (mbdump)} \cite{musicbrainz_db}. Tuttavia, un matching diretto basato solo sul nome dell’artista presentava criticità significative (esistenza di omonimi con nazionalità diverse). Per ridurre questi errori, l’integrazione è stata effettuata solo sugli artisti rimasti non classificati dopo il primo metodo di inferenza, migliorando la precisione complessiva e preservando la coerenza dei dati.
+\end{enumerate}
+
+Questa procedura ibrida ha consentito di aumentare la copertura dei dati di nazionalità e di rendere la successiva analisi più accurata, in particolare nel confronto tra comunità artistiche di diversi Paesi.
+
+\subsection{Aggiunta del genere artistico}
+\label{subsec:genere}
+
 
 \section{Validity and Reliability}
 \label{validity-and-reliability-not-needed-for-the-project-proposal}
@@ -107,13 +146,42 @@ How closely does the model of your dataset represent reality (validity)? How
 does the way you treat the data affect the reproducibility of the study
 (reliability)?
 
-\section{Measures and Results}
+\section{Misure e Risultati}
 \label{measures}
+In questa sezione si riassumono in modo sintetico le principali misure utilizzate, le tecnologie impiegate e il loro legame con gli obiettivi dello studio.
+\subsection*{Rappresentazione della rete}
+\begin{itemize}
+  \item Grafo non orientato $G = (V, E)$: nodi = artisti (\texttt{spotify\_id}), archi = collaborazioni tra artisti presenti nelle tracce. 
+  \item Implementazione in Python con \texttt{pandas} per i CSV dei nodi/archi e \texttt{NetworkX} per la costruzione del grafo e il calcolo delle misure. 
+\end{itemize}
 
-What measures did you apply (brief explanation of how they work)? How do they
-relate to the intent of the study? Why are they relevant? What is the
-connection among the gathered data, the applied measures, and the properties
-found?
+\subsection*{Misure di centralità}
+\begin{itemize}
+  \item \textbf{Degree centrality}: normalizza il numero di collaborazioni di ciascun artista, identifica gli hub più connessi e viene usata per selezionare i top artisti nel sottografo di analisi.
+  \item \textbf{Betweenness centrality}: misura quante volte un artista cade sui cammini minimi tra coppie di nodi, individuando i ``broker'' strutturali tra comunità e generi diversi. 
+  \item \textbf{Closeness centrality}: inverso della distanza media da un artista a tutti gli altri, quantifica quanto rapidamente un artista può raggiungere il resto della rete. 
+  \item \textbf{Eigenvector centrality}: assegna punteggi più alti agli artisti collegati ad altri artisti centrali, catturando l’appartenenza al ``core'' della scena. 
+\end{itemize}
+
+\subsection*{Community detection e bridge}
+\begin{itemize}
+  \item \textbf{Louvain}: individua comunità massimizzando la modularità, permettendo di associare cluster strutturali a macro-generi, scene nazionali o gruppi di etichetta. 
+  \item \textbf{Edge betweenness} e \textbf{constraint} di Burt: identificano rispettivamente collaborazioni-ponte tra comunità e artisti con accesso a \textit{structural holes}, fondamentali per la diffusione di stili e contenuti tra mondi diversi. 
+\end{itemize}
+
+\subsection*{Generi, nazionalità e successo}
+\begin{itemize}
+  \item Generi e nazionalità sono gestiti come attributi dei nodi (\texttt{genre}, \texttt{nationality}); si contano collaborazioni intra/inter-genere e intra/inter-nazionali per valutare assortatività e aperture transnazionali. 
+  \item Per gli artisti senza genere, il genere viene inferito dal genere più frequente nel vicinato di rete, con soglia minima di collaborazioni per garantire robustezza. 
+  \item Le misure strutturali sono correlate con indicatori esterni (\texttt{popularity} Spotify, numero collaborazioni, collaborazioni estere, presenza in chart) per studiare il legame tra posizione nella rete, popolarità ed espansione internazionale. 
+\end{itemize}
+
+\subsection*{Artisti emergenti}
+\begin{itemize}
+  \item Si costruisce un \texttt{DataFrame} con \texttt{popularity} e numero di collaborazioni per artista; soglie su entrambi gli indicatori definiscono tre classi: \emph{emergente}, \emph{intermedio}, \emph{affermato}. 
+  \item La matrice delle collaborazioni tra classi (emergente–emergente, emergente–affermato, ecc.) mostra le strategie di networking (orizzontale tra pari vs collegamento verso artisti affermati) e come queste si riflettano nella crescita di centralità e popolarità. 
+\end{itemize}
+
 
 \section{Conclusion}
 \label{conclusion}
