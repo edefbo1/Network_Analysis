@@ -79,65 +79,414 @@ artisti. In particolare, ci proponiamo di affrontare le seguenti questioni di
 ricerca:
 
 \begin{itemize}[leftmargin=*, itemsep=10pt]
-    \item \textbf{Identificazione del grado di popolarità degli artisti:} attraverso metriche di centralità (degree centrality, betweenness centrality, closeness centrality), si intende individuare quali artisti occupano posizioni strategiche nella rete delle collaborazioni. Un artista con alta degree centrality collabora con numerosi altri artisti, indicando una forte integrazione e un ruolo attivo nella scena musicale. Un artista con alta betweenness centrality funge da "ponte" tra diversi gruppi di artisti, potenzialmente collegando scene musicali o generi diversi e facilitando la circolazione di stili e influenze. L'obiettivo è verificare se e come queste metriche di centralità correlino con indicatori di successo commerciale quali il numero di follower su Spotify, gli stream totali e le presenze nelle classifiche globali, permettendo di comprendere se una posizione centrale nella rete di collaborazioni si traduca effettivamente in maggiore popolarità presso il pubblico.
+  \item \textbf{Identificazione del grado di popolarità degli artisti:} attraverso metriche di centralità (degree centrality, betweenness centrality, closeness centrality), si intende individuare quali artisti occupano posizioni strategiche nella rete delle collaborazioni. Un artista con alta degree centrality collabora con numerosi altri artisti, indicando una forte integrazione e un ruolo attivo nella scena musicale. Un artista con alta betweenness centrality funge da "ponte" tra diversi gruppi di artisti, potenzialmente collegando scene musicali o generi diversi e facilitando la circolazione di stili e influenze. L'obiettivo è verificare se e come queste metriche di centralità correlino con indicatori di successo commerciale quali il numero di follower su Spotify, gli stream totali e le presenze nelle classifiche globali, permettendo di comprendere se una posizione centrale nella rete di collaborazioni si traduca effettivamente in maggiore popolarità presso il pubblico.
 
-    \item \textbf{Propensione alle collaborazioni transnazionali:} si intende analizzare se e in che misura gli artisti tendano a collaborare prevalentemente con artisti della stessa nazionalità o se mostrino apertura verso collaborazioni internazionali. Questo aspetto è particolarmente rilevante per comprendere le dinamiche di globalizzazione della musica contemporanea. L'analisi mira a identificare eventuali barriere linguistiche, culturali o geografiche che limitano le collaborazioni transnazionali, e a verificare se determinati generi musicali (come il rap, la musica elettronica o il pop) favoriscano una maggiore apertura internazionale rispetto ad altri. Particolare attenzione sarà dedicata all'identificazione di artisti che fungono da "ambasciatori" culturali, connettendo la propria scena nazionale con mercati esteri e facilitando lo scambio artistico tra diverse aree geografiche.
+  \item \textbf{Propensione alle collaborazioni transnazionali:} si intende analizzare se e in che misura gli artisti tendano a collaborare prevalentemente con artisti della stessa nazionalità o se mostrino apertura verso collaborazioni internazionali. Questo aspetto è particolarmente rilevante per comprendere le dinamiche di globalizzazione della musica contemporanea. L'analisi mira a identificare eventuali barriere linguistiche, culturali o geografiche che limitano le collaborazioni transnazionali, e a verificare se determinati generi musicali (come il rap, la musica elettronica o il pop) favoriscano una maggiore apertura internazionale rispetto ad altri. Particolare attenzione sarà dedicata all'identificazione di artisti che fungono da "ambasciatori" culturali, connettendo la propria scena nazionale con mercati esteri e facilitando lo scambio artistico tra diverse aree geografiche.
 
-    \item \textbf{Identificazione di artisti emergenti tramite analisi di rete:} attraverso l'analisi della struttura della rete e l'evoluzione temporale delle metriche di centralità, si cercherà di identificare artisti emergenti, ovvero quelli che stanno rapidamente acquisendo rilevanza attraverso collaborazioni strategiche con artisti già affermati. Un artista emergente può essere caratterizzato da un pattern di crescita nelle collaborazioni con artisti di alto profilo, da un rapido incremento del numero di follower, o da una posizione nella rete che suggerisce un elevato potenziale di crescita futura. Questa analisi può fornire insights preziosi per l'industria musicale nell'identificare talenti prima che raggiungano il mainstream, permettendo a produttori e case discografiche di individuare opportunità di investimento promettenti.
+  \item \textbf{Identificazione di artisti emergenti tramite analisi di rete:} attraverso l'analisi della struttura della rete e l'evoluzione temporale delle metriche di centralità, si cercherà di identificare artisti emergenti, ovvero quelli che stanno rapidamente acquisendo rilevanza attraverso collaborazioni strategiche con artisti già affermati. Un artista emergente può essere caratterizzato da un pattern di crescita nelle collaborazioni con artisti di alto profilo, da un rapido incremento del numero di follower, o da una posizione nella rete che suggerisce un elevato potenziale di crescita futura. Questa analisi può fornire insights preziosi per l'industria musicale nell'identificare talenti prima che raggiungano il mainstream, permettendo a produttori e case discografiche di individuare opportunità di investimento promettenti.
 
-    \item \textbf{Diffusione internazionale e successo transnazionale:} si intende esaminare il grado di penetrazione degli artisti nei mercati esteri attraverso l'analisi delle presenze nelle classifiche internazionali (chart\_hits) e la distribuzione geografica del loro pubblico. L'obiettivo è identificare quali artisti e generi musicali abbiano maggiore appeal globale e comprendere i fattori che facilitano o ostacolano il successo internazionale. In particolare, si vuole verificare se il successo in un mercato domestico sia un prerequisito necessario per l'affermazione internazionale, o se esistano percorsi alternativi in cui artisti raggiungono popolarità all'estero prima di consolidarsi nel proprio paese d'origine. L'analisi permetterà inoltre di valutare quali generi musicali (rap/trap, pop, indie, cantautorale, elettronica) abbiano maggiore capacità di attraversare confini nazionali e in quali mercati geografici specifici ottengano maggiore successo.
+  \item \textbf{Diffusione internazionale e successo transnazionale:} si intende esaminare il grado di penetrazione degli artisti nei mercati esteri attraverso l'analisi delle presenze nelle classifiche internazionali (chart\_hits) e la distribuzione geografica del loro pubblico. L'obiettivo è identificare quali artisti e generi musicali abbiano maggiore appeal globale e comprendere i fattori che facilitano o ostacolano il successo internazionale. In particolare, si vuole verificare se il successo in un mercato domestico sia un prerequisito necessario per l'affermazione internazionale, o se esistano percorsi alternativi in cui artisti raggiungono popolarità all'estero prima di consolidarsi nel proprio paese d'origine. L'analisi permetterà inoltre di valutare quali generi musicali (rap/trap, pop, indie, cantautorale, elettronica) abbiano maggiore capacità di attraversare confini nazionali e in quali mercati geografici specifici ottengano maggiore successo.
 
-    \item \textbf{Inferenza di generi musicali attraverso pattern di collaborazione:} per gli artisti per cui manca l'informazione sul genere musicale nel dataset, si propone di inferirlo attraverso l'analisi sistematica delle loro collaborazioni. L'approccio si basa sul presupposto che artisti che collaborano frequentemente tendano a condividere generi musicali simili o compatibili, riflettendo affinità stilistiche e artistiche. Stabilendo una soglia minima di collaborazioni e applicando tecniche di classificazione basate sulla rete (ad esempio, analizzando i generi più frequenti tra i collaboratori di un artista), sarà possibile attribuire con ragionevole confidenza un genere musicale agli artisti non classificati. Questo metodo assume che, sebbene esistano collaborazioni cross-genre, queste siano meno frequenti rispetto alle collaborazioni intra-genre, e che quindi il "vicinato" di un artista nella rete fornisca informazioni significative sulla sua identità musicale.
+  \item \textbf{Inferenza di generi musicali attraverso pattern di collaborazione:} per gli artisti per cui manca l'informazione sul genere musicale nel dataset, si propone di inferirlo attraverso l'analisi sistematica delle loro collaborazioni. L'approccio si basa sul presupposto che artisti che collaborano frequentemente tendano a condividere generi musicali simili o compatibili, riflettendo affinità stilistiche e artistiche. Stabilendo una soglia minima di collaborazioni e applicando tecniche di classificazione basate sulla rete (ad esempio, analizzando i generi più frequenti tra i collaboratori di un artista), sarà possibile attribuire con ragionevole confidenza un genere musicale agli artisti non classificati. Questo metodo assume che, sebbene esistano collaborazioni cross-genre, queste siano meno frequenti rispetto alle collaborazioni intra-genre, e che quindi il "vicinato" di un artista nella rete fornisca informazioni significative sulla sua identità musicale.
 
-    \item \textbf{Generi musicali e propensione al successo internazionale:} si vuole identificare quali generi musicali mostrino maggiore propensione al successo sui mercati internazionali, analizzando sistematicamente la presenza nelle classifiche estere degli artisti appartenenti a ciascuna categoria di genere. L'analisi mira a comprendere se generi con forte connotazione linguistica e culturale (come il cantautorato italiano) siano strutturalmente svantaggiati rispetto a generi più "universali" come l'elettronica, il rap o il pop, o se al contrario l'autenticità e l'unicità culturale possano rappresentare un elemento distintivo che favorisce il successo in mercati di nicchia o presso specifici segmenti di pubblico. Particolare attenzione sarà dedicata all'identificazione di eventuali correlazioni tra caratteristiche del genere (presenza di testo, lingua, complessità musicale) e capacità di penetrazione internazionale.
+  \item \textbf{Generi musicali e propensione al successo internazionale:} si vuole identificare quali generi musicali mostrino maggiore propensione al successo sui mercati internazionali, analizzando sistematicamente la presenza nelle classifiche estere degli artisti appartenenti a ciascuna categoria di genere. L'analisi mira a comprendere se generi con forte connotazione linguistica e culturale (come il cantautorato italiano) siano strutturalmente svantaggiati rispetto a generi più "universali" come l'elettronica, il rap o il pop, o se al contrario l'autenticità e l'unicità culturale possano rappresentare un elemento distintivo che favorisce il successo in mercati di nicchia o presso specifici segmenti di pubblico. Particolare attenzione sarà dedicata all'identificazione di eventuali correlazioni tra caratteristiche del genere (presenza di testo, lingua, complessità musicale) e capacità di penetrazione internazionale.
 
-    \item \textbf{Community detection e caratterizzazione per macro-generi:} applicando algoritmi di community detection (come il metodo di Louvain o il metodo di Girvan-Newman) alla rete di collaborazioni, si intende identificare gruppi di artisti densamente connessi tra loro e analizzare come questi cluster si caratterizzino rispetto ai macro-generi musicali (pop/mainstream, rap/trap/urban, rock/indie, cantautorale, elettronica). L'obiettivo è verificare se le comunità rilevate algoritmicamente corrispondano effettivamente a raggruppamenti per genere musicale, o se emergano pattern più complessi influenzati da fattori geografici, generazionali, appartenenza a specifiche etichette discografiche o affiliazioni a particolari movimenti artistici. L'analisi delle connessioni inter-comunitarie può inoltre rivelare quali generi siano più aperti alla collaborazione cross-genre, quali artisti fungano da "ponti" tra comunità diverse facilitando la contaminazione stilistica, e se esistano barriere strutturali che limitano l'interazione tra determinate scene musicali.
+  \item \textbf{Community detection e caratterizzazione per macro-generi:} applicando algoritmi di community detection (come il metodo di Louvain o il metodo di Girvan-Newman) alla rete di collaborazioni, si intende identificare gruppi di artisti densamente connessi tra loro e analizzare come questi cluster si caratterizzino rispetto ai macro-generi musicali (pop/mainstream, rap/trap/urban, rock/indie, cantautorale, elettronica). L'obiettivo è verificare se le comunità rilevate algoritmicamente corrispondano effettivamente a raggruppamenti per genere musicale, o se emergano pattern più complessi influenzati da fattori geografici, generazionali, appartenenza a specifiche etichette discografiche o affiliazioni a particolari movimenti artistici. L'analisi delle connessioni inter-comunitarie può inoltre rivelare quali generi siano più aperti alla collaborazione cross-genre, quali artisti fungano da "ponti" tra comunità diverse facilitando la contaminazione stilistica, e se esistano barriere strutturali che limitano l'interazione tra determinate scene musicali.
 \end{itemize}
-
 
 \section{Datasets}
 \label{datasets}
 
-Il dataset di partenza utilizzato per questa analisi è stato scaricato da \href{https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network}{Spotify Artist Feature \& Collaboration Network} \cite{spotify_kaggle}. Dopo un'attenta verifica, è stato considerato una fonte affidabile poiché derivato da dati pubblici provenienti da Spotify API, già pre-processati per rappresentare le relazioni di collaborazione tra artisti.
+Il dataset di partenza utilizzato per questa analisi è stato scaricato da
+\href{https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network}{Spotify
+  Artist Feature \& Collaboration Network} \cite{spotify_kaggle}. Dopo un'attenta
+verifica, è stato considerato una fonte affidabile poiché derivato da dati
+pubblici provenienti da Spotify API, già pre-processati per rappresentare le
+relazioni di collaborazione tra artisti.
 
-Il dataset è strutturato sotto forma di grafo orientato, composto da due file principali:
+Il dataset è strutturato sotto forma di grafo orientato, composto da due file
+principali:
 \begin{itemize}
-    \item \textbf{nodes.csv} -- contiene i nodi del grafo, dove ogni nodo rappresenta un artista. Le colonne includono:
-    \begin{itemize}
-        \item \texttt{id}: identificativo univoco dell’artista.
-        \item \texttt{name}: nome dell’artista.
-        \item \texttt{followers}: numero di follower dell’artista su Spotify.
-        \item \texttt{popularity}: indice di popolarità (0–100), calcolato da Spotify in base a stream recenti e visibilità.
-        \item \texttt{genres}: lista dei generi associati all’artista.
-    \end{itemize}
-    \item \textbf{edges.csv} -- contiene gli archi del grafo, che rappresentano una collaborazione tra due artisti. Le colonne includono:
-    \begin{itemize}
-        \item \texttt{source}: ID dell’artista che collabora.
-        \item \texttt{target}: ID dell’artista con cui collabora.
-        \item \texttt{weight}: valore numerico che rappresenta l’intensità della collaborazione (ad esempio numero di brani condivisi).
-    \end{itemize}
+  \item \textbf{nodes.csv} -- contiene i nodi del grafo, dove ogni nodo rappresenta un artista. Le colonne includono:
+        \begin{itemize}
+          \item \texttt{id}: identificativo univoco dell’artista.
+          \item \texttt{name}: nome dell’artista.
+          \item \texttt{followers}: numero di follower dell’artista su Spotify.
+          \item \texttt{popularity}: indice di popolarità (0–100), calcolato da Spotify in base a stream recenti e visibilità.
+          \item \texttt{genres}: lista dei generi associati all’artista.
+        \end{itemize}
+  \item \textbf{edges.csv} -- contiene gli archi del grafo, che rappresentano una collaborazione tra due artisti. Le colonne includono:
+        \begin{itemize}
+          \item \texttt{source}: ID dell’artista che collabora.
+          \item \texttt{target}: ID dell’artista con cui collabora.
+          \item \texttt{weight}: valore numerico che rappresenta l’intensità della collaborazione (ad esempio numero di brani condivisi).
+        \end{itemize}
 \end{itemize}
 
-L’obiettivo iniziale è stato quello di arricchire il grafo con ulteriori informazioni sugli artisti, in particolare la \textbf{nazionalità} e il \textbf{genere musicale prevalente}, per poter effettuare analisi sociali e culturali più approfondite sulla rete.
+L’obiettivo iniziale è stato quello di arricchire il grafo con ulteriori
+informazioni sugli artisti, in particolare la \textbf{nazionalità} e il
+\textbf{genere musicale prevalente}, per poter effettuare analisi sociali e
+culturali più approfondite sulla rete.
 
 \subsection{Aggiunta della nazionalità dell’artista}
 \label{subsec:nazionalita}
 
-Per associare una nazionalità agli artisti, sono state seguite due strategie complementari:
+Per associare una nazionalità agli artisti, sono state seguite due strategie
+complementari:
 
 \begin{enumerate}
-    \item \textbf{Inferenza tramite genere musicale.}  
-    In un primo approccio, la nazionalità è stata dedotta analizzando il genere di appartenenza. Ad esempio, un artista associato al genere \texttt{italian hip hop} è stato etichettato come \emph{italiano}. Questo metodo ha permesso di assegnare automaticamente una nazionalità a un sottoinsieme consistente di artisti, ma non era applicabile a tutti i casi, poiché molti generi non contenevano riferimenti geografici espliciti.
+  \item \textbf{Inferenza tramite genere musicale.}
+        In un primo approccio, la nazionalità è stata dedotta analizzando il genere di appartenenza. Ad esempio, un artista associato al genere \texttt{italian hip hop} è stato etichettato come \emph{italiano}. Questo metodo ha permesso di assegnare automaticamente una nazionalità a un sottoinsieme consistente di artisti, ma non era applicabile a tutti i casi, poiché molti generi non contenevano riferimenti geografici espliciti.
 
-    \item \textbf{Completamento tramite dataset esterno (MusicBrainz).}  
-    Per gli artisti privi di nazionalità nel primo passaggio, sono stati integrati i dati provenienti dal database \texttt{MusicBrainz Dump (mbdump)} \cite{musicbrainz_db}. Tuttavia, un matching diretto basato solo sul nome dell’artista presentava criticità significative (esistenza di omonimi con nazionalità diverse). Per ridurre questi errori, l’integrazione è stata effettuata solo sugli artisti rimasti non classificati dopo il primo metodo di inferenza, migliorando la precisione complessiva e preservando la coerenza dei dati.
+  \item \textbf{Completamento tramite dataset esterno (MusicBrainz).}
+        Per gli artisti privi di nazionalità nel primo passaggio, sono stati integrati i dati provenienti dal database \texttt{MusicBrainz Dump (mbdump)} \cite{musicbrainz_db}. Tuttavia, un matching diretto basato solo sul nome dell’artista presentava criticità significative (esistenza di omonimi con nazionalità diverse). Per ridurre questi errori, l’integrazione è stata effettuata solo sugli artisti rimasti non classificati dopo il primo metodo di inferenza, migliorando la precisione complessiva e preservando la coerenza dei dati.
 \end{enumerate}
 
-Questa procedura ibrida ha consentito di aumentare la copertura dei dati di nazionalità e di rendere la successiva analisi più accurata, in particolare nel confronto tra comunità artistiche di diversi Paesi.
+Questa procedura ibrida ha consentito di aumentare la copertura dei dati di
+nazionalità e di rendere la successiva analisi più accurata, in particolare nel
+confronto tra comunità artistiche di diversi Paesi.
 
 \subsection{Aggiunta del genere artistico}
 \label{subsec:genere}
 
+\subsection{Analisi Topologica della Rete delle Collaborazioni Musicali Italiane}
+\label{subsec:topologia-rete-italiana}
+
+Per delineare le principali caratteristiche strutturali della rete di
+collaborazioni musicali italiana e fornire una panoramica completa della sua
+topologia, sono state calcolate una serie di misure generali di Social Network
+Analysis. Queste metriche permettono di comprendere le dinamiche interne della
+rete, rivelando pattern di connettività, efficienza nella diffusione
+dell'informazione e coesione tra gli artisti.
+
+L'analisi evidenzia una rete composta da 1.656 artisti (nodi) e 4.307
+collaborazioni (archi). Come mostrato nella
+Tabella~\ref{tab:metriche-rete-italiana}, la struttura presenta diversi aspetti
+interessanti.
+
+\begin{table}[h]
+  \centering
+  \caption{Metriche strutturali della rete di collaborazioni musicali italiane su Spotify}
+  \label{tab:metriche-rete-italiana}
+  \begin{tabular}{l c}
+    \hline
+    \textbf{Parametro}                     & \textbf{Valore} \\
+    \hline
+    Nodi totali                            & 1.656           \\
+    Archi totali                           & 4.307           \\
+    Componenti connesse                    & 16              \\
+    Dimensione componente gigante          & 1.612 (97.3\%)  \\
+    Grado massimo                          & 114             \\
+    Grado medio                            & 5.20            \\
+    Densità                                & 0.0031          \\
+    Diametro (componente gigante)          & 10              \\
+    Lunghezza media del percorso più breve & 4.14            \\
+    Coefficiente di clustering medio       & 0.119           \\
+    Transitività                           & 0.128           \\
+    Coefficiente di assortatività          & -0.105          \\
+    \hline
+  \end{tabular}
+\end{table}
+
+La presenza di 16 componenti connesse indica l'esistenza di sottogruppi isolati
+all'interno della rete. La componente gigante, che comprende 1.612 artisti
+(97.3\% del totale), rappresenta il nucleo principale della scena musicale
+italiana, mentre le altre 15 componenti più piccole corrispondono a gruppi di
+artisti con collaborazioni limitate o specializzate che non si connettono al
+resto della rete. La più grande tra queste componenti minori contiene 11
+artisti, seguita da componenti di 4 e 3 nodi.
+
+Il grado massimo di 114, attribuito all'artista Guè, indica la presenza di veri
+e propri \emph{hub} nella rete---artisti che collaborano estensivamente con
+molti colleghi. Il grado medio di 5.20 suggerisce che ogni artista italiano
+collabora in media con circa 5 altri artisti, una cifra che riflette una
+moderata propensione alle collaborazioni nel panorama musicale nazionale.
+
+La densità estremamente bassa (0.0031) conferma che la rete è sparsa, con solo
+lo 0.31\% delle possibili connessioni realizzate. Questo pattern è tipico delle
+reti sociali su larga scala, dove il numero effettivo di connessioni è molto
+inferiore al potenziale massimo teorico. La distribuzione del grado mostra una
+struttura eterogenea: il 54.6\% degli artisti (904 nodi) ha grado 1, indicando
+che collaborano con un solo altro artista, mentre solo il 12.6\% (208 nodi) ha
+grado superiore a 10, rappresentando i collaboratori più attivi della scena.
+
+Le misure di percorso rivelano una struttura relativamente efficiente. Il
+diametro di 10 nella componente gigante significa che la massima distanza tra
+due artisti è di 10 passaggi (collaborazioni), mentre la lunghezza media del
+percorso più breve di 4.14 indica che, in media, due artisti qualsiasi nella
+rete principale sono separati da poco più di 4 intermediari. Questi valori
+suggeriscono che informazioni, influenze musicali e opportunità di
+collaborazione possono diffondersi in modo relativamente efficiente attraverso
+la rete.
+
+Il coefficiente di clustering medio (0.119) e la transitività (0.128)
+forniscono indicazioni sulla coesione locale della rete. Entrambi i valori sono
+moderatamente bassi, suggerendo una limitata tendenza alla formazione di
+"triadi chiuse"---situazioni in cui due collaboratori di uno stesso artista
+tendono a collaborare anche tra loro. La transitività leggermente superiore al
+coefficiente di clustering medio indica la presenza di hub altamente connessi
+che mediano molte collaborazioni senza necessariamente formare gruppi
+completamente interconnessi.
+
+Il coefficiente di assortatività negativo (-0.105) rivela una struttura di tipo
+"hub-spoke": gli artisti con molte collaborazioni (hub) tendono a connettersi
+con artisti con poche collaborazioni (spoke), piuttosto che con altri hub.
+Questo pattern suggerisce una certa gerarchia nella rete, dove artisti molto
+popolari o influenti fungono da punti focali per numerosi artisti meno
+connessi.
+
+Nel complesso, l'analisi rivela una rete di collaborazioni musicali italiane
+caratterizzata da una struttura sparsa ma ben connessa, con una chiara
+gerarchia tra artisti altamente connessi (hub) e artisti con poche
+collaborazioni. La presenza di una componente gigante dominante indica una
+scena musicale sostanzialmente integrata, mentre le componenti minori
+suggeriscono l'esistenza di nicchie o sottocomunità specializzate. Questa
+struttura probabilmente facilita sia la diffusione rapida di tendenze musicali
+attraverso i principali hub, sia la preservazione di identità musicali distinte
+nelle componenti periferiche.
+\subsection{Analisi Comparativa delle Reti Nazionali di Collaborazione Musicale}
+\label{subsec:analisi-comparativa-nazionale}
+
+L'analisi comparativa delle reti di collaborazione musicale su Spotify rivela
+significative differenze strutturali tra i principali paesi europei. I
+risultati, sintetizzati nella Tabella~\ref{tab:metriche-comparative-paesi},
+forniscono insights sulle diverse dinamiche di collaborazione che
+caratterizzano le varie scene musicali nazionali.
+
+\begin{table}[h]
+  \centering
+  \caption{Metriche comparative delle reti di collaborazione musicale per paese}
+  \label{tab:metriche-comparative-paesi}
+  \begin{tabular}{l c c c c c}
+    \hline
+    \textbf{Parametro}         & \textbf{Italia} & \textbf{Francia} & \textbf{Germania} & \textbf{Spagna} & \textbf{Regno Unito} \\
+    \hline
+    Artisti totali nel dataset & 2.707           & 3.020            & 4.583             & 1.694           & 6.868                \\
+    Nodi nella rete            & 1.656           & 1.643            & 2.704             & 855             & 3.290                \\
+    Archi (collaborazioni)     & 4.307           & 4.754            & 5.927             & 1.696           & 7.532                \\
+    Componenti connesse        & 16              & 27               & 32                & 12              & 70                   \\
+    Grado medio                & 5.20            & 5.79             & 4.38              & 3.97            & 4.58                 \\
+    Densità                    & 0.00314         & 0.00352          & 0.00162           & 0.00465         & 0.00139              \\
+    Coeff. clustering medio    & 0.119           & 0.113            & 0.121             & 0.088           & 0.062                \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsubsection{Interpretazione dei Risultati}
+
+\textbf{1. Integrazione e frammentazione delle scene musicali} \\
+Il numero di componenti connesse varia notevolmente tra i paesi, riflettendo diversi gradi di integrazione delle rispettive scene musicali. La Spagna presenta la rete più integrata con solo 12 componenti, seguita dall'Italia (16), Francia (27), Germania (32) e Regno Unito (70). L'elevato numero di componenti nel Regno Unito suggerisce una scena musicale particolarmente frammentata, con numerosi sottogruppi isolati che potrebbero corrispondere a generi, sottogeneri o comunità musicali scarsamente interconnesse tra loro. Questa frammentazione potrebbe riflettere la maggiore diversità culturale e musicale del mercato britannico, nonché la presenza di numerose sottoculture musicali indipendenti.
+
+\textbf{2. Propensione alle collaborazioni} \\
+Il grado medio, che misura il numero medio di collaborazioni per artista, presenta valori differenziati: la Francia mostra la propensione più alta (5.79), seguita dall'Italia (5.20), Regno Unito (4.58), Germania (4.38) e Spagna (3.97). Questi dati suggeriscono che la scena musicale francese sia particolarmente orientata alle collaborazioni, mentre quella spagnola sembra più contenuta in questo aspetto. Interessante notare che, nonostante il Regno Unito abbia il maggior numero assoluto di artisti nel dataset (6.868), il grado medio rimane moderato, indicando che l'ampiezza della scena non si traduce necessariamente in una maggiore densità di collaborazioni.
+
+\textbf{3. Densità e sparsità delle reti} \\
+La densità, che misura la proporzione di connessioni effettive rispetto al massimo teorico possibile, rivela strutture di rete sostanzialmente sparse in tutti i paesi, tipiche delle reti sociali su larga scala. La Spagna presenta la densità più elevata (0.00465), suggerendo una rete relativamente più coesa nonostante il minor numero assoluto di artisti. Al contrario, il Regno Unito mostra la densità più bassa (0.00139), coerente con la sua elevata frammentazione. Questa bassa densità potrebbe indicare la presenza di numerosi "mondi piccoli" all'interno della scena musicale britannica, con poche connessioni tra diverse comunità.
+
+\textbf{4. Coesione locale e formazione di comunità} \\
+Il coefficiente di clustering medio, che misura la tendenza alla formazione di triadi chiuse (se A collabora con B e C, allora B e C tendono a collaborare tra loro), mostra valori moderati in tutti i paesi. La Germania presenta il coefficiente più alto (0.121), seguita da Italia (0.119), Francia (0.113), Spagna (0.088) e Regno Unito (0.062). I valori più bassi nel Regno Unito e in Spagna suggeriscono strutture di rete più "a stella", dove gli artisti collaborano con hub centrali ma non necessariamente tra loro. Questo pattern potrebbe riflettere l'influenza di grandi etichette discografiche o produttori che agiscono come connector centrali.
+
+\subsubsection{Considerazioni sulle Differenze Nazionali}
+
+\textbf{Scena italiana: equilibrio tra integrazione e specializzazione} \\
+La rete italiana mostra un buon equilibrio tra integrazione (16 componenti) e propensione alle collaborazioni (grado medio 5.20). La componente gigante comprende il 97.3\% degli artisti, indicando una scena musicale sostanzialmente ben integrata. Il moderato coefficiente di clustering (0.119) suggerisce la presenza sia di comunità coese che di collaborazioni trasversali tra diversi gruppi musicali.
+
+\textbf{Scena francese: alta propensione collaborativa} \\
+La Francia emerge come il paese con la maggiore propensione alle collaborazioni (grado medio 5.79), nonostante una frammentazione intermedia (27 componenti). Questo potrebbe riflettere una cultura musicale particolarmente aperta alle collaborazioni cross-genre o la presenza di festival ed eventi che favoriscono incontri tra artisti di diverse background.
+
+\textbf{Scena tedesca: struttura frammentata ma coesa localmente} \\
+La Germania presenta la rete più ampia (2.704 nodi) tra i paesi europei analizzati, con un grado medio relativamente basso (4.38) ma il coefficiente di clustering più alto (0.121). Questa combinazione suggerisce la presenza di numerose comunità ben coese internamente ma con limitate connessioni reciproche, forse riflettendo la diversità linguistica e culturale regionale del paese.
+
+\textbf{Scena spagnola: rete compatta e integrata} \\
+Nonostante il minor numero assoluto di artisti (855 nodi), la Spagna mostra la rete più densa (0.00465) e meglio integrata (solo 12 componenti). Questo potrebbe indicare una scena musicale più omogenea o concentrata geograficamente, con un numero limitato di hub che connettono efficacemente l'intera rete.
+
+\textbf{Scena britannica: estrema diversificazione} \\
+Il Regno Unito presenta la scena più complessa e diversificata, con il maggior numero di artisti (3.290 nodi) ma anche la maggiore frammentazione (70 componenti) e la densità più bassa. Questa struttura riflette probabilmente la ricchezza e diversità della scena musicale britannica, con numerosi generi e sottogeneri che coesistono con limitate interazioni reciproche.
+
+\subsubsection{Implicazioni per l'Industria Musicale}
+
+Queste differenze strutturali hanno importanti implicazioni per strategie di
+marketing, promozione e sviluppo artistico:
+
+\begin{itemize}
+  \item \textbf{Marketing differenziato}: Le strategie di promozione dovrebbero adattarsi alle specifiche caratteristiche strutturali di ciascun mercato. In paesi come la Spagna e l'Italia, con reti più integrate, le campagne di marketing potrebbero essere più efficaci se focalizzate sugli hub centrali. Nei mercati più frammentati come il Regno Unito, potrebbe essere necessario adottare approcci più segmentati per raggiungere diverse comunità.
+
+  \item \textbf{Strategie di collaborazione}: La maggiore propensione alle collaborazioni in Francia suggerisce che gli artisti potrebbero beneficiare maggiormente di strategie collaborative in quel mercato. Al contrario, in paesi con reti più frammentate, le collaborazioni potrebbero richiedere maggior sforzo per identificare i connector giusti tra comunità diverse.
+
+  \item \textbf{Identificazione di talenti emergenti}: La struttura delle reti influenza come gli artisti emergenti possono ottenere visibilità. In reti più integrate come quella spagnola, un artista emergente potrebbe ottenere visibilità più rapidamente attraverso pochi collegamenti strategici. In reti più frammentate, potrebbe essere necessario costruire presenza in più comunità simultaneamente.
+
+  \item \textbf{Diffusione di tendenze musicali}: La velocità e il pattern di diffusione di nuove tendenze musicali variano in base alla struttura della rete. Nelle reti più dense e integrate, le tendenze potrebbero diffondersi più rapidamente ma anche omogeneizzarsi più facilmente. Nelle reti più frammentate, potrebbero emergere tendenze diverse in comunità separate.
+\end{itemize}
+
+In conclusione, l'analisi comparativa rivela che le scene musicali nazionali su
+Spotify presentano strutture di rete significativamente diverse, che riflettono
+probabilmente differenze culturali, storiche e organizzative nei rispettivi
+ecosistemi musicali. Queste differenze strutturali hanno implicazioni
+importanti per come la musica viene creata, distribuita e consumata in ciascun
+mercato.
+\subsection{Analisi delle Collaborazioni per Nazionalità}
+\label{subsec:analisi-nazionalita}
+
+L'analisi completa delle nazionalità presenti nel dataset Spotify rivela una
+distribuzione fortemente concentrata, con un numero limitato di paesi che
+dominano la scena musicale internazionale. I risultati evidenziano
+significative differenze strutturali nelle reti di collaborazione delle varie
+nazionalità.
+
+\subsubsection{Distribuzione degli Artisti per Nazionalità}
+Il dataset comprende 192 nazionalità uniche, ma la distribuzione è estremamente
+diseguale. Come mostrato nella Tabella~\ref{tab:top-nazionalita}, i primi 10
+paesi rappresentano collettivamente il 79.5\% degli artisti con nazionalità
+nota.
+
+\begin{table}[h]
+  \centering
+  \caption{Top 10 nazionalità per numero di artisti nel dataset Spotify}
+  \label{tab:top-nazionalita}
+  \begin{tabular}{l r r}
+    \hline
+    \textbf{Nazionalità}   & \textbf{Numero artisti} & \textbf{Percentuale} \\
+    \hline
+    Stati Uniti            & 11.903                  & 7.6\%                \\
+    Regno Unito            & 6.868                   & 4.4\%                \\
+    Germania               & 4.583                   & 2.9\%                \\
+    Francia                & 3.020                   & 1.9\%                \\
+    Italia                 & 2.707                   & 1.7\%                \\
+    Brasile                & 2.413                   & 1.5\%                \\
+    Svezia                 & 2.289                   & 1.5\%                \\
+    Paesi Bassi            & 2.276                   & 1.5\%                \\
+    Giappone               & 2.220                   & 1.4\%                \\
+    Finlandia              & 1.726                   & 1.1\%                \\
+    \hline
+    \textbf{Totale top 10} & \textbf{37.009}         & \textbf{23.6\%}      \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsubsection{Pattern di Collaborazione Internazionale}
+L'analisi delle collaborazioni su un campione di 100.000 interazioni rivela che
+il 21\% delle collaborazioni coinvolge artisti di nazionalità diversa, il 28\%
+coinvolge artisti della stessa nazionalità, mentre il restante 51\% non può
+essere classificato per mancanza di informazioni sulla nazionalità di uno o
+entrambi gli artisti. Questo dato evidenzia un significativo grado di
+internazionalizzazione nella produzione musicale contemporanea.
+
+Le collaborazioni internazionali mostrano pattern ben definiti, con gli Stati
+Uniti che emergono come il principale hub di collaborazioni transnazionali
+(Tabella~\ref{tab:collab-internazionali}).
+
+\begin{table}[h]
+  \centering
+  \caption{Principali coppie di nazionalità per frequenza di collaborazioni internazionali}
+  \label{tab:collab-internazionali}
+  \begin{tabular}{l l r r}
+    \hline
+    \textbf{Nazione 1} & \textbf{Nazione 2} & \textbf{Collaborazioni} & \textbf{Percentuale} \\
+    \hline
+    Regno Unito        & Stati Uniti        & 884                     & 1.77\%               \\
+    Canada             & Stati Uniti        & 283                     & 0.57\%               \\
+    Germania           & Stati Uniti        & 254                     & 0.51\%               \\
+    Paesi Bassi        & Stati Uniti        & 248                     & 0.50\%               \\
+    Paesi Bassi        & Regno Unito        & 224                     & 0.45\%               \\
+    Germania           & Regno Unito        & 200                     & 0.40\%               \\
+    Francia            & Stati Uniti        & 182                     & 0.36\%               \\
+    Francia            & Regno Unito        & 182                     & 0.36\%               \\
+    Australia          & Stati Uniti        & 178                     & 0.36\%               \\
+    Australia          & Regno Unito        & 137                     & 0.27\%               \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsubsection{Caratteristiche Strutturali delle Reti Nazionali}
+L'analisi delle reti nazionali complete rivela differenze significative nella
+struttura delle collaborazioni interne di ciascun paese
+(Tabella~\ref{tab:reti-nazionali}).
+
+\begin{table}[h]
+  \centering
+  \caption{Caratteristiche strutturali delle reti di collaborazione nazionali}
+  \label{tab:reti-nazionali}
+  \begin{tabular}{l r r r r r r r}
+    \hline
+    \textbf{Nazionalità} & \textbf{Nodi} & \textbf{Archi} & \textbf{Comp.} & \textbf{Densità} & \textbf{Grado medio} & \textbf{Grado max} & \textbf{Clustering} \\
+    \hline
+    Stati Uniti          & 6.217         & 14.860         & 111            & 0.000769         & 4.78                 & 272                & 0.082               \\
+    Regno Unito          & 3.290         & 7.532          & 70             & 0.001392         & 4.58                 & 104                & 0.062               \\
+    Germania             & 2.704         & 5.927          & 32             & 0.001622         & 4.38                 & 288                & 0.121               \\
+    Francia              & 1.643         & 4.754          & 27             & 0.003524         & 5.79                 & 109                & 0.113               \\
+    Italia               & 2.664         & 4.307          & 16             & 0.003143         & 5.20                 & 114                & 0.119               \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\paragraph{Analisi dei Risultati per Nazionalità}
+
+\textbf{Stati Uniti: Il principale hub globale}
+La rete statunitense è la più estesa (6.217 nodi) e presenta il maggior numero di collaborazioni interne (14.860). Nonostante la bassa densità (0.000769), tipica delle reti molto ampie, mostra una buona integrazione con il 94.4\% degli artisti appartenenti alla componente gigante. Il grado medio di 4.78 indica una moderata propensione alle collaborazioni, mentre il grado massimo di 272 suggerisce la presenza di veri e propri super-hub nella scena musicale americana.
+
+\textbf{Regno Unito: Rete frammentata ma connessa}
+La rete britannica (3.290 nodi, 7.532 archi) presenta un elevato numero di componenti connesse (70), indicando una scena musicale diversificata con numerose sottocomunità. La densità relativamente bassa (0.001392) e il coefficiente di clustering modesto (0.062) suggeriscono una struttura più "a stella" rispetto ad altre reti nazionali.
+
+\textbf{Germania: Coesione locale elevata}
+La rete tedesca si distingue per il più alto coefficiente di clustering (0.121), indicando una forte tendenza alla formazione di comunità coese internamente. Nonostante il grado medio relativamente basso (4.38), la rete mostra una buona integrazione con il 97\% degli artisti nella componente gigante.
+
+\textbf{Francia: Alta propensione collaborativa}
+La Francia presenta il grado medio più alto (5.79) tra le principali nazionalità analizzate, suggerendo una cultura musicale particolarmente orientata alle collaborazioni. La densità relativamente alta (0.003524) e il buon coefficiente di clustering (0.113) indicano una rete ben coesa e integrata.
+
+\textbf{Italia: Rete compatta e ben integrata}
+La rete italiana, pur essendo di dimensioni moderate (2.664 nodi), mostra una delle strutture più integrate con solo 16 componenti connesse. La percentuale di collaborazioni interne più elevata (39.2\%) rispetto ad altre nazionalità suggerisce una certa autosufficienza della scena musicale italiana, sebbene non manchino significative collaborazioni internazionali.
+
+\subsubsection{Propensione alle Collaborazioni Internazionali}
+L'analisi della percentuale di collaborazioni interne rispetto al totale delle
+collaborazioni di ciascuna nazionalità fornisce ulteriori insights
+(Tabella~\ref{tab:propensione-collab}).
+
+\begin{table}[h]
+  \centering
+  \caption{Propensione alle collaborazioni interne delle principali nazionalità}
+  \label{tab:propensione-collab}
+  \begin{tabular}{l r r r}
+    \hline
+    \textbf{Nazionalità} & \textbf{Collab. interne} & \textbf{Collab. totali} & \textbf{\% Interne} \\
+    \hline
+    Italia               & 4.307                    & 10.999                  & 39.2\%              \\
+    Francia              & 4.754                    & 15.291                  & 31.1\%              \\
+    Brasile              & 5.547                    & 18.050                  & 30.7\%              \\
+    Paesi Bassi          & 5.143                    & 16.629                  & 30.9\%              \\
+    Stati Uniti          & 14.860                   & 53.083                  & 28.0\%              \\
+    Germania             & 5.927                    & 21.095                  & 28.1\%              \\
+    Svezia               & 2.644                    & 9.412                   & 28.1\%              \\
+    Giappone             & 1.103                    & 5.004                   & 22.0\%              \\
+    Regno Unito          & 7.532                    & 33.713                  & 22.3\%              \\
+    \hline
+  \end{tabular}
+\end{table}
+
+L'Italia emerge come il paese con la maggiore propensione alle collaborazioni
+interne (39.2\%), seguito da Francia (31.1\%) e Brasile (30.7\%). Questo
+potrebbe riflettere fattori linguistici, culturali o di mercato che favoriscono
+le collaborazioni nazionali rispetto a quelle internazionali. Al contrario,
+Regno Unito (22.3\%) e Giappone (22.0\%) mostrano una maggiore apertura verso
+collaborazioni internazionali.
+
+\subsubsection{Implicazioni per l'Ecosistema Musicale Globale}
+I risultati evidenziano un ecosistema musicale globalizzato ma con marcate
+differenze regionali:
+
+\begin{itemize}
+  \item \textbf{Dominanza anglo-americana}: Stati Uniti e Regno Unito rappresentano i principali hub di collaborazione internazionale, funzionando da ponti tra diverse scene musicali nazionali.
+
+  \item \textbf{Diversità strutturale}: Le reti nazionali presentano strutture diverse che riflettono probabilmente differenze culturali, linguistiche e organizzative nei rispettivi mercati musicali.
+
+  \item \textbf{Bilinguismo musicale}: Paesi come Francia e Italia mostrano una significativa percentuale di collaborazioni interne, suggerendo l'esistenza di ecosistemi musicali relativamente autosufficienti, sebbene integrati nella rete globale.
+
+  \item \textbf{Ruolo dei piccoli paesi}: Nazioni come Paesi Bassi e Svezia, pur avendo un numero relativamente basso di artisti, mostrano un'elevata connettività internazionale, probabilmente dovuta alla maggiore propensione all'uso della lingua inglese e all'integrazione nei circuiti musicali internazionali.
+\end{itemize}
+
+Questa analisi dimostra come le caratteristiche strutturali delle reti di
+collaborazione riflettano complesse dinamiche culturali, linguistiche e di
+mercato che influenzano la produzione e la diffusione della musica
+contemporanea a livello globale.
 
 \section{Validity and Reliability}
 \label{validity-and-reliability-not-needed-for-the-project-proposal}
@@ -151,37 +500,50 @@ does the way you treat the data affect the reproducibility of the study
 In questa sezione si riassumono in modo sintetico le principali misure utilizzate, le tecnologie impiegate e il loro legame con gli obiettivi dello studio.
 \subsection*{Rappresentazione della rete}
 \begin{itemize}
-  \item Grafo non orientato $G = (V, E)$: nodi = artisti (\texttt{spotify\_id}), archi = collaborazioni tra artisti presenti nelle tracce. 
-  \item Implementazione in Python con \texttt{pandas} per i CSV dei nodi/archi e \texttt{NetworkX} per la costruzione del grafo e il calcolo delle misure. 
+  \item Grafo non orientato $G = (V, E)$: nodi = artisti (\texttt{spotify\_id}), archi
+        = collaborazioni tra artisti presenti nelle tracce.
+  \item Implementazione in Python con \texttt{pandas} per i CSV dei nodi/archi e
+        \texttt{NetworkX} per la costruzione del grafo e il calcolo delle misure.
 \end{itemize}
 
 \subsection*{Misure di centralità}
 \begin{itemize}
   \item \textbf{Degree centrality}: normalizza il numero di collaborazioni di ciascun artista, identifica gli hub più connessi e viene usata per selezionare i top artisti nel sottografo di analisi.
-  \item \textbf{Betweenness centrality}: misura quante volte un artista cade sui cammini minimi tra coppie di nodi, individuando i ``broker'' strutturali tra comunità e generi diversi. 
-  \item \textbf{Closeness centrality}: inverso della distanza media da un artista a tutti gli altri, quantifica quanto rapidamente un artista può raggiungere il resto della rete. 
-  \item \textbf{Eigenvector centrality}: assegna punteggi più alti agli artisti collegati ad altri artisti centrali, catturando l’appartenenza al ``core'' della scena. 
+  \item \textbf{Betweenness centrality}: misura quante volte un artista cade sui cammini minimi tra coppie di nodi, individuando i ``broker'' strutturali tra comunità e generi diversi.
+  \item \textbf{Closeness centrality}: inverso della distanza media da un artista a tutti gli altri, quantifica quanto rapidamente un artista può raggiungere il resto della rete.
+  \item \textbf{Eigenvector centrality}: assegna punteggi più alti agli artisti collegati ad altri artisti centrali, catturando l’appartenenza al ``core'' della scena.
 \end{itemize}
 
 \subsection*{Community detection e bridge}
 \begin{itemize}
-  \item \textbf{Louvain}: individua comunità massimizzando la modularità, permettendo di associare cluster strutturali a macro-generi, scene nazionali o gruppi di etichetta. 
-  \item \textbf{Edge betweenness} e \textbf{constraint} di Burt: identificano rispettivamente collaborazioni-ponte tra comunità e artisti con accesso a \textit{structural holes}, fondamentali per la diffusione di stili e contenuti tra mondi diversi. 
+  \item \textbf{Louvain}: individua comunità massimizzando la modularità, permettendo di associare cluster strutturali a macro-generi, scene nazionali o gruppi di etichetta.
+  \item \textbf{Edge betweenness} e \textbf{constraint} di Burt: identificano rispettivamente collaborazioni-ponte tra comunità e artisti con accesso a \textit{structural holes}, fondamentali per la diffusione di stili e contenuti tra mondi diversi.
 \end{itemize}
 
 \subsection*{Generi, nazionalità e successo}
 \begin{itemize}
-  \item Generi e nazionalità sono gestiti come attributi dei nodi (\texttt{genre}, \texttt{nationality}); si contano collaborazioni intra/inter-genere e intra/inter-nazionali per valutare assortatività e aperture transnazionali. 
-  \item Per gli artisti senza genere, il genere viene inferito dal genere più frequente nel vicinato di rete, con soglia minima di collaborazioni per garantire robustezza. 
-  \item Le misure strutturali sono correlate con indicatori esterni (\texttt{popularity} Spotify, numero collaborazioni, collaborazioni estere, presenza in chart) per studiare il legame tra posizione nella rete, popolarità ed espansione internazionale. 
+  \item Generi e nazionalità sono gestiti come attributi dei nodi (\texttt{genre},
+        \texttt{nationality}); si contano collaborazioni intra/inter-genere e
+        intra/inter-nazionali per valutare assortatività e aperture transnazionali.
+  \item Per gli artisti senza genere, il genere viene inferito dal genere più frequente
+        nel vicinato di rete, con soglia minima di collaborazioni per garantire
+        robustezza.
+  \item Le misure strutturali sono correlate con indicatori esterni
+        (\texttt{popularity} Spotify, numero collaborazioni, collaborazioni estere,
+        presenza in chart) per studiare il legame tra posizione nella rete, popolarità
+        ed espansione internazionale.
 \end{itemize}
 
 \subsection*{Artisti emergenti}
 \begin{itemize}
-  \item Si costruisce un \texttt{DataFrame} con \texttt{popularity} e numero di collaborazioni per artista; soglie su entrambi gli indicatori definiscono tre classi: \emph{emergente}, \emph{intermedio}, \emph{affermato}. 
-  \item La matrice delle collaborazioni tra classi (emergente–emergente, emergente–affermato, ecc.) mostra le strategie di networking (orizzontale tra pari vs collegamento verso artisti affermati) e come queste si riflettano nella crescita di centralità e popolarità. 
+  \item Si costruisce un \texttt{DataFrame} con \texttt{popularity} e numero di
+        collaborazioni per artista; soglie su entrambi gli indicatori definiscono tre
+        classi: \emph{emergente}, \emph{intermedio}, \emph{affermato}.
+  \item La matrice delle collaborazioni tra classi (emergente–emergente,
+        emergente–affermato, ecc.) mostra le strategie di networking (orizzontale tra
+        pari vs collegamento verso artisti affermati) e come queste si riflettano nella
+        crescita di centralità e popolarità.
 \end{itemize}
-
 
 \section{Conclusion}
 \label{conclusion}
