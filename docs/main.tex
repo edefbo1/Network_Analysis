@@ -11,7 +11,9 @@
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{float}
 \usepackage{enumitem}
+\usepackage{subfig}
 
 \author{Federico , matricola 
 \\Federica Santisi, matricola
@@ -157,7 +159,7 @@ In questa sezione si riassumono in modo sintetico le principali misure utilizzat
 
 \subsection*{Misure di centralità}
 \begin{itemize}
-  \item \textbf{Degree centrality}: normalizza il numero di collaborazioni di ciascun artista, identifica gli hub più connessi e viene usata per selezionare i top artisti nel sottografo di analisi.
+  \item \textbf{Degree centrality}: normalizza il numero di collaborazioni di ciascun artista, identifica gli hub più connessi e viene usata per selezionare i top artisti nel sottografo di analisi. 
   \item \textbf{Betweenness centrality}: misura quante volte un artista cade sui cammini minimi tra coppie di nodi, individuando i ``broker'' strutturali tra comunità e generi diversi. 
   \item \textbf{Closeness centrality}: inverso della distanza media da un artista a tutti gli altri, quantifica quanto rapidamente un artista può raggiungere il resto della rete. 
   \item \textbf{Eigenvector centrality}: assegna punteggi più alti agli artisti collegati ad altri artisti centrali, catturando l’appartenenza al ``core'' della scena. 
@@ -181,6 +183,42 @@ In questa sezione si riassumono in modo sintetico le principali misure utilizzat
   \item Si costruisce un \texttt{DataFrame} con \texttt{popularity} e numero di collaborazioni per artista; soglie su entrambi gli indicatori definiscono tre classi: \emph{emergente}, \emph{intermedio}, \emph{affermato}. 
   \item La matrice delle collaborazioni tra classi (emergente–emergente, emergente–affermato, ecc.) mostra le strategie di networking (orizzontale tra pari vs collegamento verso artisti affermati) e come queste si riflettano nella crescita di centralità e popolarità. 
 \end{itemize}
+
+\subsection{Analisi sulla rete}
+\subsubsection{Community detection}
+L’analisi di community detection è stata utilizzata per verificare se gli artisti tendono a collaborare prevalentemente con altri artisti appartenenti allo stesso macro-genere musicale. A tal fine sono stati applicati due approcci distinti, Louvain ed Edge Betweenness, e per ciascuno sono state valutate la numerosità delle community individuate e la loro omogeneità di genere tramite la purezza del macro-genere dominante.
+
+\subsubsection*{Louvain}
+L’algoritmo di Louvain ha individuato un totale di 34 community, mostrando una struttura piuttosto frammentata della rete. Diverse community risultano caratterizzate da una discreta omogeneità di genere, in particolare per \emph{Hip Hop / Rap} e \emph{Pop}, con valori di purezza che in alcuni casi superano 0.6 e raggiungono 1.0 nelle community più piccole. Tuttavia, molte community presentano una composizione mista, con coesistenza di più macro-generi principali, suggerendo che le collaborazioni tra artisti non sono rigidamente vincolate al genere musicale, soprattutto nei cluster di dimensioni maggiori.
+
+\subsubsection*{Analisi con 2.2.3}
+TODO
+
+\subsubsection*{Edge Betweenness}
+L’algoritmo di Edge Betweenness (Girvan–Newman) ha prodotto 17 community, quindi una partizione più grossolana rispetto a Louvain. Le community ottenute risultano generalmente meno pure, con valori di purezza spesso inferiori a 0.5, specialmente nei cluster di grandi dimensioni dominati da \emph{Pop} e \emph{Hip Hop / Rap}. Questo indica che l’approccio basato sulla rimozione iterativa degli archi più centrali tende ad aggregare artisti di generi diversi, evidenziando ruoli di ponte e collaborazioni inter-genere piuttosto che una netta separazione per macro-genere.
+
+\subsubsection{Degree distribution}
+L’analisi della distribuzione dei gradi della rete di collaborazioni tra artisti fornisce indicazioni rilevanti sulla struttura globale del grafo. Il grado minimo pari a 1 indica la presenza di artisti con una singola collaborazione, mentre il grado massimo di 114 evidenzia pochi nodi altamente connessi che agiscono come veri e propri hub della rete. Il grado medio, pari a 5.20, suggerisce una rete complessivamente sparsa, in cui la maggior parte degli artisti collabora con un numero limitato di altri nodi.
+
+La distribuzione dei gradi, osservata sia in scala lineare sia in scala logaritmica, mostra un andamento fortemente asimmetrico, con una lunga coda destra. Questo comportamento è tipico delle reti complesse di tipo scale-free o comunque eterogenee, dove coesistono molti nodi a basso grado e pochi nodi ad altissimo grado. In ambito musicale, ciò riflette un sistema in cui la maggior parte degli artisti realizza collaborazioni occasionali, mentre un numero ristretto di artisti centrali concentra un’elevata quantità di collaborazioni, fungendo da punti di connessione tra diverse aree della rete e, potenzialmente, tra generi musicali differenti.
+
+\begin{figure}[H]
+    \centering
+    \subfloat[Degree distribution in linear scale.\label{fig:dd_linear}]{
+        \includegraphics[width=0.48\textwidth]{images/DD-AC.png}
+    }
+    \hfill
+    \subfloat[Degree distribution in logarithmic scale.\label{fig:dd_log}]{
+        \includegraphics[width=0.48\textwidth]{images/DDLG.png}
+    }
+    \caption{Degree distribution of the artist collaboration network. 
+    The linear-scale histogram highlights the strong concentration of low-degree nodes, 
+    while the logarithmic-scale representation emphasizes the long-tailed behavior 
+    caused by highly connected artists (hubs).}
+    \label{fig:degree_distribution}
+\end{figure}
+
+
 
 
 \section{Conclusion}
