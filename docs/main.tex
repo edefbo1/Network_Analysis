@@ -99,54 +99,45 @@ ricerca:
 \section{Datasets}
 \label{datasets}
 
-Il dataset di partenza utilizzato per questa analisi è stato scaricato da
+The initial dataset used for this analysis was downloaded from
 \href{https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network}{Spotify
-  Artist Feature \& Collaboration Network} \cite{spotify_kaggle}. Dopo un'attenta
-verifica, è stato considerato una fonte affidabile poiché derivato da dati
-pubblici provenienti da Spotify API, già pre-processati per rappresentare le
-relazioni di collaborazione tra artisti.
+Artist Feature \& Collaboration Network} \cite{spotify_kaggle}. After careful inspection, it was considered a reliable source, as it is derived from publicly available data provided by the Spotify API and already pre-processed to represent collaboration relationships among artists.
 
-Il dataset è strutturato sotto forma di grafo orientato, composto da due file
-principali:
+The dataset is structured as a directed graph and consists of two main files:
 \begin{itemize}
-  \item \textbf{nodes.csv} -- contiene i nodi del grafo, dove ogni nodo rappresenta un artista. Le colonne includono:
+  \item \textbf{nodes.csv} -- contains the nodes of the graph, where each node represents an artist. The columns include:
         \begin{itemize}
-          \item \texttt{id}: identificativo univoco dell’artista.
-          \item \texttt{name}: nome dell’artista.
-          \item \texttt{followers}: numero di follower dell’artista su Spotify.
-          \item \texttt{popularity}: indice di popolarità (0–100), calcolato da Spotify in base a stream recenti e visibilità.
-          \item \texttt{genres}: lista dei generi associati all’artista.
+          \item \texttt{id}: unique identifier of the artist.
+          \item \texttt{name}: name of the artist.
+          \item \texttt{followers}: number of followers of the artist on Spotify.
+          \item \texttt{popularity}: popularity index (0--100), computed by Spotify based on recent streams and overall visibility.
+          \item \texttt{genres}: list of genres associated with the artist.
+          \item \texttt{chart\_hits}: List showing the number of Spotify chart hits in different countries (according to kworb.net)
         \end{itemize}
-  \item \textbf{edges.csv} -- contiene gli archi del grafo, che rappresentano una collaborazione tra due artisti. Le colonne includono:
+  \item \textbf{edges.csv} -- contains the edges of the graph, representing a collaboration between two artists. The columns include:
         \begin{itemize}
-          \item \texttt{source}: ID dell’artista che collabora.
-          \item \texttt{target}: ID dell’artista con cui collabora.
-          \item \texttt{weight}: valore numerico che rappresenta l’intensità della collaborazione (ad esempio numero di brani condivisi).
+          \item \texttt{source}: ID of the collaborating artist.
+          \item \texttt{target}: ID of the artist being collaborated with.
         \end{itemize}
 \end{itemize}
 
-L’obiettivo iniziale è stato quello di arricchire il grafo con ulteriori
-informazioni sugli artisti, in particolare la \textbf{nazionalità} e il
-\textbf{genere musicale prevalente}, per poter effettuare analisi sociali e
-culturali più approfondite sulla rete.
+The initial objective was to enrich the graph with additional artist-level information, specifically \textbf{nationality} and \textbf{dominant musical genre}, in order to enable more in-depth social and cultural analyses of the network.
 
-\subsection{Aggiunta della nazionalità dell’artista}
-\label{subsec:nazionalita}
+\subsection{Artist Nationality Enrichment}
+\label{subsec:nationality}
 
-Per associare una nazionalità agli artisti, sono state seguite due strategie
-complementari:
+To associate a nationality with each artist, two complementary strategies were adopted:
 
 \begin{enumerate}
-  \item \textbf{Inferenza tramite genere musicale.}
-        In un primo approccio, la nazionalità è stata dedotta analizzando il genere di appartenenza. Ad esempio, un artista associato al genere \texttt{italian hip hop} è stato etichettato come \emph{italiano}. Questo metodo ha permesso di assegnare automaticamente una nazionalità a un sottoinsieme consistente di artisti, ma non era applicabile a tutti i casi, poiché molti generi non contenevano riferimenti geografici espliciti.
+  \item \textbf{Inference based on musical genre.}
+        In the first approach, nationality was inferred by analyzing the associated musical genres. For instance, an artist labeled with the genre \texttt{italian hip hop} was classified as \emph{Italian}. This method allowed the automatic assignment of nationality to a substantial subset of artists; however, it was not applicable in all cases, as many genres do not contain explicit geographical references.
 
-  \item \textbf{Completamento tramite dataset esterno (MusicBrainz).}
-        Per gli artisti privi di nazionalità nel primo passaggio, sono stati integrati i dati provenienti dal database \texttt{MusicBrainz Dump (mbdump)} \cite{musicbrainz_db}. Tuttavia, un matching diretto basato solo sul nome dell’artista presentava criticità significative (esistenza di omonimi con nazionalità diverse). Per ridurre questi errori, l’integrazione è stata effettuata solo sugli artisti rimasti non classificati dopo il primo metodo di inferenza, migliorando la precisione complessiva e preservando la coerenza dei dati.
+  \item \textbf{Completion using an external dataset (MusicBrainz).}
+        For artists whose nationality could not be inferred in the first step, data from the \texttt{MusicBrainz Dump (mbdump)} \cite{musicbrainz_db} were integrated. A direct matching based solely on artist names posed significant challenges due to the presence of homonyms with different nationalities. To mitigate this issue, the integration was performed exclusively on artists that remained unclassified after the first inference step, thereby improving overall precision and preserving data consistency.
 \end{enumerate}
 
-Questa procedura ibrida ha consentito di aumentare la copertura dei dati di
-nazionalità e di rendere la successiva analisi più accurata, in particolare nel
-confronto tra comunità artistiche di diversi Paesi.
+This hybrid procedure increased the coverage of nationality information and enabled a more accurate subsequent analysis, particularly when comparing artistic communities across different countries.
+
 
 \subsection{Aggiunta del genere artistico}
 \label{subsec:genere}
@@ -547,23 +538,23 @@ In questa sezione si riassumono in modo sintetico le principali misure utilizzat
         crescita di centralità e popolarità.
 \end{itemize}
 
-\subsection{Analisi sulla rete}
-\subsubsection{Community detection}
-L’analisi di community detection è stata utilizzata per verificare se gli artisti tendono a collaborare prevalentemente con altri artisti appartenenti allo stesso macro-genere musicale. A tal fine sono stati applicati due approcci distinti, Louvain ed Edge Betweenness, e per ciascuno sono state valutate la numerosità delle community individuate e la loro omogeneità di genere tramite la purezza del macro-genere dominante.
+\subsection{Network}
+\subsubsection{Community Detection}
+Community detection analysis was conducted to investigate whether artists tend to collaborate primarily with other artists belonging to the same musical macro-genre. To this end, two distinct approaches were applied, namely the Louvain algorithm and the Edge Betweenness (Girvan--Newman) method. For each approach, both the number of detected communities and their genre homogeneity were evaluated by measuring the purity of the dominant macro-genre within each community.
 
 \subsubsection*{Louvain}
-L’algoritmo di Louvain ha individuato un totale di 34 community, mostrando una struttura piuttosto frammentata della rete. Diverse community risultano caratterizzate da una discreta omogeneità di genere, in particolare per \emph{Hip Hop / Rap} e \emph{Pop}, con valori di purezza che in alcuni casi superano 0.6 e raggiungono 1.0 nelle community più piccole. Tuttavia, molte community presentano una composizione mista, con coesistenza di più macro-generi principali, suggerendo che le collaborazioni tra artisti non sono rigidamente vincolate al genere musicale, soprattutto nei cluster di dimensioni maggiori.
+The Louvain algorithm identified a total of 34 communities, revealing a relatively fragmented network structure. Several communities exhibit a notable degree of genre homogeneity, particularly for the \emph{Hip Hop / Rap} and \emph{Pop} macro-genres, with purity values exceeding 0.6 in some cases and reaching 1.0 in smaller communities. Nevertheless, a substantial number of communities display a mixed composition, characterized by the coexistence of multiple dominant macro-genres. This suggests that artist collaborations are not strictly constrained by genre boundaries, especially within larger clusters, where cross-genre interactions appear to be more prevalent.
 
-\subsubsection*{Analisi con 2.2.3}
+\subsubsection*{Analysis with Section 2.2.3}
 TODO
 
 \subsubsection*{Edge Betweenness}
-L’algoritmo di Edge Betweenness (Girvan–Newman) ha prodotto 17 community, quindi una partizione più grossolana rispetto a Louvain. Le community ottenute risultano generalmente meno pure, con valori di purezza spesso inferiori a 0.5, specialmente nei cluster di grandi dimensioni dominati da \emph{Pop} e \emph{Hip Hop / Rap}. Questo indica che l’approccio basato sulla rimozione iterativa degli archi più centrali tende ad aggregare artisti di generi diversi, evidenziando ruoli di ponte e collaborazioni inter-genere piuttosto che una netta separazione per macro-genere.
+The Edge Betweenness (Girvan--Newman) algorithm produced 17 communities, resulting in a coarser partitioning of the network compared to the Louvain method. The identified communities are generally less pure, with genre purity values frequently below 0.5, particularly in larger clusters dominated by \emph{Pop} and \emph{Hip Hop / Rap}. This outcome indicates that the iterative removal of highly central edges tends to group together artists from different macro-genres, emphasizing the presence of bridge nodes and inter-genre collaborations rather than a clear separation based on musical genre.
 
-\subsubsection{Degree distribution}
-L’analisi della distribuzione dei gradi della rete di collaborazioni tra artisti fornisce indicazioni rilevanti sulla struttura globale del grafo. Il grado minimo pari a 1 indica la presenza di artisti con una singola collaborazione, mentre il grado massimo di 114 evidenzia pochi nodi altamente connessi che agiscono come veri e propri hub della rete. Il grado medio, pari a 5.20, suggerisce una rete complessivamente sparsa, in cui la maggior parte degli artisti collabora con un numero limitato di altri nodi.
+\subsubsection{Degree Distribution}
+The analysis of the degree distribution of the artist collaboration network provides relevant insights into the global structure of the graph. The minimum degree of 1 indicates the presence of artists involved in a single collaboration, while the maximum degree of 114 highlights the existence of a small number of highly connected nodes acting as hubs within the network. The average degree, equal to 5.20, suggests that the network is overall sparse, with most artists collaborating with only a limited number of peers.
 
-La distribuzione dei gradi, osservata sia in scala lineare sia in scala logaritmica, mostra un andamento fortemente asimmetrico, con una lunga coda destra. Questo comportamento è tipico delle reti complesse di tipo scale-free o comunque eterogenee, dove coesistono molti nodi a basso grado e pochi nodi ad altissimo grado. In ambito musicale, ciò riflette un sistema in cui la maggior parte degli artisti realizza collaborazioni occasionali, mentre un numero ristretto di artisti centrali concentra un’elevata quantità di collaborazioni, fungendo da punti di connessione tra diverse aree della rete e, potenzialmente, tra generi musicali differenti.
+As shown in Figure~\ref{fig:degree_distribution}, the degree distribution, examined both on a linear scale (Figure~\ref{fig:dd_linear}) and a logarithmic scale (Figure~\ref{fig:dd_log}), exhibits a strongly right-skewed shape with a pronounced long tail. This behavior is characteristic of complex, scale-free or otherwise heterogeneous networks, where many low-degree nodes coexist with a few extremely high-degree nodes. In the musical context, this reflects a system in which most artists engage in occasional collaborations, while a restricted set of central artists concentrates a large number of collaborations, acting as key connectors across different regions of the network and potentially across distinct musical genres.
 
 \begin{figure}[H]
     \centering
@@ -574,9 +565,9 @@ La distribuzione dei gradi, osservata sia in scala lineare sia in scala logaritm
     \subfloat[Degree distribution in logarithmic scale.\label{fig:dd_log}]{
         \includegraphics[width=0.48\textwidth]{images/DDLG.png}
     }
-    \caption{Degree distribution of the artist collaboration network. 
-    The linear-scale histogram highlights the strong concentration of low-degree nodes, 
-    while the logarithmic-scale representation emphasizes the long-tailed behavior 
+    \caption{Degree distribution of the artist collaboration network.
+    The linear-scale histogram highlights the strong concentration of low-degree nodes,
+    while the logarithmic-scale representation emphasizes the long-tailed behavior
     caused by highly connected artists (hubs).}
     \label{fig:degree_distribution}
 \end{figure}
