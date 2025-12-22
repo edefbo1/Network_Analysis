@@ -1,0 +1,105 @@
+================================================================================
+NETWORK ANALYSIS RESULTS
+================================================================================
+
+1. INFORMAZIONI GENERALI
+------------------------------------------------------------
+Numero di nodi (artisti): 1656
+Numero di archi (collaborazioni): 4307
+
+2. ASSORTATIVITÀ E MODULARITÀ
+------------------------------------------------------------
+Degree assortativity: -0.1052
+Followers assortativity: 0.0724
+Genre assortativity: 0.4778
+Genre modularity (Q): 0.2987
+
+3. STATISTICHE DI CENTRALITÀ (GLOBALI)
+------------------------------------------------------------
+Degree centrality:
+  Media: 0.0031
+  Min:   0.0006
+  Max:   0.0689
+
+Eigenvector centrality:
+  Media: 0.0089
+  Min:   0.0000
+  Max:   0.2573
+
+Closeness centrality:
+  Media: 0.2336
+  Min:   0.0006
+  Max:   0.3677
+
+Betweenness centrality:
+  Media: 0.0018
+  Min:   0.0000
+  Max:   0.1250
+
+4. TOP 10 ARTISTI PER CENTRALITÀ
+============================================================
+
+Degree centrality
+----------------------------------------
+ 1. Guè                                      → 0.0689
+ 2. Andrea Bocelli                           → 0.0622
+ 3. Clementino                               → 0.0508
+ 4. Gemitaiz                                 → 0.0489
+ 5. Night Skinny                             → 0.0483
+ 6. Don Joe                                  → 0.0477
+ 7. Inoki                                    → 0.0441
+ 8. Fabri Fibra                              → 0.0435
+ 9. Emis Killa                               → 0.0429
+10. Ennio Morricone                          → 0.0411
+
+Eigenvector centrality
+----------------------------------------
+ 1. Guè                                      → 0.2573
+ 2. Gemitaiz                                 → 0.2069
+ 3. Emis Killa                               → 0.1904
+ 4. Night Skinny                             → 0.1903
+ 5. Fabri Fibra                              → 0.1717
+ 6. Marracash                                → 0.1677
+ 7. Jake La Furia                            → 0.1664
+ 8. Don Joe                                  → 0.1650
+ 9. MadMan                                   → 0.1533
+10. Lazza                                    → 0.1425
+
+Closeness centrality
+----------------------------------------
+ 1. Guè                                      → 0.3677
+ 2. Clementino                               → 0.3576
+ 3. Gemitaiz                                 → 0.3537
+ 4. Fabri Fibra                              → 0.3500
+ 5. J-AX                                     → 0.3487
+ 6. Night Skinny                             → 0.3480
+ 7. Marracash                                → 0.3466
+ 8. Emis Killa                               → 0.3464
+ 9. Elisa                                    → 0.3447
+10. Rocco Hunt                               → 0.3420
+
+Betweenness centrality
+----------------------------------------
+ 1. Andrea Bocelli                           → 0.1250
+ 2. Clementino                               → 0.0910
+ 3. Guè                                      → 0.0642
+ 4. Elisa                                    → 0.0611
+ 5. Ennio Morricone                          → 0.0575
+ 6. DJ Matrix                                → 0.0558
+ 7. J-AX                                     → 0.0538
+ 8. Inoki                                    → 0.0509
+ 9. Jovanotti                                → 0.0452
+10. Cristina D'Avena                         → 0.0422
+
+5. TOP COPPIE DI GENERI NELLE COLLABORAZIONI
+------------------------------------------------------------
+ 1. Hip Hop / Rap                  → 1829 (intra-genere)
+ 2. Pop                            → 819 (intra-genere)
+ 3. Hip Hop / Rap   + Pop             → 596
+ 4. Hip Hop / Rap   + Indie           → 104
+ 5. Elettronica / Dance            → 85 (intra-genere)
+ 6. Classica / Orchestrale         → 72 (intra-genere)
+ 7. Elettronica / Dance + Pop             → 62
+ 8. Indie           + Pop             → 45
+ 9. Soundtrack / Colonne sonore    → 37 (intra-genere)
+10. Elettronica / Dance + Hip Hop / Rap   → 34

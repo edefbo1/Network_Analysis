@@ -14,6 +14,12 @@
 \usepackage{float}
 \usepackage{enumitem}
 \usepackage{subfig}
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4} 
+\titleformat{\paragraph}
+  {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\renewcommand{\theparagraph}{\thesubsubsection.\arabic{paragraph}}
 
 \author{Federico , matricola 
 \\Federica Santisi, matricola
@@ -537,6 +543,196 @@ In questa sezione si riassumono in modo sintetico le principali misure utilizzat
         pari vs collegamento verso artisti affermati) e come queste si riflettano nella
         crescita di centralità e popolarità.
 \end{itemize}
+
+\subsection{Nodes}
+\subsubsection{Misure di centralità}
+
+Per identificare gli artisti strutturalmente più importanti nella rete di collaborazioni, sono state calcolate quattro misure di centralità. L'obiettivo è comprendere quali artisti occupano posizioni strategiche e come queste posizioni si manifestano attraverso diversi aspetti della struttura della rete.
+
+\paragraph{Degree Centrality}
+
+La \textbf{degree centrality} quantifica il numero di connessioni dirette di un nodo, normalizzato per il massimo numero possibile di connessioni. Nella rete musicale analizzata, questa misura rappresenta il numero di artisti diversi con cui un determinato artista ha collaborato.
+
+L'implementazione calcola sia il grado assoluto, che la degree centrality normalizzata. I risultati rivelano una distribuzione fortemente asimmetrica: la degree centrality media è pari a 0.0031, mentre il valore massimo raggiunge 0.0689. Tale distribuzione indica che la maggior parte degli artisti mantiene un numero limitato di collaborazioni, mentre un ristretto gruppo di nodi concentra un numero significativamente elevato di connessioni.
+
+La Tabella \ref{tab:degree-centrality} presenta i dieci artisti con la degree centrality più elevata:
+
+\begin{table}[h]
+  \centering
+  \caption{Top 10 artisti per Degree Centrality}
+  \label{tab:degree-centrality}
+  \begin{tabular}{c l r}
+    \hline
+    \textbf{Posizione} & \textbf{Artista} & \textbf{Degree Centrality} \\
+    \hline
+    1  & Guè                  & 0.0689 \\
+    2  & Andrea Bocelli       & 0.0622 \\
+    3  & Clementino           & 0.0508 \\
+    4  & Gemitaiz             & 0.0489 \\
+    5  & Night Skinny         & 0.0483 \\
+    6  & Don Joe              & 0.0477 \\
+    7  & Inoki                & 0.0441 \\
+    8  & Fabri Fibra          & 0.0435 \\
+    9  & Emis Killa           & 0.0429 \\
+    10 & Ennio Morricone      & 0.0411 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Guè emerge come il nodo più connesso della rete con 114 collaborazioni distinte, identificandosi come hub centrale della scena musicale italiana. La presenza di Andrea Bocelli al secondo posto con 103 collaborazioni risulta particolarmente significativa: nonostante operi in un genere musicale sostanzialmente diverso (classica/pop crossover), ha sviluppato una rete estesa di collaborazioni che attraversa molteplici generi musicali. La predominanza di artisti hip hop nelle prime posizioni (Clementino, Gemitaiz, Night Skinny, Don Joe, Inoki, Fabri Fibra, Emis Killa) conferma che questo genere presenta un'elevata propensione alle collaborazioni e costituisce un elemento centrale nella struttura della rete. La presenza di Ennio Morricone in decima posizione introduce un elemento di diversità generazionale e stilistica nella classifica.
+
+\paragraph{Eigenvector Centrality}
+
+La \textbf{eigenvector centrality} attribuisce importanza non solo alla quantità di connessioni, ma alla loro qualità: un artista presenta alta eigenvector centrality se risulta connesso ad altri artisti che a loro volta occupano posizioni centrali nella rete. L'algoritmo converge iterativamente, assegnando a ciascun nodo un punteggio proporzionale alla somma dei punteggi dei suoi nodi adiacenti.
+
+I risultati mostrano una concentrazione ancora più marcata rispetto alla degree centrality: il valore medio è 0.0089 mentre il massimo raggiunge 0.2573, evidenziando che un numero ristretto di artisti forma un nucleo centrale altamente coeso.
+
+La Tabella \ref{tab:eigenvector-centrality} presenta i dieci artisti con la eigenvector centrality più elevata:
+
+\begin{table}[h]
+  \centering
+  \caption{Top 10 artisti per Eigenvector Centrality}
+  \label{tab:eigenvector-centrality}
+  \begin{tabular}{c l r}
+    \hline
+    \textbf{Posizione} & \textbf{Artista} & \textbf{Eigenvector Centrality} \\
+    \hline
+    1  & Guè              & 0.2573 \\
+    2  & Gemitaiz         & 0.2069 \\
+    3  & Emis Killa       & 0.1904 \\
+    4  & Night Skinny     & 0.1903 \\
+    5  & Fabri Fibra      & 0.1717 \\
+    6  & Marracash        & 0.1677 \\
+    7  & Jake La Furia    & 0.1664 \\
+    8  & Don Joe          & 0.1650 \\
+    9  & MadMan           & 0.1533 \\
+    10 & Lazza            & 0.1425 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Guè mantiene la posizione dominante con un valore considerevolmente superiore agli altri artisti (circa 25\% in più rispetto al secondo classificato), indicando che le sue collaborazioni coinvolgono prevalentemente gli artisti più centrali della scena. La presenza esclusiva di artisti hip hop in questa classifica rivela l'esistenza di un nucleo centrale dominato da questo genere. Artisti quali Marracash, Jake La Furia, Don Joe, MadMan e Lazza formano un core altamente interconnesso che definisce il centro della rete hip hop italiana. È significativo notare che Andrea Bocelli, pur presentando un elevato numero di collaborazioni (secondo in degree centrality), risulta assente da questa classifica, suggerendo che le sue collaborazioni coinvolgono prevalentemente artisti meno centrali o più periferici rispetto al nucleo principale della rete.
+
+\paragraph{Closeness Centrality} (NON MI CONVINCE)
+La \textbf{closeness centrality} misura la vicinanza di un nodo rispetto a tutti gli altri nodi della rete, calcolando l'inverso della distanza media basata sui cammini minimi. Un artista con elevata closeness centrality può raggiungere rapidamente qualsiasi altro artista nella rete attraverso un numero limitato di intermediari.
+
+I risultati mostrano un valore medio di 0.2336 con un massimo di 0.3677, indicando che anche gli artisti più centrali necessitano mediamente di circa tre passaggi per raggiungere qualsiasi altro nodo della rete.
+
+Nel contesto pratico della scena musicale, un'alta closeness centrality conferisce vantaggi strategici concreti: gli artisti ottimalmente posizionati possono accedere più facilmente a informazioni e tendenze emergenti in diverse parti della scena, avviare collaborazioni con artisti distanti nella rete attraverso pochi intermediari, e diffondere rapidamente il proprio stile o innovazioni musicali attraverso l'intero ecosistema. Questa metrica identifica quindi artisti che, indipendentemente dalla loro appartenenza al nucleo centrale, occupano posizioni che facilitano la comunicazione e la circolazione di opportunità attraverso l'intera rete.
+
+La Tabella \ref{tab:closeness-centrality} presenta i dieci artisti con la closeness centrality più elevata:
+
+\begin{table}[h]
+  \centering
+  \caption{Top 10 artisti per Closeness Centrality}
+  \label{tab:closeness-centrality}
+  \begin{tabular}{c l r}
+    \hline
+    \textbf{Posizione} & \textbf{Artista} & \textbf{Closeness Centrality} \\
+    \hline
+    1  & Guè              & 0.3677 \\
+    2  & Clementino       & 0.3576 \\
+    3  & Gemitaiz         & 0.3537 \\
+    4  & Fabri Fibra      & 0.3500 \\
+    5  & J-AX             & 0.3487 \\
+    6  & Night Skinny     & 0.3480 \\
+    7  & Marracash        & 0.3466 \\
+    8  & Emis Killa       & 0.3464 \\
+    9  & Elisa            & 0.3447 \\
+    10 & Rocco Hunt       & 0.3420 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Guè conferma la sua posizione dominante, risultando ottimalmente posizionato per accedere all'intera rete con il minimo numero di intermediari. Clementino e J-AX emergono particolarmente in questa metrica rispetto alla eigenvector centrality, suggerendo che occupano posizioni strategiche di bridging: pur non essendo nel core più denso, le loro collaborazioni attraversano diversi cluster della rete, permettendo loro di fungere da connettori efficienti tra sottocomunità diverse. La presenza di Elisa (nona posizione) e Rocco Hunt (decima posizione) introduce una diversificazione di generi significativa. Questi artisti, pur non appartenendo al nucleo hip hop dominante, mantengono posizioni di vicinanza globale che facilitano la trasmissione di influenze cross-genre. La rete, sebbene dominata dall'hip hop nel nucleo centrale, mantiene quindi una struttura che permette comunicazione efficiente tra generi diversi, suggerendo un ecosistema musicale dove le barriere tra comunità di genere non impediscono la circolazione rapida di idee e opportunità collaborative.
+
+\paragraph{Betweenness Centrality}
+
+La \textbf{betweenness centrality} identifica i nodi che si trovano frequentemente sui cammini minimi tra altre coppie di nodi. Artisti con elevata betweenness fungono da intermediari tra diverse componenti della rete, anche senza necessariamente presentare un numero elevato di connessioni dirette. Il calcolo è stato approssimato campionando 1000 nodi casuali per ragioni di efficienza computazionale.
+
+I risultati mostrano una distribuzione fortemente asimmetrica: il valore medio è 0.0018 mentre il massimo raggiunge 0.1250, indicando che un numero molto limitato di nodi controlla i flussi di connessione tra cluster diversi della rete.
+
+
+Andrea Bocelli domina questa metrica con un valore significativamente superiore agli altri artisti (quasi 40\% superiore rispetto al secondo classificato), rivelando il suo ruolo strutturale come ponte tra contesti musicali differenti. Nonostante non appartenga al core hip hop identificato dalla eigenvector centrality, Bocelli connette la musica classica e pop con altri generi, fungendo da intermediario essenziale nella struttura complessiva della rete. La presenza di Ennio Morricone (quinta posizione), DJ Matrix (sesta posizione), Jovanotti (nona posizione) e Cristina D'Avena (decima posizione) - artisti che operano in generi diversi dall'hip hop - conferma che la betweenness centrality cattura un ruolo strutturale distinto dalla centralità locale. Questi artisti non appartengono al nucleo centrale ma occupano posizioni di gatekeeping tra comunità di genere diverse. Clementino mantiene una posizione elevata in tutte le metriche analizzate (terzo in degree, secondo in closeness e betweenness), confermandosi come uno degli artisti strutturalmente più rilevanti della rete: parte integrante del core hip hop ma con spiccate capacità di bridging verso altre scene musicali.
+
+La Tabella \ref{tab:betweenness-centrality} presenta i dieci artisti con la betweenness centrality più elevata:
+
+\begin{table}[h]
+  \centering
+  \caption{Top 10 artisti per Betweenness Centrality}
+  \label{tab:betweenness-centrality}
+  \begin{tabular}{c l r}
+    \hline
+    \textbf{Posizione} & \textbf{Artista} & \textbf{Betweenness Centrality} \\
+    \hline
+    1  & Andrea Bocelli       & 0.1250 \\
+    2  & Clementino           & 0.0910 \\
+    3  & Guè                  & 0.0642 \\
+    4  & Elisa                & 0.0611 \\
+    5  & Ennio Morricone      & 0.0575 \\
+    6  & DJ Matrix            & 0.0558 \\
+    7  & J-AX                 & 0.0538 \\
+    8  & Inoki                & 0.0509 \\
+    9  & Jovanotti            & 0.0452 \\
+    10 & Cristina D'Avena     & 0.0422 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+
+\subsubsection{Assortatività}
+
+L'analisi di assortatività esamina le tendenze di connessione basate su attributi specifici dei nodi. Sono state calcolate tre forme di assortatività per caratterizzare i pattern di collaborazione nella rete musicale italiana.
+
+\paragraph{Degree Assortativity}
+
+Il coefficiente di degree assortativity ottenuto è \textbf{-0.1052}, indicando una rete leggermente \textbf{disassortativa}. Questo valore negativo significa che artisti con numerose collaborazioni tendono a connettersi con artisti che ne hanno meno, piuttosto che collaborare prevalentemente tra loro.
+
+Nel contesto della rete musicale analizzata, questo pattern suggerisce che gli hub (artisti con elevato grado) non formano un gruppo isolato ma includono nelle loro collaborazioni anche artisti meno prolifici. Questo può riflettere diverse dinamiche: artisti affermati che forniscono visibilità ad artisti emergenti, producer e featuring artist che collaborano con un ampio spettro di artisti a diversi livelli di attività, o più in generale una scena musicale relativamente aperta dove il numero di collaborazioni pregresse non costituisce una barriera significativa per future opportunità. Il valore negativo, seppur moderato, è coerente con una struttura che facilita la mobilità e l'accesso anche per artisti meno centrali, in contrasto con modelli rigidamente gerarchici dove esclusivamente le figure di maggior successo collaborano tra loro.
+
+\paragraph{Followers Assortativity}
+
+Il coefficiente di followers assortativity è \textbf{0.0724}, un valore positivo ma prossimo allo zero, indicando una tendenza molto debole verso pattern assortativi basati sulla popolarità.
+
+Questo risultato suggerisce che la popolarità, misurata attraverso il numero di follower su Spotify, esercita un'influenza limitata sui pattern di collaborazione. Artisti con un elevato numero di follower non mostrano una marcata preferenza per collaborazioni esclusive con altri artisti di analoga popolarità, né emerge una segregazione netta tra diversi strati di popolarità. L'analisi dettagliata categorizza gli archi in High-High, Low-Low e High-Low utilizzando la mediana come soglia, rivelando che esistono sia collaborazioni tra artisti di analoga popolarità che collaborazioni con artisti con un grado di popolarità diverso dal proprio, in proporzioni relativamente bilanciate.
+
+Questo pattern indica un ecosistema musicale italiano relativamente fluido rispetto al criterio della fama: le collaborazioni non risultano fortemente vincolate dal numero di follower, e artisti affermati mostrano disponibilità a collaborare con colleghi meno conosciuti. Tuttavia, il valore leggermente positivo suggerisce l'esistenza di una debole preferenza omofila: artisti molto popolari collaborano con maggiore frequenza con altri artisti popolari, ma questa tendenza non crea barriere strutturali significative.
+
+\paragraph{Genre Assortativity e Modularity}
+
+I risultati relativi al genere musicale mostrano pattern marcatamente diversi rispetto alle altre forme di assortatività. Il coefficiente di genre assortativity è \textbf{0.4778}, un valore decisamente positivo che indica una forte tendenza assortativa. La modularità è \textbf{Q = 0.2987}, classificabile come moderata secondo la scala interpretativa implementata (compresa tra 0.1 e 0.3).
+
+Questi valori rivelano che il genere musicale esercita un'influenza significativa sui pattern di collaborazione: gli artisti tendono a collaborare prevalentemente con altri artisti dello stesso genere o di generi affini. Tuttavia, la modularità moderata (non elevata) indica che questa tendenza non produce compartimenti impermeabili: esistono numerose collaborazioni cross-genre che mantengono la rete globalmente interconnessa.
+
+La Tabella \ref{tab:genre-pairs} presenta le dieci coppie di generi più frequenti nelle collaborazioni:
+
+\begin{table}[h]
+  \centering
+  \caption{Top 10 coppie di generi nelle collaborazioni}
+  \label{tab:genre-pairs}
+  \begin{tabular}{c l r l}
+    \hline
+    \textbf{Pos.} & \textbf{Genere 1} & \textbf{N. collab.} & \textbf{Genere 2} \\
+    \hline
+    1  & Hip Hop / Rap              & 1829 & (intra-genere) \\
+    2  & Pop                        & 819  & (intra-genere) \\
+    3  & Hip Hop / Rap              & 596  & Pop \\
+    4  & Hip Hop / Rap              & 104  & Indie \\
+    5  & Elettronica / Dance        & 85   & (intra-genere) \\
+    6  & Classica / Orchestrale     & 72   & (intra-genere) \\
+    7  & Elettronica / Dance        & 62   & Pop \\
+    8  & Indie                      & 45   & Pop \\
+    9  & Soundtrack / Colonne sonore & 37  & (intra-genere) \\
+    10 & Elettronica / Dance        & 34   & Hip Hop / Rap \\
+    \hline
+  \end{tabular}
+\end{table}
+
+L'Hip Hop / Rap domina con 1829 collaborazioni intra-genere, confermando l'elevata densità e coesione di questa comunità musicale. Il Pop presenta 819 collaborazioni interne, dimostrando anch'esso una significativa coesione interna. La combinazione Hip Hop / Rap + Pop conta 596 archi, costituendo la contaminazione cross-genre di gran lunga più frequente. Questo rivela un ponte strutturale fondamentale tra i due generi dominanti della scena italiana. Le combinazioni Hip Hop / Rap + Indie (104 archi) e Elettronica / Dance + Pop (62 archi) rappresentano altre contaminazioni significative, sebbene con frequenza considerevolmente inferiore. Generi quali Classica/Orchestrale (72 archi interni), Elettronica/Dance (85 archi), e Soundtrack (37 archi) evidenziano comunità di dimensioni più contenute ma comunque internamente coese.
+
+Il rapporto tra archi intra-genere e inter-genere, calcolato dalla funzione attraverso l'analisi delle sovrapposizioni tra liste di generi, mostra che le collaborazioni rimangono prevalentemente all'interno dei confini di genere, con eccezioni rilevanti.
+
+Nel contesto della scena musicale italiana, questi risultati descrivono un quadro di specializzazione con contaminazione selettiva: i generi mantengono identità distinte e gli artisti collaborano prevalentemente entro i propri confini stilistici, ma esistono ponti consolidati tra generi complementari, in particolare tra hip hop e pop. L'elevata densità dell'hip hop (1829 collaborazioni interne) conferma quanto emerso dall'analisi di centralità: questo genere non solo domina il nucleo centrale della rete, ma ha sviluppato un ecosistema interno estremamente ricco e interconnesso.
 
 \subsection{Network}
 \subsubsection{Community Detection}
