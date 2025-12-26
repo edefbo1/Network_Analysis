@@ -154,8 +154,12 @@ enabled a more accurate subsequent analysis, particularly when comparing
 artistic communities across different countries.
 
 \subsection{Aggiunta del genere artistico}
-\label{subsec:genere}
-Per associare uno o più generi musicali agli artisti del dataset, è stata progettata una procedura con l’obiettivo di massimizzare il numero di artisti con genere musicale assegnato, mantenendo al contempo coerenza e plausibilità semantica delle assegnazioni. Il processo si articola in più fasi successive, ciascuna delle quali interviene solo sugli artisti rimasti privi di genere nel passaggio precedente.
+Per associare uno o più generi musicali agli artisti del dataset, è stata
+progettata una procedura con l’obiettivo di massimizzare il numero di artisti
+con genere musicale assegnato, mantenendo al contempo coerenza e plausibilità
+semantica delle assegnazioni. Il processo si articola in più fasi successive,
+ciascuna delle quali interviene solo sugli artisti rimasti privi di genere nel
+passaggio precedente.
 
 \begin{itemize}
   \item \textbf{Mappatura diretta dei generi Spotify.}
@@ -180,373 +184,7 @@ consistente dal punto di vista dei generi musicali, riducendo al minimo le
 assegnazioni arbitrarie e sfruttando in modo integrato informazioni semantiche,
 strutturali e quantitative. Il risultato finale costituisce una base solida per
 le successive analisi di rete e di comunità artistiche.
-\section*{Analisi Topologica della Rete di Collaborazioni
-  Musicali Italiane}
-
-Al fine di delineare le differenze strutturali chiave e ottenere una panoramica
-della topologia e delle dinamiche interne della rete di collaborazioni musicali
-italiane, è stata calcolata una serie di misure generali, come riportato nella
-Tabella \ref{tab:metrics_italia}.
-
-Il \textbf{numero di componenti connesse} è stato misurato per identificare la
-presenza di sottogruppi isolati all'interno dell'ecosistema musicale nazionale.
-Sia il \textbf{grado massimo} che il \textbf{grado medio} dei nodi sono stati
-calcolati per valutare la connettività globale della rete e per quantificare
-l'intensità dell'attività collaborativa degli artisti. La \textbf{densità}
-della rete è stata calcolata per misurare la sua coesione complessiva. Il
-\textbf{diametro} (lunghezza massima del percorso geodetico) e la
-\textbf{lunghezza media del percorso più breve} forniscono una valutazione
-dell'efficienza del flusso di informazioni e indicano la facilità con cui gli
-artisti possono essere raggiunti gli uni attraverso gli altri. Infine, il
-\textbf{coefficiente di clustering medio} e la \textbf{transitività} sono stati
-calcolati per misurare la coesione locale della rete e la tendenza alla
-formazione di gruppi strettamente connessi.
-
-\begin{table}[h]
-  \centering
-  \caption{Caratteristiche Strutturali della Rete di Collaborazioni Musicali Italiane}
-  \label{tab:metrics_italia}
-  \begin{tabular}{|l|c|}
-    \hline
-    \textbf{Parametro}                         & \textbf{Valore} \\
-    \hline
-    Nodi totali (artisti)                      & 1.656           \\
-    Archi totali (collaborazioni)              & 4.307           \\
-    Componenti connesse                        & 16              \\
-    Grado massimo del nodo                     & 114             \\
-    Grado medio del nodo ($\langle k \rangle$) & 5.20            \\
-    Densità ($\rho$)                           & 0.00314         \\
-    Diametro                                   & 10              \\
-    Lunghezza media del percorso più breve     & 4.14            \\
-    Coefficiente di clustering medio           & 0.119           \\
-    Transitività                               & 0.128           \\
-    \hline
-  \end{tabular}
-\end{table}
-
-I sedici componenti connessi suggeriscono l'esistenza di gruppi isolati,
-corrispondenti a nicchie o comunità artistiche con contatti limitati con il
-resto dell'ecosistema nazionale. Ciascun artista è connesso, in media, a circa
-cinque colleghi nella rete. Tuttavia, la distribuzione del grado è fortemente
-eterogenea: la presenza di un nodo con grado 114 rivela un \textit{hub} di
-importanza centrale, mentre il 54.6\% degli artisti presenta un grado pari a 1,
-collaborando dunque con un solo altro artista. La densità estremamente bassa
-(circa lo 0.31\% delle possibili connessioni è realizzata) conferma la natura
-\textbf{sparsa} della rete, tipica delle reti sociali su larga scala.
-
-Nonostante la bassa densità, la rete presenta una lunghezza media del percorso
-contenuta (4.14), indicando che gli artisti sono collegati attraverso poche
-collaborazioni intermedie. Il diametro pari a 10 conferma che anche gli artisti
-più distanti nella rete possono essere raggiunti attraverso un numero limitato
-di passaggi. Questi valori rivelano una \textbf{connettività globale
-  efficiente}, che permette una diffusione rapida di informazioni, influenze e
-opportunità collaborative attraverso l'intero ecosistema musicale italiano.
-
-I valori del coefficiente di clustering medio (0.119) e della transitività
-(0.128) sono moderati e tra loro vicini. Ciò indica una tendenza misurabile,
-seppur non dominante, alla \textbf{chiusura triadica}: due collaboratori di uno
-stesso artista hanno una probabilità di circa il 12\% di aver collaborato a
-loro volta. Questa coesione locale favorisce la formazione di circoli artistici
-coesi e comunità parzialmente clusterizzate, contribuendo alla stabilità delle
-relazioni collaborative e alla condivisione di pratiche artistiche all'interno
-di sottogruppi, pur mantenendo sufficiente apertura per permettere connessioni
-tra comunità diverse.
-
-\section*{Analisi Comparativa delle Reti Nazionali}
-
-Un'analisi comparativa delle sottoreti formate dagli artisti delle principali
-nazionalità europee rivela differenze strutturali significative, come
-sintetizzato nella Tabella \ref{tab:metrics_comparative}.
-
-\begin{table}[h]
-  \centering
-  \caption{Metriche Comparative delle Reti di Collaborazione per Nazionalità}
-  \label{tab:metrics_comparative}
-  \begin{tabular}{|l|c|c|c|c|c|}
-    \hline
-    \textbf{Parametro}         & \textbf{Italia} & \textbf{Francia} & \textbf{Germania} & \textbf{Spagna} & \textbf{Regno Unito} \\
-    \hline
-    Nodi ($n$)                 & 1.656           & 1.643            & 2.704             & 855             & 3.290                \\
-    Archi ($m$)                & 4.307           & 4.754            & 5.927             & 1.696           & 7.532                \\
-    Componenti connesse        & 16              & 27               & 32                & 12              & 70                   \\
-    Grado medio                & 5.20            & 5.79             & 4.38              & 3.97            & 4.58                 \\
-    Densità ($\rho$)           & 0.00314         & 0.00352          & 0.00162           & 0.00465         & 0.00139              \\
-    Coeff. di clustering medio & 0.119           & 0.113            & 0.121             & 0.088           & 0.062                \\
-    \hline
-  \end{tabular}
-\end{table}
-
-\subsection{Interpretazione delle Differenze Strutturali}
-\begin{itemize}
-  \item \textbf{Frammentazione (Componenti Connesse):} La Spagna (12) e l'Italia (16) presentano le reti meno frammentate, suggerendo ecosistemi musicali relativamente integrati e coesi. All'estremo opposto, il Regno Unito (70) mostra una frammentazione marcata, riflesso probabile di un mercato vasto, diversificato e segmentato in numerose sottoculture e generi indipendenti. Francia (27) e Germania (32) occupano una posizione intermedia.
-
-  \item \textbf{Attività Collaborativa e Compattezza:} La Francia presenta il \textbf{grado medio} più alto (5.79), seguito dall'Italia (5.20), indicando una cultura particolarmente orientata allo scambio collaborativo. La \textbf{densità}, che misura la compattezza della rete, è massima in Spagna (0.00465), segnalando una scena più compatta e potenzialmente geograficamente concentrata. La bassa densità del Regno Unito (0.00139) è coerente con la sua alta frammentazione e la dimensione del mercato.
-
-  \item \textbf{Coesione Locale (Clustering):} Germania (0.121) e Italia (0.119) mostrano i valori di \textbf{clustering medio} più elevati. Ciò indica una maggiore tendenza alla formazione di triadi chiuse e comunità strette, dove i collaboratori di un artista hanno una probabilità più alta di collaborare tra loro. Al contrario, il Regno Unito (0.062) e la Spagna (0.088) presentano valori di clustering inferiori, suggerendo strutture collaborative più aperte o configurazioni maggiormente centrate su hub che connettono artisti periferici non direttamente collegati tra loro.
-\end{itemize}
-\section*{Analisi Comparativa delle Reti di Collaborazione a Livello Europeo}
-
-Per collocare i risultati italiani in un contesto continentale più ampio,
-l'analisi è stata estesa a tutti i principali paesi europei. Questo approccio
-consente una valutazione comparativa completa delle dinamiche collaborative.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.95\textwidth]{network_size_eu.png}
-  \caption{Analisi multidimensionale comparativa delle reti di collaborazione musicale a livello europeo.}
-  \label{fig:network_analysis_eu}
-\end{figure}
-
-\subsection*{Panorama Dimensionale delle Reti Europee}
-
-L'istogramma a sinistra descrive la distribuzione del numero di artisti tra i
-paesi europei, con valori che vanno da poche centinaia a diverse migliaia.
-
-Il \textbf{Regno Unito} emerge come il sistema di maggiori dimensioni, con
-3.290 artisti, ma presenta una densità di rete significativamente più bassa
-(0.001392) rispetto a quella osservata per l’Italia (0.003143). Tale differenza
-riflette due configurazioni strutturali distinte: da un lato, una rete
-britannica estesa ma caratterizzata da un’elevata dispersione delle relazioni
-collaborative; dall’altro, un ecosistema italiano di dimensioni più contenute
-ma relativamente più denso e coeso.
-
-\subsection*{Intensità delle Collaborazioni}
-
-L'istogramma al centro visualizza il numero totale di collaborazioni per i
-primi 15 paesi.
-\begin{itemize}
-  \item Il \textbf{Regno Unito} (7.532 collaborazioni) e la \textbf{Germania} (5.927)
-        si collocano ai vertici per numero complessivo di collaborazioni; tale
-        risultato è principalmente riconducibile alla loro elevata numerosità di nodi.
-
-  \item I \textbf{Paesi Bassi} (5.143 collaborazioni) rappresentano il caso più
-        rilevante: pur essendo quinti per numero di artisti, si posizionano terzi per
-        volume di collaborazioni, superando sia l'Italia (4.307) che la Francia
-        (4.754). Ciò indica un'intensa attività collaborativa.
-  \item La \textbf{Polonia} (3.391 collaborazioni) mostra un'intensità sorprendente,
-        superando paesi con reti più estese come Svezia (2.644) e Finlandia (2.329).
-\end{itemize}
-
-\subsection*{Relazione Strutturale tra Artisti e Collaborazioni}
-
-Il grafico a destra esplora la relazione fondamentale tra la dimensione di una
-rete (numero di artisti) e la sua attività (numero di collaborazioni). La
-relazione tra il numero di artisti e il numero totale di collaborazioni è stata
-analizzata mediante una regressione lineare stimata con il metodo dei minimi
-quadrati, considerando tutti i paesi europei inclusi nello studio. La retta
-ottenuta, \( y = 2.44x - 76 \), descrive l’andamento medio delle reti musicali
-europee.
-
-\begin{itemize}
-  \item \textbf{Coefficiente angolare (2.44)}: indica che, in media, a ogni
-        artista aggiuntivo corrispondono circa 2.44 collaborazioni in più.
-        Questo valore esprime l’intensità collaborativa media dei network
-        musicali analizzati.
-
-  \item \textbf{Intercetta (-76)}: il valore negativo suggerisce che reti molto
-        piccole tendono ad avere un numero di collaborazioni inferiore a quello
-        previsto dalla tendenza generale. In particolare, al di sotto di circa
-        30 artisti, la struttura della rete risulta meno attiva.
-\end{itemize}
-
-La retta di regressione può quindi essere utilizzata come riferimento: i paesi
-posizionati al di sopra mostrano un livello di collaborazione superiore a
-quanto atteso rispetto alle loro dimensioni, mentre quelli al di sotto
-presentano un’attività collaborativa più contenuta.
-
-\begin{itemize}
-  \item I paesi che si collocano \textbf{sopra la retta di regressione} (Paesi Bassi,
-        Polonia, Grecia) rappresentano ecosistemi ``iper-collaborativi'', dove il
-        volume di interazioni supera sistematicamente le aspettative date le
-        dimensioni. Questi sistemi sono tipicamente caratterizzati da alti valori di
-        densità e coefficiente di clustering.
-  \item I paesi \textbf{prossimi alla retta} (Italia, Francia, Germania, Regno Unito)
-        seguono una relazione approssimativamente lineare, mostrando una scalabilità
-        ``normativa'' dell'attività collaborativa in funzione della dimensione.
-  \item La \textbf{dispersione} dei dati conferma l'assenza di un modello unico
-        europeo, evidenziando invece una pluralità di configurazioni strutturali.
-\end{itemize}
-\section*{Analisi Estesa ai Paesi Non-Europei}
-
-Per collocare l'ecosistema musicale italiano in un contesto globale più ampio,
-è stata condotta un'analisi comparativa estesa a 49 paesi non-europei con reti
-collaborative significative (su 158 paesi analizzati). Dai risultati emergono
-pattern strutturali distintivi che permettono di comprendere meglio la
-posizione dell'Italia nel panorama musicale mondiale.
-
-\subsection*{Panorama Dimensionale Globale: Stati Uniti come Caso Eccezionale}
-
-L'analisi rivela una marcata asimmetria dimensionale tra i sistemi musicali
-analizzati:
-
-\begin{itemize}
-  \item Gli \textbf{Stati Uniti} presentano caratteristiche dimensionali eccezionali,
-        con una rete di 6.217 artisti e 14.860 collaborazioni, oltre 3,7 volte più
-        grande della rete italiana. Questa dimensione considerevole è accompagnata da
-        una bassa densità (0.000769) che riflette l'ampia scala e diversificazione del
-        mercato musicale statunitense, con ben 111 gruppi distinti che operano in modo
-        relativamente isolato. Il grado medio (4.78) è leggermente inferiore a quello
-        italiano (5.20), indicando che, nonostante le dimensioni maggiori, la rete
-        statunitense mostra una minore intensità di connessioni per artista.
-
-  \item Il \textbf{Brasile} (1.859 artisti) e l'\textbf{India} (999 artisti)
-        rappresentano i maggiori sistemi musicali emergenti, entrambi caratterizzati da
-        reti ad alta densità (0.003212 e 0.005685 rispettivamente) e da un'elevata
-        coesione strutturale. Questi valori indicano ecosistemi musicali altamente
-        integrati, con soli 3 e 2 gruppi distinti rispettivamente, che riflettono una
-        forte unità culturale e geografica.
-
-  \item L'Italia si posiziona in una fascia intermedia a livello globale, con
-        dimensioni paragonabili a quelle di Giappone (890) e Messico (773). Rispetto a
-        questi paesi, l'Italia mostra una struttura più coesa: il Giappone, pur avendo
-        più artisti, presenta una rete più frammentata (38 gruppi distinti) e un grado
-        medio inferiore (2.48), mentre il Messico, sebbene abbia meno artisti, mostra
-        una densità superiore (0.005580) e un'elevata integrazione strutturale.
-\end{itemize}
-
-\subsection*{Ecosistemi Iper-Collaborativi: Modelli Diversificati}
-
-L'analisi identifica diversi modelli di ecosistemi musicali caratterizzati da
-intensa attività collaborativa:
-
-\begin{itemize}
-  \item \textbf{Porto Rico} rappresenta il caso più marcato di iper-collaboratività, con un grado medio particolarmente elevato (10.66) e un coefficiente di clustering alto (0.314). Questo indica non solo che gli artisti portoricani collaborano molto tra loro, ma che i loro collaboratori tendono a collaborare a loro volta, formando una rete altamente integrata e interconnessa. La densità relativamente alta (0.032614) conferma questa compattezza.
-
-  \item Il \textbf{Brasile} e l'\textbf{India} mostrano strutture simili, con gradi
-        medi elevati (5.97 e 5.67 rispettivamente) e clustering significativo (0.173 e
-        0.181). Questi valori suggeriscono ecosistemi vibranti con forte tendenza alla
-        formazione di comunità coese, supportata da una bassa frammentazione (3 e 2
-        gruppi distinti) che indica scene musicali unificate e ben integrate.
-
-  \item La \textbf{Corea del Sud} presenta un caso interessante di rete moderatamente
-        grande (708 artisti) ma con alta densità (0.006185) e grado medio significativo
-        (4.37), riflettendo una scena musicale strutturata e interconnessa,
-        probabilmente influenzata dal sistema dell'industria musicale K-pop che
-        favorisce collaborazioni frequenti.
-
-  \item L'Italia, con un grado medio di 5.20, si colloca tra i paesi con maggiore
-        attività collaborativa a livello globale, superando paesi come Germania (4.38),
-        Regno Unito (4.58) e Corea del Sud (4.37). Questo posizionamento indica una
-        cultura musicale particolarmente orientata alla collaborazione, che compensa le
-        dimensioni più contenute della rete con una maggiore intensità di interazioni.
-\end{itemize}
-
-\subsection*{Densità e Frammentazione: Due Dimensioni Strutturali}
-
-\begin{table}[h]
-  \centering
-  \caption{Analisi Comparativa della Densità e Frammentazione}
-  \label{tab:density_fragmentation}
-  \begin{tabular}{|l|c|c|c|}
-    \hline
-    \textbf{Tipo di Rete}           & \textbf{Densità Tipica} & \textbf{Gruppi Distinti} & \textbf{Esempi}                  \\
-    \hline
-    Reti Piccole Ultra-dense        & 0.10-1.00               & 1-5                      & Ghana, Egitto, Cuba              \\
-    Reti Medie Dense                & 0.01-0.10               & 2-10                     & Colombia, Argentina, Sudafrica   \\
-    Reti Grandi Moderatamente dense & 0.001-0.01              & 10-50                    & Italia, Brasile, India           \\
-    Reti Molto Grandi Sparse        & <0.001                  & >50                      & Stati Uniti, Giappone, Australia \\
-    \hline
-  \end{tabular}
-\end{table}
-
-\begin{itemize}
-  \item I paesi \textbf{africani} rappresentano il modello delle reti piccole
-        ultra-dense: Ghana (densità 0.138), Egitto (0.110), Nigeria (0.047). Queste
-        reti, pur avendo pochi artisti (24-66 nodi), mostrano un'elevatissima
-        interconnessione interna. Questo suggerisce scene musicali fortemente coese e
-        geograficamente concentrate, dove la maggior parte degli artisti collabora
-        direttamente o indirettamente.
-
-  \item Le reti \textbf{latinoamericane} mostrano densità intermedie (0.01-0.10) con
-        buona integrazione: Colombia (0.010), Argentina (0.010), Messico (0.006).
-        Questi valori riflettono scene musicali regionalmente coese ma sufficientemente
-        ampie da sostenere diversificazione interna, con un numero limitato di gruppi
-        distinti (2-5).
-
-  \item L'Italia si colloca tra le reti moderatamente dense (0.00314), tipiche delle
-        scene musicali europee mature che bilanciano dimensione e coesione. La densità
-        italiana è simile a quella francese (0.00352) e superiore a quella tedesca
-        (0.00162) e britannica (0.00139), indicando una maggiore compattezza
-        strutturale.
-\end{itemize}
-
-\subsection*{Clustering e Coesione Locale: Differenze Culturali}
-
-\begin{itemize}
-  \item I più alti valori di clustering si osservano in \textbf{Porto Rico} (0.314),
-        \textbf{Ghana} (0.287), e \textbf{Repubblica Dominicana} (0.275), indicando una
-        forte tendenza alla formazione di ``triadi chiuse'' dove i collaboratori di un
-        artista collaborano frequentemente tra loro. Questi valori particolarmente alti
-        suggeriscono comunità musicali estremamente coese, spesso legate a specifici
-        generi o scene locali.
-
-  \item L'\textbf{India} (0.181) e il \textbf{Brasile} (0.173) mostrano valori di
-        clustering elevati, riflettendo scene musicali che combinano dimensioni
-        significative con forte coesione interna, probabilmente legata a identità
-        culturali e linguistiche forti.
-
-  \item L'Italia (0.119) presenta un valore di clustering moderato ma significativo,
-        superiore a quello di molti paesi europei (Francia 0.113, Germania 0.121,
-        Spagna 0.088, Regno Unito 0.062) e paragonabile a quello di alcune scene
-        emergenti. Questo indica una tendenza alla formazione di circoli artistici
-        coesi pur mantenendo sufficiente apertura per nuove connessioni.
-
-  \item I bassi valori di clustering in paesi come \textbf{Canada} (0.037),
-        \textbf{Australia} (0.035), e \textbf{Cina} (0.027) suggeriscono strutture più
-        ``a stella'' o meno inclini alla chiusura triadica, possibilmente influenzate
-        da fattori geografici, linguistici o industriali che limitano la formazione di
-        comunità strettamente interconnesse.
-\end{itemize}
-
-\subsection*{Integrazione Strutturale: Frammentazione vs. Coesione}
-
-\begin{itemize}
-  \item La bassa frammentazione in paesi come \textbf{Nigeria} (1 gruppo),
-        \textbf{Niger} (1 gruppo), \textbf{Venezuela} (1 gruppo), \textbf{Egitto} (1
-        gruppo), e \textbf{Ghana} (1 gruppo) indica reti completamente connesse, dove
-        ogni artista è raggiungibile da ogni altro attraverso catene di collaborazioni.
-        Questa completa integrazione strutturale è tipica di scene musicali piccole ma
-        molto coese.
-
-  \item \textbf{Brasile} (3 gruppi) e \textbf{India} (2 gruppi), \textbf{Messico} (4 gruppi), e \textbf{Colombia} (2 gruppi) mostrano un'integrazione quasi completa, con solo poche comunità isolate. Questa bassa frammentazione riflette scene musicali nazionali ben integrate nonostante le dimensioni significative.
-
-  \item L'Italia (16 gruppi distinti) presenta una frammentazione moderata, inferiore a
-        quella di molti paesi sviluppati: Stati Uniti (111 gruppi), Giappone (38
-        gruppi), Canada (25 gruppi), Australia (24 gruppi). Questo suggerisce un
-        ecosistema musicale relativamente ben integrato a livello nazionale.
-
-  \item L'alta frammentazione in \textbf{Taiwan} (16 gruppi su soli 48 artisti) e
-        \textbf{Hong Kong} (13 gruppi su 62 artisti) riflette una struttura
-        particolarmente dispersa, potenzialmente influenzata da fattori politici,
-        linguistici, o dalla presenza di molteplici scene musicali non comunicanti.
-\end{itemize}
-
-\subsection*{Implicazioni per il Sistema Musicale Italiano nel Contesto Globale}
-
-Il confronto sistematico con i paesi non-europei permette di identificare
-caratteristiche distintive e punti di forza del sistema musicale italiano:
-
-\begin{itemize}
-  \item \textbf{Modello strutturale equilibrato}: Rispetto agli ecosistemi iper-collaborativi (Porto Rico, Brasile) e a quelli estremamente densi ma piccoli (paesi africani), l'Italia rappresenta un modello di \textit{moderazione strutturata}. Combina dimensioni sufficienti per sostenere diversificazione interna (1.656 artisti) con valori di coesione adeguati (densità 0.00314, clustering 0.119) a favorire la circolazione artistica senza eccessiva chiusura.
-
-  \item \textbf{Posizione di leadership nell'intensità collaborativa}: Con un grado medio di 5.20, l'Italia si colloca al 6° posto tra i 49 paesi non-europei analizzati, superata solo da Porto Rico (10.66), Brasile (5.97), India (5.67), Repubblica Dominicana (5.08), e Stati Uniti (4.78). Questo posizionamento evidenzia una cultura musicale particolarmente orientata alla collaborazione.
-
-  \item \textbf{Resilienza e integrazione strutturale}: Il numero moderato di gruppi distinti (16) rispetto alle dimensioni della rete indica un ecosistema relativamente integrato. Questa caratteristica l'Italia la condivide con Brasile (3 gruppi) e India (2 gruppi), distinguendosi da sistemi più frammentati come Stati Uniti (111 gruppi) o Giappone (38 gruppi).
-
-  \item \textbf{Ponte culturale e strutturale}: La posizione dell'Italia - con valori intermedi tra le scene ultra-dense africane, le scene iper-collaborative latinoamericane, e le scene grandi ma sparse anglosassoni - suggerisce un ruolo potenziale di ponte tra diverse tradizioni musicali. La moderata ma significativa coesione interna (clustering 0.119) combinata con sufficiente apertura (densità non eccessiva) potrebbe favorire scambi interculturali.
-
-  \item \textbf{Sostenibilità del modello}: Il sistema musicale italiano mostra caratteristiche di sostenibilità strutturale: dimensioni sufficienti per diversificazione, ma non così grandi da causare frammentazione eccessiva; coesione sufficiente per supporto comunitario, ma non così alta da limitare l'innovazione attraverso nuovi collegamenti. Questo equilibrio potrebbe spiegare la longevità e la vitalità della scena musicale italiana nel tempo.
-\end{itemize}
-
-Questa analisi comparativa globale conferma che il sistema musicale italiano
-rappresenta un caso di studio rilevante per la sua capacità di mantenere
-elevati livelli di collaborazione e coesione interna pur essendo inserito in un
-contesto geografico e culturale complesso. Il suo posizionamento strutturale lo
-rende particolarmente interessante come modello potenziale per altri paesi che
-cercano di bilanciare dimensioni, diversità e coesione nei loro ecosistemi
-musicali.
-
-\section{Validity and Reliability}
+\section{Validità e Affidabilità}
 \label{validity-and-reliability-not-needed-for-the-project-proposal}
 
 How closely does the model of your dataset represent reality (validity)? How
@@ -601,6 +239,351 @@ In questa sezione si riassumono in modo sintetico le principali misure utilizzat
         emergente–affermato, ecc.) mostra le strategie di networking (orizzontale tra
         pari vs collegamento verso artisti affermati) e come queste si riflettano nella
         crescita di centralità e popolarità.
+\end{itemize}
+\subsection{Analisi generale della rete di collaborazioni musicali italiane}
+
+Al fine di delineare le differenze strutturali chiave e ottenere una panoramica
+della topologia e delle dinamiche interne della rete di collaborazioni musicali
+italiane, è stata calcolata una serie di misure generali, come riportato nella
+Tabella \ref{tab:metrics_italia}.
+
+Il \textbf{numero di componenti connesse} è stato misurato per identificare la
+presenza di sottogruppi isolati all'interno dell'ecosistema musicale nazionale.
+Sia il \textbf{grado massimo} che il \textbf{grado medio} dei nodi sono stati
+calcolati per valutare la connettività globale della rete e per quantificare
+l'intensità dell'attività collaborativa degli artisti. La \textbf{densità}
+della rete è stata calcolata per misurare la sua coesione complessiva. Il
+\textbf{diametro} (lunghezza massima del percorso geodetico) e la
+\textbf{lunghezza media del percorso più breve} forniscono una valutazione
+dell'efficienza del flusso di informazioni e indicano la facilità con cui gli
+artisti possono essere raggiunti gli uni attraverso gli altri. Infine, il
+\textbf{coefficiente di clustering medio} e la \textbf{transitività} sono stati
+calcolati per misurare la coesione locale della rete e la tendenza alla
+formazione di gruppi strettamente connessi.
+
+\begin{table}[h]
+  \centering
+  \caption{Caratteristiche strutturali della rete di collaborazioni musicali italiane}
+  \label{tab:metrics_italia}
+  \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Parametro}                         & \textbf{Valore} \\
+    \hline
+    Nodi totali (artisti)                      & 1.656           \\
+    Archi totali (collaborazioni)              & 4.307           \\
+    Componenti connesse                        & 16              \\
+    Grado massimo del nodo                     & 114             \\
+    Grado medio del nodo                       & 5.20            \\
+    Densità                                    & 0.00314         \\
+    Diametro                                   & 10              \\
+    Lunghezza media del percorso più breve     & 4.14            \\
+    Coefficiente di clustering medio           & 0.119           \\
+    Transitività                               & 0.128           \\
+    \hline
+  \end{tabular}
+\end{table}
+
+I sedici componenti connessi suggeriscono l'esistenza di gruppi isolati,
+corrispondenti a nicchie o comunità artistiche con contatti limitati con il
+resto dell'ecosistema nazionale. Ciascun artista è connesso, in media, a circa
+cinque colleghi nella rete. Tuttavia, la distribuzione del grado è fortemente
+eterogenea: la presenza di un nodo con grado 114 rivela un \textit{hub} di
+importanza centrale, mentre il 54.6\% degli artisti presenta un grado pari a 1,
+collaborando dunque con un solo altro artista. La densità estremamente bassa
+(circa lo 0.31\% delle possibili connessioni è realizzata) conferma la natura
+\textbf{sparsa} della rete.
+
+Nonostante la bassa densità, la rete presenta una lunghezza media del percorso
+contenuta (4.14), indicando che gli artisti sono collegati attraverso poche
+collaborazioni intermedie. Il diametro pari a 10 conferma che anche gli artisti
+più distanti nella rete possono essere raggiunti attraverso un numero limitato
+di passaggi.
+
+I valori del coefficiente di clustering medio (0.119) e della transitività
+(0.128) sono moderati e tra loro vicini. Ciò indica una tendenza misurabile,
+seppur non dominante, alla \textbf{chiusura triadica}: due collaboratori di uno
+stesso artista hanno una probabilità di circa il 12\% di aver collaborato a
+loro volta. Questa coesione locale favorisce la formazione di circoli artistici
+coesi e comunità parzialmente clusterizzate, contribuendo alla stabilità delle
+relazioni collaborative e alla condivisione di pratiche artistiche all'interno
+di sottogruppi, pur mantenendo sufficiente apertura per permettere connessioni
+tra comunità diverse.
+
+\subsection{Analisi Comparativa con i Principali Paesi Europei}
+
+Per collocare i risultati italiani in un contesto continentale più ampio,
+l'analisi è stata estesa a tutti i principali paesi europei. Questo approccio
+consente una valutazione comparativa completa delle dinamiche collaborative.
+
+La Tabella \ref{tab:comparative_results_eu} presenta il confronto tra l'Italia
+e i quattro principali paesi europei per dimensione della rete.
+
+\begin{table}[h]
+  \centering
+  \caption{Confronto con i Principali Paesi Europei}
+  \label{tab:comparative_results_eu}
+  \begin{tabular}{|l|c|c|c|c|c|}
+    \hline
+    \textbf{Metrica}     & \textbf{Italia} & \textbf{Francia} & \textbf{Germania} & \textbf{Regno Unito} & \textbf{Paesi Bassi} \\
+    \hline
+    Total nodes          & 1,656 (3°)      & 1,643 (4°)       & 2,706 (2°)        & 3,290 (1°)           & 1,420 (5°)           \\
+    Total edges          & 4,307 (5°)      & 4,754 (4°)       & 5,929 (2°)        & 7,532 (1°)           & 5,143 (3°)           \\
+    Average degree       & 5.20 (5°)       & 5.79 (2°)        & 4.38 (7°)         & 4.58 (6°)            & 7.24 (1°)            \\
+    Connected components & 16 (4°)         & 27 (6°)          & 32 (7°)           & 70 (9°)              & 12 (3°)              \\
+    Average clustering   & 0.119 (4°)      & 0.113 (6°)       & 0.120 (3°)        & 0.062 (9°)           & 0.151 (2°)           \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Dall'analisi emergono differenze strutturali significative tra i paesi,
+evidenziando modelli distinti di collaborazione musicale:
+\begin{enumerate}
+  \item \textbf{Paesi Bassi}: Presentano l'\textbf{average degree} più alto d'Europa (7.24) nonostante siano solo quinti per numero di artisti. Il loro \textbf{average clustering coefficient} (0.151) è il secondo più alto, e la percentuale di hub artists (17.8\%) è la massima in Europa.
+
+  \item \textbf{Polonia}: Con un \textbf{average degree} di 6.20 e \textbf{average clustering coefficient} di 0.167, rappresentano un modello di rete altamente coesa e interconnessa. Solo 8 \textbf{connected components} indicano un'eccellente integrazione strutturale.
+
+  \item \textbf{Grecia}: Ha il \textbf{average clustering coefficient} più alto d'Europa (0.183) e un ottimo \textbf{average degree} (5.47). Con soli 4 \textbf{connected components}, è una delle reti meglio integrate.
+
+  \item \textbf{Regno Unito}: Nonostante le dimensioni maggiori (3.290 artisti), presenta il \textbf{average clustering coefficient} più basso (0.062) e la frammentazione più alta (70 \textbf{connected components}), riflettendo un mercato vasto ma segmentato.
+\end{enumerate}
+
+\subsubsection{Analisi Multidimensionale e Interpretazione dei Pattern Europei}
+
+L'analisi multidimensionale sintetizza tre aspetti critici della struttura delle reti europee: dimensione, intensità collaborativa e relazione tra queste variabili.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{network_size_eu.png}
+  \caption{Analisi multidimensionale comparativa delle reti di collaborazione musicale a livello europeo.}
+  \label{fig:network_analysis_eu}
+\end{figure}
+
+L'istogramma a sinistra descrive la distribuzione del numero di artisti tra i
+paesi europei, con valori che vanno da poche centinaia a diverse migliaia.
+
+Il \textbf{Regno Unito} emerge come il sistema di maggiori dimensioni, con
+3.290 artisti, ma presenta una densità di rete significativamente più bassa
+(0.001392) rispetto a quella osservata per l'Italia (0.003143). Tale differenza
+riflette due configurazioni strutturali distinte: da un lato, una rete
+britannica estesa ma caratterizzata da un'elevata dispersione delle relazioni
+collaborative; dall'altro, un ecosistema italiano di dimensioni più contenute
+ma relativamente più denso e coeso.
+
+L'istogramma al centro visualizza il numero totale di collaborazioni per i
+primi 15 paesi.
+
+\begin{itemize}
+  \item Il \textbf{Regno Unito} (7.532 collaborazioni) e la \textbf{Germania} (5.927)
+        si collocano ai vertici per numero complessivo di collaborazioni; tale
+        risultato è principalmente riconducibile alla loro elevata numerosità di nodi.
+
+  \item I \textbf{Paesi Bassi} (5.143 collaborazioni) rappresentano il caso più
+        rilevante: pur essendo quinti per numero di artisti, si posizionano terzi per
+        volume di collaborazioni, superando sia l'Italia (4.307) che la Francia
+        (4.754). Ciò indica un'intensa attività collaborativa.
+
+  \item La \textbf{Polonia} (3.391 collaborazioni) mostra un'intensità sorprendente,
+        superando paesi con reti più estese come Svezia (2.644) e Finlandia (2.329).
+\end{itemize}
+
+\subsubsection{Relazione Strutturale tra Artisti e Collaborazioni}
+
+Il grafico a destra esplora la relazione fondamentale tra la dimensione di una
+rete (numero di artisti) e la sua attività (numero di collaborazioni). La
+relazione tra il numero di artisti e il numero totale di collaborazioni è stata
+analizzata mediante una regressione lineare stimata con il metodo dei minimi
+quadrati, considerando tutti i paesi europei inclusi nello studio. La retta
+ottenuta, \( y = 2.44x - 76 \), descrive l'andamento medio delle reti musicali
+europee.
+
+\begin{itemize}
+  \item \textbf{Coefficiente angolare (2.44)}: indica che, in media, a ogni
+        artista aggiuntivo corrispondono circa 2.44 collaborazioni in più.
+        Questo valore esprime l'intensità collaborativa media dei network
+        musicali analizzati.
+
+  \item \textbf{Intercetta (-76)}: il valore negativo suggerisce che reti molto
+        piccole tendono ad avere un numero di collaborazioni inferiore a quello
+        previsto dalla tendenza generale. In particolare, al di sotto di circa
+        30 artisti, la struttura della rete risulta meno attiva.
+\end{itemize}
+
+La retta di regressione può quindi essere utilizzata come riferimento: i paesi
+posizionati al di sopra mostrano un livello di collaborazione superiore a
+quanto atteso rispetto alle loro dimensioni, mentre quelli al di sotto
+presentano un'attività collaborativa più contenuta.
+
+\begin{itemize}
+  \item I paesi che si collocano \textbf{sopra la retta di regressione} (Paesi Bassi,
+        Polonia, Grecia) rappresentano ecosistemi ``iper-collaborativi'', dove il
+        volume di interazioni supera sistematicamente le aspettative date le
+        dimensioni. Questi sistemi sono tipicamente caratterizzati da alti valori di
+        densità e coefficiente di clustering.
+
+  \item I paesi \textbf{prossimi alla retta} (Italia, Francia, Germania, Regno Unito)
+        seguono una relazione approssimativamente lineare, mostrando una scalabilità
+        ``normativa'' dell'attività collaborativa in funzione della dimensione.
+
+  \item La \textbf{dispersione} dei dati conferma l'assenza di un modello unico
+        europeo, evidenziando invece una pluralità di configurazioni strutturali.
+\end{itemize}
+
+\subsection{Analisi Comparativa con i Principali Paesi Non-Europei}
+
+Per collocare l'ecosistema musicale italiano in un contesto globale più ampio,
+è stata condotta un'analisi comparativa estesa a 49 paesi non-europei con reti
+collaborative significative (su 158 paesi analizzati).
+
+La Tabella \ref{tab:comparative_results_global} presenta il confronto tra
+l'Italia e i principali paesi non-europei.
+
+\begin{table}[h]
+  \centering
+  \caption{Confronto con i Principali Paesi Non-Europei}
+  \label{tab:comparative_results_global}
+  \begin{tabular}{|l|c|c|c|c|c|}
+    \hline
+    \textbf{Metrica}     & \textbf{Italia} & \textbf{Stati Uniti} & \textbf{Brasile} & \textbf{India} & \textbf{Messico} \\
+    \hline
+    Total nodes          & 1,656           & 6,217 (1°)           & 1,859 (2°)       & 999 (4°)       & 773 (5°)         \\
+    Total edges          & 4,307           & 14,860 (1°)          & 5,547 (2°)       & 2,834 (4°)     & 1,665 (5°)       \\
+    Average degree       & 5.20 (6°)       & 4.78 (7°)            & 5.97 (2°)        & 5.67 (3°)      & 4.31 (8°)        \\
+    Connected components & 16              & 111 (1°)             & 3 (9°)           & 2 (10°)        & 4 (8°)           \\
+    Average clustering   & 0.119           & 0.082                & 0.173 (3°)       & 0.181 (2°)     & 0.156 (4°)       \\
+    \hline
+  \end{tabular}
+\end{table}
+Dall'analisi emergono differenze strutturali significative tra i paesi,
+evidenziando modelli distinti di collaborazione musicale:
+
+\begin{enumerate}
+  \item \textbf{Stati Uniti}: Rete di dimensioni eccezionali (6.217 artisti, 14.860 collaborazioni) ma con basso \textbf{average clustering coefficient} (0.082) e alta frammentazione (111 \textbf{connected components}).
+
+  \item \textbf{Brasile}: Con 1.859 artisti e solo 3 \textbf{connected components}, rappresenta un modello di rete altamente integrata. L'\textbf{average degree} di 5.97 e il \textbf{average clustering coefficient} di 0.173 indicano un ecosistema vibrante e coeso.
+
+  \item \textbf{India}: Nonostante dimensioni più contenute (999 artisti), presenta caratteristiche strutturali eccellenti: solo 2 \textbf{connected components}, \textbf{average degree} di 5.67, e \textbf{average clustering coefficient} di 0.181.
+
+  \item \textbf{Porto Rico}: Caso estremo con \textbf{average degree} di 10.66 (il più alto al mondo) e \textbf{average clustering coefficient} di 0.314, indicando una rete ultra-collaborativa e ultra-coesa.
+\end{enumerate}
+
+L'analisi rivela una marcata asimmetria dimensionale tra i sistemi musicali
+analizzati:
+
+\begin{itemize}
+  \item Gli \textbf{Stati Uniti} presentano caratteristiche dimensionali eccezionali,
+        con una rete di 6.217 artisti e 14.860 collaborazioni, oltre 3,7 volte più
+        grande della rete italiana. Questa dimensione considerevole è accompagnata da
+        una bassa densità (0.000769) che riflette l'ampia scala e diversificazione del
+        mercato musicale statunitense, con ben 111 gruppi distinti che operano in modo
+        relativamente isolato. Il grado medio (4.78) è leggermente inferiore a quello
+        italiano (5.20), indicando che, nonostante le dimensioni maggiori, la rete
+        statunitense mostra una minore intensità di connessioni per artista.
+
+  \item Il \textbf{Brasile} (1.859 artisti) e l'\textbf{India} (999 artisti)
+        rappresentano i maggiori sistemi musicali emergenti, entrambi caratterizzati da
+        reti ad alta densità (0.003212 e 0.005685 rispettivamente) e da un'elevata
+        coesione strutturale. Questi valori indicano ecosistemi musicali altamente
+        integrati, con soli 3 e 2 gruppi distinti rispettivamente, che riflettono una
+        forte unità culturale e geografica.
+
+  \item L'Italia si posiziona in una fascia intermedia a livello globale, con
+        dimensioni paragonabili a quelle di Giappone (890) e Messico (773). Rispetto a
+        questi paesi, l'Italia mostra una struttura più coesa: il Giappone, pur avendo
+        più artisti, presenta una rete più frammentata (38 gruppi distinti) e un grado
+        medio inferiore (2.48), mentre il Messico, sebbene abbia meno artisti, mostra
+        una densità superiore (0.005580) e un'elevata integrazione strutturale.
+\end{itemize}
+
+L'analisi identifica diversi modelli di ecosistemi musicali caratterizzati da
+intensa attività collaborativa:
+
+\begin{itemize}
+  \item \textbf{Porto Rico} rappresenta il caso più marcato di iper-collaboratività, con un grado medio particolarmente elevato (10.66) e un coefficiente di clustering alto (0.314). Questo indica non solo che gli artisti portoricani collaborano molto tra loro, ma che i loro collaboratori tendono a collaborare a loro volta, formando una rete altamente integrata e interconnessa. La densità relativamente alta (0.032614) conferma questa compattezza.
+
+  \item Il \textbf{Brasile} e l'\textbf{India} mostrano strutture simili, con gradi
+        medi elevati (5.97 e 5.67 rispettivamente) e clustering significativo (0.173 e
+        0.181). Questi valori suggeriscono ecosistemi vibranti con forte tendenza alla
+        formazione di comunità coese, supportata da una bassa frammentazione (3 e 2
+        gruppi distinti) che indica scene musicali unificate e ben integrate.
+
+  \item La \textbf{Corea del Sud} presenta un caso interessante di rete moderatamente
+        grande (708 artisti) ma con alta densità (0.006185) e grado medio significativo
+        (4.37), riflettendo una scena musicale strutturata e interconnessa,
+        probabilmente influenzata dal sistema dell'industria musicale K-pop che
+        favorisce collaborazioni frequenti.
+
+  \item L'Italia, con un grado medio di 5.20, si colloca tra i paesi con maggiore
+        attività collaborativa a livello globale, superando paesi come Germania (4.38),
+        Regno Unito (4.58) e Corea del Sud (4.37). Questo posizionamento indica una
+        cultura musicale particolarmente orientata alla collaborazione, che compensa le
+        dimensioni più contenute della rete con una maggiore intensità di interazioni.
+\end{itemize}
+
+\subsubsection{Densità e frammentazione}
+
+\begin{table}[h]
+  \centering
+  \caption{Analisi Comparativa della Densità e Frammentazione}
+  \label{tab:density_fragmentation}
+  \begin{tabular}{|l|c|c|c|}
+    \hline
+    \textbf{Tipo di Rete}           & \textbf{Densità Tipica} & \textbf{Gruppi Distinti} & \textbf{Esempi}                  \\
+    \hline
+    Reti Piccole Ultra-dense        & 0.10-1.00               & 1-5                      & Ghana, Egitto, Cuba              \\
+    Reti Medie Dense                & 0.01-0.10               & 2-10                     & Colombia, Argentina, Sudafrica   \\
+    Reti Grandi Moderatamente dense & 0.001-0.01              & 10-50                    & Italia, Brasile, India           \\
+    Reti Molto Grandi Sparse        & <0.001                  & >50                      & Stati Uniti, Giappone, Australia \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item I paesi \textbf{africani} rappresentano il modello delle reti piccole
+        ultra-dense: Ghana (densità 0.138), Egitto (0.110), Nigeria (0.047). Queste
+        reti, pur avendo pochi artisti (24-66 nodi), mostrano un'elevatissima
+        interconnessione interna. Questo suggerisce scene musicali fortemente coese e
+        geograficamente concentrate, dove la maggior parte degli artisti collabora
+        direttamente o indirettamente.
+
+  \item Le reti \textbf{latinoamericane} mostrano densità intermedie (0.01-0.10) con
+        buona integrazione: Colombia (0.010), Argentina (0.010), Messico (0.006).
+        Questi valori riflettono scene musicali regionalmente coese ma sufficientemente
+        ampie da sostenere diversificazione interna, con un numero limitato di gruppi
+        distinti (2-5).
+
+  \item L'Italia si colloca tra le reti moderatamente dense (0.00314), tipiche delle
+        scene musicali europee mature che bilanciano dimensione e coesione. La densità
+        italiana è simile a quella francese (0.00352) e superiore a quella tedesca
+        (0.00162) e britannica (0.00139), indicando una maggiore compattezza
+        strutturale.
+\end{itemize}
+
+\subsubsection{Clustering e coesione Locale}
+
+\begin{itemize}
+  \item I più alti valori di clustering si osservano in \textbf{Porto Rico} (0.314),
+        \textbf{Ghana} (0.287), e \textbf{Repubblica Dominicana} (0.275), indicando una
+        forte tendenza alla formazione di ``triadi chiuse'' dove i collaboratori di un
+        artista collaborano frequentemente tra loro. Questi valori particolarmente alti
+        suggeriscono comunità musicali estremamente coese, spesso legate a specifici
+        generi o scene locali.
+
+  \item L'\textbf{India} (0.181) e il \textbf{Brasile} (0.173) mostrano valori di
+        clustering elevati, riflettendo scene musicali che combinano dimensioni
+        significative con forte coesione interna, probabilmente legata a identità
+        culturali e linguistiche forti.
+
+  \item L'Italia (0.119) presenta un valore di clustering moderato ma significativo,
+        superiore a quello di molti paesi europei (Francia 0.113, Germania 0.121,
+        Spagna 0.088, Regno Unito 0.062) e paragonabile a quello di alcune scene
+        emergenti. Questo indica una tendenza alla formazione di circoli artistici
+        coesi pur mantenendo sufficiente apertura per nuove connessioni.
+
+  \item I bassi valori di clustering in paesi come \textbf{Canada} (0.037),
+        \textbf{Australia} (0.035), e \textbf{Cina} (0.027) suggeriscono strutture più
+        ``a stella'' o meno inclini alla chiusura triadica, possibilmente influenzate
+        da fattori geografici, linguistici o industriali che limitano la formazione di
+        comunità strettamente interconnesse.
 \end{itemize}
 
 \subsection{Nodes}

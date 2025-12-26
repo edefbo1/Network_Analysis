@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1766742577.10934 "c:/Users/Giorgia/Network_Analysis/docs/main.tex" "main.pdf" "main" 1766742578.7252 0
+["pdflatex"] 1766758187.82098 "c:/Users/Giorgia/Network_Analysis/docs/main.tex" "main.pdf" "main" 1766758190.27292 0
   "C:/Users/Giorgia/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1766440969 87410 94338a5c2ef089a5136024104efb3098 ""
   "C:/Users/Giorgia/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1200.pk" 1765986223 24152 838f1369439a48de477f9f19264ae88b ""
   "C:/Users/Giorgia/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1766443149 688 37338d6ab346c2f1466b29e195316aa4 ""
@@ -30,7 +30,6 @@
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
-  "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb" 1136849748 33709 b09d2e140b7e807d3a97058263ab6693 ""
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 fea0975e20ec51c992338362f05f1146 ""
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 687528a208fbfc1f00832bb96cccebbb ""
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb" 1136849748 45458 504e2b06fa82109d168c7a0afb09e145 ""
@@ -110,12 +109,12 @@
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/tex/latex/subfig/subfig.sty" 1121281010 22049 9ef165ca6df8815c92e693146a376c92 ""
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/tex/latex/titlesec/titlesec.sty" 1736608268 48766 87a17a4ef312a39cd43896e34a679a56 ""
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/Giorgia/Network_Analysis/docs/main.tex" 1766742574 72226 42be88ce71bfd939c234d5aba65c6de9 ""
+  "c:/Users/Giorgia/Network_Analysis/docs/main.tex" 1766758183 68885 482dde17991f08ca6a4de70b5b3644db ""
   "images/DD-AC.png" 1766437921 28759 4b3f1655581878d3239c4d376e80ef12 ""
   "images/DDLG.png" 1766437921 26581 88330cc2793e91b70a70c633cdc7d1fa ""
-  "main.aux" 1766742578 7789 c257cad2665095edf38346f96a4c6460 "pdflatex"
-  "main.out" 1766742578 2356 5384f8e50db141f0b3fda0045513724b "pdflatex"
-  "main.tex" 1766742574 72226 42be88ce71bfd939c234d5aba65c6de9 ""
+  "main.aux" 1766758189 8908 6e26fd2f42864fb7c2588437f44181de "pdflatex"
+  "main.out" 1766758190 4284 056cf6152f011f2e0a35fad94f0202c0 "pdflatex"
+  "main.tex" 1766758183 68885 482dde17991f08ca6a4de70b5b3644db ""
   "network_size_eu.png" 1766582543 495245 4a7b985677f62cb5570471a202e72ce7 ""
   (generated)
   "main.aux"
