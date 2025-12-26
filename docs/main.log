@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.7.17)  24 DEC 2025 14:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.7.17)  26 DEC 2025 10:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -485,39 +485,70 @@ Overfull \hbox (8.12477pt too wide) in paragraph at lines 122--123
 
 LaTeX Warning: Citation `musicbrainz_db' on page 4 undefined on input line 149.
 
-[4]
+[4] [5]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 182.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 209.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 182.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 209.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 182.
- [5] [6]
-<network_size_eu.png, id=106, 1435.0413pt x 426.393pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 209.
+ [6]
+<network_size_eu.png, id=105, 1435.0413pt x 426.393pt>
 File: network_size_eu.png Graphic file (type png)
 <use network_size_eu.png>
-Package pdftex.def Info: network_size_eu.png  used on input line 268.
+Package pdftex.def Info: network_size_eu.png  used on input line 295.
 (pdftex.def)             Requested size: 430.31812pt x 127.86032pt.
- [7 <./network_size_eu.png>] [8] [9] [10]
+ [7] [8 <./network_size_eu.png>] [9]
+Overfull \hbox (66.23067pt too wide) in paragraph at lines 440--450
+ [][] 
+ []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+
+Overfull \hbox (1.095pt too wide) in paragraph at lines 460--465
+[]\T1/ptm/m/n/12 Le reti \T1/ptm/b/n/12 lati-noamer-i-cane \T1/ptm/m/n/12 mostrano den-sità in-ter-me-die (0.01-0.10) con buona in-te-grazione:
+ []
+
+[10]
+Overfull \hbox (0.74728pt too wide) in paragraph at lines 504--510
+[]\T1/ptm/m/n/12 La bassa fram-men-tazione in paesi come \T1/ptm/b/n/12 Nige-ria \T1/ptm/m/n/12 (1 gruppo), \T1/ptm/b/n/12 Niger \T1/ptm/m/n/12 (1 gruppo), \T1/ptm/b/n/12 Venezuela
+ []
+
+
+Overfull \hbox (5.23553pt too wide) in paragraph at lines 511--512
+[]\T1/ptm/b/n/12 Brasile \T1/ptm/m/n/12 (3 gruppi) e \T1/ptm/b/n/12 In-dia \T1/ptm/m/n/12 (2 gruppi), \T1/ptm/b/n/12 Mes-sico \T1/ptm/m/n/12 (4 gruppi), e \T1/ptm/b/n/12 Colom-bia \T1/ptm/m/n/12 (2 gruppi) mostrano
+ []
 
 [11]
+Overfull \hbox (0.1692pt too wide) in paragraph at lines 530--531
+[]\T1/ptm/b/n/12 Modello strut-turale equi-li-brato\T1/ptm/m/n/12 : Rispetto agli eco-sis-temi iper-collaborativi (Porto Rico,
+ []
+
+
+Overfull \hbox (1.18997pt too wide) in paragraph at lines 534--535
+[]\T1/ptm/b/n/12 Resilienza e in-te-grazione strut-turale\T1/ptm/m/n/12 : Il nu-mero mod-er-ato di gruppi dis-tinti (16) rispetto
+ []
+
+
+Overfull \hbox (4.2018pt too wide) in paragraph at lines 538--539
+\T1/ptm/m/n/12 bil-ità strut-turale: di-men-sioni suf-fi-ci-enti per di-ver-si-fi-cazione, ma non così grandi da causare
+ []
+
+[12] [13] [14]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[12] [13] [14] [15]
-<images/DD-AC.png, id=170, 561.5379pt x 339.669pt>
+[15] [16] [17] [18] [19]
+<images/DD-AC.png, id=189, 561.5379pt x 339.669pt>
 File: images/DD-AC.png Graphic file (type png)
 <use images/DD-AC.png>
-Package pdftex.def Info: images/DD-AC.png  used on input line 786.
+Package pdftex.def Info: images/DD-AC.png  used on input line 1030.
 (pdftex.def)             Requested size: 217.42265pt x 131.51671pt.
-<images/DDLG.png, id=171, 563.706pt x 339.669pt>
+<images/DDLG.png, id=190, 563.706pt x 339.669pt>
 File: images/DDLG.png Graphic file (type png)
 <use images/DDLG.png>
-Package pdftex.def Info: images/DDLG.png  used on input line 790.
+Package pdftex.def Info: images/DDLG.png  used on input line 1034.
 (pdftex.def)             Requested size: 217.42265pt x 131.00879pt.
- [16 <./images/DD-AC.png> <./images/DDLG.png>] (main.aux)
+ [20] [21 <./images/DD-AC.png> <./images/DDLG.png>] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -530,17 +561,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5384F8E50DB141F0B3FDA0045513724B;2356.
  ) 
 Here is how much of TeX's memory you used:
- 12830 strings out of 474486
- 203227 string characters out of 5742811
- 1938542 words of memory out of 5000000
- 34882 multiletter control sequences out of 15000+600000
+ 12838 strings out of 474486
+ 203318 string characters out of 5742811
+ 1939542 words of memory out of 5000000
+ 34884 multiletter control sequences out of 15000+600000
  603271 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,10n,79p,1156b,564s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Giorgia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (16 pages, 604106 bytes).
+Output written on main.pdf (21 pages, 622908 bytes).
 PDF statistics:
- 260 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
+ 284 PDF objects out of 1000 (max. 8388607)
+ 59 named destinations out of 1000 (max. 500000)
  144 words of extra memory for PDF output out of 10000 (max. 10000000)
 
