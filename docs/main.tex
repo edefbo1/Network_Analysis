@@ -754,7 +754,46 @@ community.
 The Louvain algorithm identified a total of 34 communities, revealing a relatively fragmented network structure. Several communities exhibit a notable degree of genre homogeneity, particularly for the \emph{Hip Hop / Rap} and \emph{Pop} macro-genres, with purity values exceeding 0.6 in some cases and reaching 1.0 in smaller communities. Nevertheless, a substantial number of communities display a mixed composition, characterized by the coexistence of multiple dominant macro-genres. This suggests that artist collaborations are not strictly constrained by genre boundaries, especially within larger clusters, where cross-genre interactions appear to be more prevalent.
 
 \subsubsection*{Analysis with Section 2.2.3}
-TODO
+\subsubsection*{Analysis with Section 2.2.3}
+
+The results of the community detection analysis can be further interpreted in
+light of the genre assortativity and modularity measures discussed in Section
+2.2.3. The genre assortativity coefficient of \textbf{0.4778} indicates a strong
+tendency for artists to collaborate with others belonging to the same or closely
+related macro-genres. This finding is coherent with the presence of several
+high-purity communities identified by the Louvain algorithm, particularly for
+\emph{Hip Hop / Rap} and \emph{Pop}, where intra-genre collaborations dominate and
+small, highly homogeneous clusters emerge.
+
+At the same time, the modularity value of \textbf{Q = 0.2987}, classified as
+moderate, provides a structural explanation for the mixed composition observed
+in many communities. While genre clearly influences collaboration patterns, it
+does not induce a rigid compartmentalization of the network. This is reflected
+in the Louvain results by the existence of larger communities characterized by
+multiple dominant macro-genres, and even more clearly in the Edge Betweenness
+partition, where genre purity frequently falls below 0.5. These outcomes are
+consistent with a network in which genre-based affinity coexists with a
+substantial number of cross-genre ties.
+
+The analysis of the most frequent genre pairs (Table~\ref{tab:genre-pairs})
+supports this interpretation. The very high number of intra-genre collaborations
+within \emph{Hip Hop / Rap} and \emph{Pop} explains both the positive assortativity
+and the formation of cohesive genre-centered communities. However, the strong
+presence of cross-genre collaborations, especially between \emph{Hip Hop / Rap}
+and \emph{Pop} (596 collaborations), acts as a structural bridge that limits the
+overall modularity and promotes inter-community connectivity. This bridging role
+helps explain why community detection algorithms, particularly Edge Betweenness,
+tend to aggregate artists from different macro-genres into the same clusters.
+
+Overall, the combined evidence from community detection, assortativity, and
+modularity points to a pattern of \emph{selective mixing}: collaborations are
+preferentially intra-genre, generating cohesive substructures, but a set of
+well-established cross-genre connections prevents the emergence of isolated
+genre-based components. In the context of the Italian music scene, this results
+in a network that is both specialized and interconnected, where dominant genres
+such as hip hop and pop function simultaneously as cohesive communities and as
+connective hubs across stylistic boundaries.
+
 
 \subsubsection*{Edge Betweenness}
 The Edge Betweenness (Girvan--Newman) algorithm produced 17 communities, resulting in a coarser partitioning of the network compared to the Louvain method. The identified communities are generally less pure, with genre purity values frequently below 0.5, particularly in larger clusters dominated by \emph{Pop} and \emph{Hip Hop / Rap}. This outcome indicates that the iterative removal of highly central edges tends to group together artists from different macro-genres, emphasizing the presence of bridge nodes and inter-genre collaborations rather than a clear separation based on musical genre.
