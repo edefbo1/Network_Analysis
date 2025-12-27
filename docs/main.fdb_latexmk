@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1766844705.49275 "c:/Users/Giorgia/Network_Analysis/docs/main.tex" "main.pdf" "main" 1766844709.05381 0
+["pdflatex"] 1766859360.29494 "c:/Users/Giorgia/Network_Analysis/docs/main.tex" "main.pdf" "main" 1766859362.0931 0
   "C:/Users/Giorgia/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1766440969 87410 94338a5c2ef089a5136024104efb3098 ""
   "C:/Users/Giorgia/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1200.pk" 1765986223 24152 838f1369439a48de477f9f19264ae88b ""
   "C:/Users/Giorgia/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1766443149 688 37338d6ab346c2f1466b29e195316aa4 ""
@@ -109,15 +109,15 @@
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/tex/latex/subfig/subfig.sty" 1121281010 22049 9ef165ca6df8815c92e693146a376c92 ""
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/tex/latex/titlesec/titlesec.sty" 1736608268 48766 87a17a4ef312a39cd43896e34a679a56 ""
   "C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/Giorgia/Network_Analysis/docs/main.tex" 1766844704 64804 a3b860d2a9beb937bb47fa98b3456ecc ""
+  "c:/Users/Giorgia/Network_Analysis/docs/main.tex" 1766859359 67160 16e824ef7d962bf08f80ab6f71079658 ""
   "images/DD-AC.png" 1766437921 28759 4b3f1655581878d3239c4d376e80ef12 ""
   "images/DDLG.png" 1766437921 26581 88330cc2793e91b70a70c633cdc7d1fa ""
   "images/degree.pdf" 1766841507 409599 d25f4d30c95986b37a7096a19d41d4b8 ""
   "images/eigenvector.pdf" 1766841507 395101 e4da02495a7aa03611cbaa264b194cbc ""
   "images/louvain.pdf" 1766841507 396163 497c129b3e9dc467ef7acdbe0c4c5de4 ""
-  "main.aux" 1766844708 9673 7dc3feec000a7eb2eb1f8407143178c0 "pdflatex"
-  "main.out" 1766844708 4123 5c0c684701d707eb4b7a730fd3cad6db "pdflatex"
-  "main.tex" 1766844704 64804 a3b860d2a9beb937bb47fa98b3456ecc ""
+  "main.aux" 1766859361 9673 2aed5e94cd4e38be8b93aa8177b0c8fd "pdflatex"
+  "main.out" 1766859361 4123 5c0c684701d707eb4b7a730fd3cad6db "pdflatex"
+  "main.tex" 1766859359 67160 16e824ef7d962bf08f80ab6f71079658 ""
   "network_size_eu.png" 1766582543 495245 4a7b985677f62cb5570471a202e72ce7 ""
   (generated)
   "main.aux"

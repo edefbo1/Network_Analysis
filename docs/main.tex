@@ -77,24 +77,31 @@ testare gli strumenti della SNA in un contesto complesso, dove convivono
 artisti di caratura internazionale, figure iconiche della storia della musica e
 una vivace scena indipendente.
 
+\subsection*{Domande di Ricerca}
 Attraverso una prospettiva di rete, questo lavoro mira a rispondere a domande
-fondamentali sul funzionamento dell'ecosistema musicale italiano:
-\begin{itemize}[leftmargin=*, itemsep=5pt]
+fondamentali sul funzionamento dell'ecosistema musicale italiano e il suo
+posizionamento nel contesto internazionale:
+\begin{enumerate}[leftmargin=*, itemsep=5pt]
   \item Quali sono le caratteristiche strutturali fondamentali della rete di
         collaborazioni musicali italiane su Spotify?
+  \item Come si posiziona la scena italiana rispetto ai principali paesi europei ed non
+        europei?
   \item Chi sono gli artisti più centrali e influenti, e che tipo di ruolo strutturale
         ricoprono?
-  \item Esistono comunità ben definite corrispondenti a generi o correnti artistiche?
+  \item Come sono distribuiti i collegamenti nella rete?
   \item Quali sono i pattern di collaborazione prevalenti? Gli artisti tendono a
-        collaborare con colleghi simili a sé per grado di connessione, popolarità o
-        genere musicale?
-  \item Come si posiziona e relaziona la scena italiana con il panorama musicale
-        internazionale?
-\end{itemize}
+        collaborare con colleghi simili per grado di connessione, popolarità o genere
+        musicale?
+  \item Esistono comunità ben definite nella rete? Come si relazionano con i generi
+        musicali?
+  \item Quali strategie collaborative adottano gli artisti emergenti rispetto agli
+        artisti affermati?
+\end{enumerate}
 
 Per rispondere a questi interrogativi, lo studio applica un'ampia gamma di
-metriche e tecniche di analisi di rete a un dataset ricavato da Spotify, opportunamente
-arricchito con informazioni su nazionalità e genere degli artisti.
+metriche e tecniche di analisi di rete a un dataset ricavato da Spotify,
+opportunamente arricchito con informazioni su nazionalità e genere degli
+artisti.
 
 \section{Datasets}
 \label{datasets}
@@ -1071,10 +1078,22 @@ Qualitative analysis of the quantitative findings of the study.
 \section{Critique}
 \label{critique}
 
-Do you think your work solves the problem presented above? To which extent
-(completely, what parts)? Why? What could you have done differently to answer
-your research problems (e.g., gather data with additional information, build
-your model differently, apply alternative measures)?
+Nonostante l'analisi abbia prodotto risultati significativi e interpretabili, è
+importante riconoscere le principali limitazioni intrinseche al nostro
+approccio metodologico e ai dati utilizzati.
+
+\begin{itemize}[leftmargin=*]
+
+  \item \textbf{Dati parziali e limitati alla piattaforma}: Il dataset include esclusivamente collaborazioni registrate ufficialmente su Spotify, escludendo quelle avvenute su altre piattaforme (YouTube, SoundCloud, Bandcamp), in contesti live, o in forme non ufficiali. Ciò può portare a una sottostima della densità della rete, specialmente per generi underground o per artisti emergenti che operano al di fuori dei canali mainstream.
+
+  \item \textbf{Inferenza automatica degli attributi}: La nazionalità e il genere musicale sono stati assegnati tramite procedure automatizzate. Sebbene questo abbia massimizzato la copertura, può aver introdotto errori sistematici o semplificazioni eccessive.
+
+  \item \textbf{Analisi statica vs. dinamica}: La rete è stata trattata come un’istantanea fissa nel tempo. Un approccio longitudinale avrebbe permesso di studiare come le comunità si formano, come la centralità degli artisti cambia in risposta a eventi (uscita di un album, ingresso in classifica), e come le strategie collaborative si evolvono nelle diverse fasi della carriera.
+
+  \item \textbf{Semplicità del modello di rete}: Il grafo è monomodale (solo artisti) e non orientato, e non distingue tra collaborazioni occasionali e partnership stabili. Una rappresentazione più ricca, magari pesata in base al numero di tracce condivise o arricchita con metadati temporali, avrebbe permesso analisi più accurata.
+
+  \item \textbf{Limiti interpretativi dell'approccio strutturale}: L'analisi quantitativa identifica pattern di connessione, ma non ne svela le motivazioni profonde o il valore artistico. Ad esempio, possiamo misurare che un artista collega due comunità musicali, ma non sappiamo se si tratti di una scelta creativa consapevole, di una relazione personale, di una strategia commerciale. Senza integrare i dati strutturali con fonti qualitative, come interviste, analisi dei testi, ricostruzione dei contesti produttivi o dinamiche di mercato, le conclusioni sulle “strategie collaborative” o sul “ruolo sociale” degli artisti restano ipotesi plausibili ma non verificate.
+\end{itemize}
 
 \begin{thebibliography}{9}
 
