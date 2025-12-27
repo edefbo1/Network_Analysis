@@ -24,7 +24,7 @@
 \author{Federico , matricola 
 \\Federica Santisi, matricola
 \\Giorgia Pirelli, matricola}
-\date{Dicembre 2024}
+\date{Dicembre 2025}
 \title{Analisi delle Collaborazioni Musicali su Spotify: Una Prospettiva di Social Network Analysis}
 
 \begin{document}
@@ -59,48 +59,42 @@ strategiche, come si formano le comunità musicali e quali fattori influenzano
 il successo delle collaborazioni.
 
 Questo studio si concentra sull'analisi delle collaborazioni tra artisti su
-Spotify utilizzando un dataset che include artisti di diverse nazionalità, con
-particolare attenzione, ma non esclusiva, alla scena italiana. Tuttavia,
-l'analisi non si limita al contesto italiano. Per comprendere appieno le
-dinamiche delle collaborazioni musicali è necessario adottare una prospettiva
-globale, esaminando come gli artisti di diverse nazionalità interagiscano tra
-loro, quali siano i pattern di collaborazione transnazionale e come il successo
-in un mercato locale possa tradursi in visibilità internazionale. In
-particolare, è interessante analizzare se esistano "ponti" tra scene musicali
-diverse, quali artisti fungano da connettori tra mercati geograficamente e
-culturalmente distanti, e se determinati generi musicali siano più propensi
-alla collaborazione internazionale rispetto ad altri.
+Spotify, con un focus particolare sulla scena musicale italiana come caso di
+studio principale. L'Italia presenta un ecosistema musicale ricco e
+stratificato, caratterizzato da una forte tradizione melodica e cantautorale
+che convive con scene emergenti e dinamiche, come l'hip hop e la trap,
+particolarmente attive sul fronte delle collaborazioni. La scelta di
+focalizzarsi sul contesto italiano è motivata da diverse ragioni. In primo
+luogo, consente di esaminare in profondità le dinamiche collaborative
+all'interno di un mercato linguistico e culturale ben definito, dove la
+condivisione della lingua italiana può agire sia da fattore di coesione che da
+potenziale barriera per la diffusione internazionale. In secondo luogo, la
+scena musicale italiana contemporanea sta vivendo una fase di forte
+trasformazione e ibridazione, con generi un tempo considerati di nicchia che
+raggiungono oggi il grande pubblico, spesso proprio attraverso strategie
+collaborative. Infine, l'analisi del caso italiano offre l'opportunità di
+testare gli strumenti della SNA in un contesto complesso, dove convivono
+artisti di caratura internazionale, figure iconiche della storia della musica e
+una vivace scena indipendente.
 
-L'obiettivo di questo studio è quindi duplice: da un lato, fornire un'analisi
-approfondita della struttura della rete di collaborazioni musicali su Spotify,
-identificando pattern, comunità e artisti chiave; dall'altro, utilizzare questa
-analisi per rispondere a domande di ricerca specifiche relative alla popolarità
-degli artisti, alle strategie di collaborazione E all'identificazione di
-talenti emergenti.
-
-\section{Problem and Motivation}
-\label{problem-and-motivation}
-
-L'obiettivo principale di questo studio è comprendere le dinamiche delle
-collaborazioni musicali e il loro impatto sul successo e sulla visibilità degli
-artisti. In particolare, ci proponiamo di affrontare le seguenti questioni di
-ricerca:
-
-\begin{itemize}[leftmargin=*, itemsep=10pt]
-  \item \textbf{Identificazione del grado di popolarità degli artisti:} attraverso metriche di centralità (degree centrality, betweenness centrality, closeness centrality), si intende individuare quali artisti occupano posizioni strategiche nella rete delle collaborazioni. Un artista con alta degree centrality collabora con numerosi altri artisti, indicando una forte integrazione e un ruolo attivo nella scena musicale. Un artista con alta betweenness centrality funge da "ponte" tra diversi gruppi di artisti, potenzialmente collegando scene musicali o generi diversi e facilitando la circolazione di stili e influenze. L'obiettivo è verificare se e come queste metriche di centralità correlino con indicatori di successo commerciale quali il numero di follower su Spotify, gli stream totali e le presenze nelle classifiche globali, permettendo di comprendere se una posizione centrale nella rete di collaborazioni si traduca effettivamente in maggiore popolarità presso il pubblico.
-
-  \item \textbf{Propensione alle collaborazioni transnazionali:} si intende analizzare se e in che misura gli artisti tendano a collaborare prevalentemente con artisti della stessa nazionalità o se mostrino apertura verso collaborazioni internazionali. Questo aspetto è particolarmente rilevante per comprendere le dinamiche di globalizzazione della musica contemporanea. L'analisi mira a identificare eventuali barriere linguistiche, culturali o geografiche che limitano le collaborazioni transnazionali, e a verificare se determinati generi musicali (come il rap, la musica elettronica o il pop) favoriscano una maggiore apertura internazionale rispetto ad altri. Particolare attenzione sarà dedicata all'identificazione di artisti che fungono da "ambasciatori" culturali, connettendo la propria scena nazionale con mercati esteri e facilitando lo scambio artistico tra diverse aree geografiche.
-
-  \item \textbf{Identificazione di artisti emergenti tramite analisi di rete:} attraverso l'analisi della struttura della rete e l'evoluzione temporale delle metriche di centralità, si cercherà di identificare artisti emergenti, ovvero quelli che stanno rapidamente acquisendo rilevanza attraverso collaborazioni strategiche con artisti già affermati. Un artista emergente può essere caratterizzato da un pattern di crescita nelle collaborazioni con artisti di alto profilo, da un rapido incremento del numero di follower, o da una posizione nella rete che suggerisce un elevato potenziale di crescita futura. Questa analisi può fornire insights preziosi per l'industria musicale nell'identificare talenti prima che raggiungano il mainstream, permettendo a produttori e case discografiche di individuare opportunità di investimento promettenti.
-
-  \item \textbf{Diffusione internazionale e successo transnazionale:} si intende esaminare il grado di penetrazione degli artisti nei mercati esteri attraverso l'analisi delle presenze nelle classifiche internazionali (chart\_hits) e la distribuzione geografica del loro pubblico. L'obiettivo è identificare quali artisti e generi musicali abbiano maggiore appeal globale e comprendere i fattori che facilitano o ostacolano il successo internazionale. In particolare, si vuole verificare se il successo in un mercato domestico sia un prerequisito necessario per l'affermazione internazionale, o se esistano percorsi alternativi in cui artisti raggiungono popolarità all'estero prima di consolidarsi nel proprio paese d'origine. L'analisi permetterà inoltre di valutare quali generi musicali (rap/trap, pop, indie, cantautorale, elettronica) abbiano maggiore capacità di attraversare confini nazionali e in quali mercati geografici specifici ottengano maggiore successo.
-
-  \item \textbf{Inferenza di generi musicali attraverso pattern di collaborazione:} per gli artisti per cui manca l'informazione sul genere musicale nel dataset, si propone di inferirlo attraverso l'analisi sistematica delle loro collaborazioni. L'approccio si basa sul presupposto che artisti che collaborano frequentemente tendano a condividere generi musicali simili o compatibili, riflettendo affinità stilistiche e artistiche. Stabilendo una soglia minima di collaborazioni e applicando tecniche di classificazione basate sulla rete (ad esempio, analizzando i generi più frequenti tra i collaboratori di un artista), sarà possibile attribuire con ragionevole confidenza un genere musicale agli artisti non classificati. Questo metodo assume che, sebbene esistano collaborazioni cross-genre, queste siano meno frequenti rispetto alle collaborazioni intra-genre, e che quindi il "vicinato" di un artista nella rete fornisca informazioni significative sulla sua identità musicale.
-
-  \item \textbf{Generi musicali e propensione al successo internazionale:} si vuole identificare quali generi musicali mostrino maggiore propensione al successo sui mercati internazionali, analizzando sistematicamente la presenza nelle classifiche estere degli artisti appartenenti a ciascuna categoria di genere. L'analisi mira a comprendere se generi con forte connotazione linguistica e culturale (come il cantautorato italiano) siano strutturalmente svantaggiati rispetto a generi più "universali" come l'elettronica, il rap o il pop, o se al contrario l'autenticità e l'unicità culturale possano rappresentare un elemento distintivo che favorisce il successo in mercati di nicchia o presso specifici segmenti di pubblico. Particolare attenzione sarà dedicata all'identificazione di eventuali correlazioni tra caratteristiche del genere (presenza di testo, lingua, complessità musicale) e capacità di penetrazione internazionale.
-
-  \item \textbf{Community detection e caratterizzazione per macro-generi:} applicando algoritmi di community detection (come il metodo di Louvain o il metodo di Girvan-Newman) alla rete di collaborazioni, si intende identificare gruppi di artisti densamente connessi tra loro e analizzare come questi cluster si caratterizzino rispetto ai macro-generi musicali (pop/mainstream, rap/trap/urban, rock/indie, cantautorale, elettronica). L'obiettivo è verificare se le comunità rilevate algoritmicamente corrispondano effettivamente a raggruppamenti per genere musicale, o se emergano pattern più complessi influenzati da fattori geografici, generazionali, appartenenza a specifiche etichette discografiche o affiliazioni a particolari movimenti artistici. L'analisi delle connessioni inter-comunitarie può inoltre rivelare quali generi siano più aperti alla collaborazione cross-genre, quali artisti fungano da "ponti" tra comunità diverse facilitando la contaminazione stilistica, e se esistano barriere strutturali che limitano l'interazione tra determinate scene musicali.
+Attraverso una prospettiva di rete, questo lavoro mira a rispondere a domande
+fondamentali sul funzionamento dell'ecosistema musicale italiano:
+\begin{itemize}[leftmargin=*, itemsep=5pt]
+  \item Quali sono le caratteristiche strutturali fondamentali della rete di
+        collaborazioni musicali italiane su Spotify?
+  \item Chi sono gli artisti più centrali e influenti, e che tipo di ruolo strutturale
+        ricoprono?
+  \item Esistono comunità ben definite corrispondenti a generi o correnti artistiche?
+  \item Quali sono i pattern di collaborazione prevalenti? Gli artisti tendono a
+        collaborare con colleghi simili a sé per grado di connessione, popolarità o
+        genere musicale?
+  \item Come si posiziona e relaziona la scena italiana con il panorama musicale
+        internazionale?
 \end{itemize}
+
+Per rispondere a questi interrogativi, lo studio applica un'ampia gamma di
+metriche e tecniche di analisi di rete a un dataset ricavato da Spotify, opportunamente
+arricchito con informazioni su nazionalità e genere degli artisti.
 
 \section{Datasets}
 \label{datasets}
@@ -188,12 +182,12 @@ le successive analisi di rete e di comunità artistiche.
 \section{Validity and Reliability}
 \label{validity-and-reliability-not-needed-for-the-project-proposal}
 
-The initial dataset is derived
-from the Spotify API and pre-processed to explicitly model collaboration
-relationships among artists, providing a reasonable approximation of actual
-musical interactions on the platform. However, the dataset reflects Spotify’s
-ecosystem and temporal snapshot, and therefore may not capture collaborations
-occurring outside the platform or informal artistic relationships.
+The initial dataset is derived from the Spotify API and pre-processed to
+explicitly model collaboration relationships among artists, providing a
+reasonable approximation of actual musical interactions on the platform.
+However, the dataset reflects Spotify’s ecosystem and temporal snapshot, and
+therefore may not capture collaborations occurring outside the platform or
+informal artistic relationships.
 
 Additional artist-level attributes, such as nationality and dominant musical
 genre, were introduced to support higher-level social and cultural analyses.
@@ -215,12 +209,11 @@ deterministic rules or documented heuristics, ensuring that the analysis is
 reproducible given the same inputs and parameters. External data sources and
 AI-assisted mappings represent potential sources of variability; however, their
 use was constrained to well-defined stages and applied consistently across the
-dataset. Overall, the adopted methodology yields a dataset that is both valid and
-reliable for social network analysis, as it is grounded in authoritative data
-sources, enriched through controlled and well-documented procedures, and
+dataset. Overall, the adopted methodology yields a dataset that is both valid
+and reliable for social network analysis, as it is grounded in authoritative
+data sources, enriched through controlled and well-documented procedures, and
 constructed to balance descriptive accuracy with reproducibility, making it a
 solid foundation for the subsequent network and community analyses.
-
 
 \section{Misure e Risultati}
 \label{measures}
@@ -284,13 +277,12 @@ Sia il \textbf{grado massimo} che il \textbf{grado medio} dei nodi sono stati
 calcolati per valutare la connettività globale della rete e per quantificare
 l'intensità dell'attività collaborativa degli artisti. La \textbf{densità}
 della rete è stata calcolata per misurare la sua coesione complessiva. Il
-\textbf{diametro} (lunghezza massima del percorso geodetico) e la
-\textbf{lunghezza media del percorso più breve} forniscono una valutazione
-dell'efficienza del flusso di informazioni e indicano la facilità con cui gli
-artisti possono essere raggiunti gli uni attraverso gli altri. Infine, il
-\textbf{coefficiente di clustering medio} e la \textbf{transitività} sono stati
-calcolati per misurare la coesione locale della rete e la tendenza alla
-formazione di gruppi strettamente connessi.
+\textbf{diametro} e la \textbf{lunghezza media del percorso più breve}
+forniscono una valutazione dell'efficienza del flusso di informazioni e
+indicano la facilità con cui gli artisti possono essere raggiunti gli uni
+attraverso gli altri. Infine, il \textbf{coefficiente di clustering medio} e la
+\textbf{transitività} sono stati calcolati per misurare la coesione locale
+della rete e la tendenza alla formazione di gruppi strettamente connessi.
 
 \begin{table}[h]
   \centering
@@ -298,18 +290,18 @@ formazione di gruppi strettamente connessi.
   \label{tab:metrics_italia}
   \begin{tabular}{|l|c|}
     \hline
-    \textbf{Parametro}                         & \textbf{Valore} \\
+    \textbf{Parametro}                     & \textbf{Valore} \\
     \hline
-    Nodi totali (artisti)                      & 1.656           \\
-    Archi totali (collaborazioni)              & 4.307           \\
-    Componenti connesse                        & 16              \\
-    Grado massimo del nodo                     & 114             \\
-    Grado medio del nodo                       & 5.20            \\
-    Densità                                    & 0.00314         \\
-    Diametro                                   & 10              \\
-    Lunghezza media del percorso più breve     & 4.14            \\
-    Coefficiente di clustering medio           & 0.119           \\
-    Transitività                               & 0.128           \\
+    Nodi totali (artisti)                  & 1.656           \\
+    Archi totali (collaborazioni)          & 4.307           \\
+    Componenti connesse                    & 16              \\
+    Grado massimo del nodo                 & 114             \\
+    Grado medio del nodo                   & 5.20            \\
+    Densità                                & 0.00314         \\
+    Diametro                               & 10              \\
+    Lunghezza media del percorso più breve & 4.14            \\
+    Coefficiente di clustering medio       & 0.119           \\
+    Transitività                           & 0.128           \\
     \hline
   \end{tabular}
 \end{table}
@@ -322,13 +314,11 @@ eterogenea: la presenza di un nodo con grado 114 rivela un \textit{hub} di
 importanza centrale, mentre il 54.6\% degli artisti presenta un grado pari a 1,
 collaborando dunque con un solo altro artista. La densità estremamente bassa
 (circa lo 0.31\% delle possibili connessioni è realizzata) conferma la natura
-\textbf{sparsa} della rete.
-
-Nonostante la bassa densità, la rete presenta una lunghezza media del percorso
-contenuta (4.14), indicando che gli artisti sono collegati attraverso poche
-collaborazioni intermedie. Il diametro pari a 10 conferma che anche gli artisti
-più distanti nella rete possono essere raggiunti attraverso un numero limitato
-di passaggi.
+\textbf{sparsa} della rete. Il diametro della rete è pari a 10, indicando che
+due artisti qualsiasi possono essere collegati attraverso al massimo 10
+collaborazioni intermedie. Nonostante la bassa densità, la rete presenta una
+lunghezza media del percorso contenuta (4.14), indicando che gli artisti sono
+collegati attraverso poche collaborazioni intermedie.
 
 I valori del coefficiente di clustering medio (0.119) e della transitività
 (0.128) sono moderati e tra loro vicini. Ciò indica una tendenza misurabile,
@@ -376,11 +366,20 @@ evidenziando modelli distinti di collaborazione musicale:
   \item \textbf{Grecia}: Ha il \textbf{average clustering coefficient} più alto d'Europa (0.183) e un ottimo \textbf{average degree} (5.47). Con soli 4 \textbf{connected components}, è una delle reti meglio integrate.
 
   \item \textbf{Regno Unito}: Nonostante le dimensioni maggiori (3.290 artisti), presenta il \textbf{average clustering coefficient} più basso (0.062) e la frammentazione più alta (70 \textbf{connected components}), riflettendo un mercato vasto ma segmentato.
+        Presenta anche una densità di rete significativamente più bassa
+        (0.001392) rispetto a quella osservata per l'Italia (0.003143). Tale differenza
+        riflette due configurazioni strutturali distinte: da un lato, una rete
+        britannica estesa ma caratterizzata da un'elevata dispersione delle relazioni
+        collaborative; dall'altro, un ecosistema italiano di dimensioni più contenute
+        ma relativamente più denso e coeso.
+
 \end{enumerate}
 
 \subsubsection{Analisi Multidimensionale e Interpretazione dei Pattern Europei}
 
-L'analisi multidimensionale sintetizza tre aspetti critici della struttura delle reti europee: dimensione, intensità collaborativa e relazione tra queste variabili.
+L'analisi multidimensionale sintetizza tre aspetti critici della struttura
+delle reti europee: dimensione, intensità collaborativa e relazione tra queste
+variabili.
 
 \begin{figure}[htbp]
   \centering
@@ -389,19 +388,9 @@ L'analisi multidimensionale sintetizza tre aspetti critici della struttura delle
   \label{fig:network_analysis_eu}
 \end{figure}
 
-L'istogramma a sinistra descrive la distribuzione del numero di artisti tra i
-paesi europei, con valori che vanno da poche centinaia a diverse migliaia.
-
-Il \textbf{Regno Unito} emerge come il sistema di maggiori dimensioni, con
-3.290 artisti, ma presenta una densità di rete significativamente più bassa
-(0.001392) rispetto a quella osservata per l'Italia (0.003143). Tale differenza
-riflette due configurazioni strutturali distinte: da un lato, una rete
-britannica estesa ma caratterizzata da un'elevata dispersione delle relazioni
-collaborative; dall'altro, un ecosistema italiano di dimensioni più contenute
-ma relativamente più denso e coeso.
-
-L'istogramma al centro visualizza il numero totale di collaborazioni per i
-primi 15 paesi.
+Gli istogrammi presentano i primi 15 paesi europei per due metriche distinte: a
+sinistra il numero di artisti, al centro il numero totale di collaborazioni,
+nel quale si notano:
 
 \begin{itemize}
   \item Il \textbf{Regno Unito} (7.532 collaborazioni) e la \textbf{Germania} (5.927)
@@ -446,10 +435,10 @@ presentano un'attività collaborativa più contenuta.
 
 \begin{itemize}
   \item I paesi che si collocano \textbf{sopra la retta di regressione} (Paesi Bassi,
-        Polonia, Grecia) rappresentano ecosistemi ``iper-collaborativi'', dove il
-        volume di interazioni supera sistematicamente le aspettative date le
-        dimensioni. Questi sistemi sono tipicamente caratterizzati da alti valori di
-        densità e coefficiente di clustering.
+        Polonia, Grecia) rappresentano ecosistemi iper-collaborativi, dove il volume di
+        interazioni supera sistematicamente le aspettative date le dimensioni. Questi
+        sistemi sono tipicamente caratterizzati da alti valori di densità e
+        coefficiente di clustering.
 
   \item I paesi \textbf{prossimi alla retta} (Italia, Francia, Germania, Regno Unito)
         seguono una relazione approssimativamente lineare, mostrando una scalabilità
@@ -729,10 +718,10 @@ artisti meno centrali o più periferici rispetto al nucleo principale della
 rete.
 
 \begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/eigenvector.pdf}
-    \caption{Caption}
-    \label{fig:placeholder}
+  \centering
+  \includegraphics[width=0.5\linewidth]{images/eigenvector.pdf}
+  \caption{Caption}
+  \label{fig:placeholder}
 \end{figure}
 
 \paragraph{Closeness Centrality} (NON MI CONVINCE)
@@ -981,31 +970,28 @@ community.
 
 \noindent
 \begin{minipage}[t]{0.55\textwidth}
-\setlength{\parindent}{0pt}
-The Louvain algorithm identified a total of 34 communities, revealing a
-relatively fragmented network structure. Several communities exhibit a high
-degree of genre homogeneity, particularly for the \emph{Hip Hop / Rap} and
-\emph{Pop} macro-genres, with purity values exceeding 0.6 and reaching 1.0 in
-smaller clusters. At the same time, many communities show a mixed composition,
-with multiple dominant macro-genres coexisting. This behavior is visually
-reflected in the community layout produced by the Louvain algorithm in Gephi
-(Figure~\ref{fig:louvain}), where dense, genre-centered clusters coexist with
-more diffuse, heterogeneous structures. Overall, this indicates that artist
-collaborations are not strictly constrained by genre boundaries, especially
-within larger communities where cross-genre interactions are more frequent.
+  \setlength{\parindent}{0pt}
+  The Louvain algorithm identified a total of 34 communities, revealing a
+  relatively fragmented network structure. Several communities exhibit a high
+  degree of genre homogeneity, particularly for the \emph{Hip Hop / Rap} and
+  \emph{Pop} macro-genres, with purity values exceeding 0.6 and reaching 1.0 in
+  smaller clusters. At the same time, many communities show a mixed composition,
+  with multiple dominant macro-genres coexisting. This behavior is visually
+  reflected in the community layout produced by the Louvain algorithm in Gephi
+  (Figure~\ref{fig:louvain}), where dense, genre-centered clusters coexist with
+  more diffuse, heterogeneous structures. Overall, this indicates that artist
+  collaborations are not strictly constrained by genre boundaries, especially
+  within larger communities where cross-genre interactions are more frequent.
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.40\textwidth}
-\centering
-\vspace{0pt}
-\includegraphics[width=\linewidth]{images/louvain.pdf}
-\captionof{figure}{Community structure obtained by applying the Louvain
-algorithm in Gephi.}
-\label{fig:louvain}
+  \centering
+  \vspace{0pt}
+  \includegraphics[width=\linewidth]{images/louvain.pdf}
+  \captionof{figure}{Community structure obtained by applying the Louvain
+    algorithm in Gephi.}
+  \label{fig:louvain}
 \end{minipage}
-
-
-
 
 \subsubsection*{Louvain versus Genre Assortativity}
 The community detection results can be interpreted using genre assortativity
@@ -1015,49 +1001,48 @@ to collaborate within the same or closely related macro-genres. This behavior
 is reflected in the Louvain partition, which identifies high-purity communities,
 particularly for \emph{Hip Hop / Rap} and \emph{Pop}.
 
-The moderate modularity value ($Q = 0.2987$) suggests that genre does not induce
-a strong structural separation of the network. Several communities exhibit a
-mixed genre composition, especially in the Edge Betweenness partition, where
-genre purity is often below $0.5$. This pattern is explained by the presence of
-numerous cross-genre collaborations, notably between \emph{Hip Hop / Rap} and
-\emph{Pop}, which act as structural bridges and limit overall modularity.
+The moderate modularity value ($Q = 0.2987$) suggests that genre does not
+induce a strong structural separation of the network. Several communities
+exhibit a mixed genre composition, especially in the Edge Betweenness
+partition, where genre purity is often below $0.5$. This pattern is explained
+by the presence of numerous cross-genre collaborations, notably between
+\emph{Hip Hop / Rap} and \emph{Pop}, which act as structural bridges and limit
+overall modularity.
 
 Overall, the network displays a pattern of \emph{selective mixing}: local
 genre-based homophily coexists with cross-genre ties, resulting in a structure
 that is both cohesive and interconnected.
 
-
 \subsubsection*{Edge Betweenness}
 The Edge Betweenness (Girvan--Newman) algorithm produced 17 communities, resulting in a coarser partitioning of the network compared to the Louvain method. The identified communities are generally less pure, with genre purity values frequently below 0.5, particularly in larger clusters dominated by \emph{Pop} and \emph{Hip Hop / Rap}. This outcome indicates that the iterative removal of highly central edges tends to group together artists from different macro-genres, emphasizing the presence of bridge nodes and inter-genre collaborations rather than a clear separation based on musical genre.
-
 
 \subsubsection{Degree Distribution}
 
 \noindent
 \begin{minipage}[t]{0.55\textwidth}
-\setlength{\parindent}{0pt}
-The analysis of the degree distribution provides insight into the global
-structure of the artist collaboration network. The minimum degree of 1 reflects
-the presence of artists involved in a single collaboration, while the maximum
-degree of 114 highlights a small set of highly connected nodes acting as hubs.
-The average degree of 5.20 indicates an overall sparse network.
+  \setlength{\parindent}{0pt}
+  The analysis of the degree distribution provides insight into the global
+  structure of the artist collaboration network. The minimum degree of 1 reflects
+  the presence of artists involved in a single collaboration, while the maximum
+  degree of 114 highlights a small set of highly connected nodes acting as hubs.
+  The average degree of 5.20 indicates an overall sparse network.
 
-This heterogeneous connectivity pattern is clearly visible in the Gephi
-visualization (Figure~\ref{fig:degree_gephi}), where node size is proportional
-to degree. A large number of small nodes coexist with a few prominent hubs,
-suggesting a strongly right-skewed distribution. This structure is typical of
-complex networks, in which highly connected nodes play a central role in
-maintaining global connectivity and facilitating interactions across different
-regions of the network, potentially spanning multiple musical genres.
+  This heterogeneous connectivity pattern is clearly visible in the Gephi
+  visualization (Figure~\ref{fig:degree_gephi}), where node size is proportional
+  to degree. A large number of small nodes coexist with a few prominent hubs,
+  suggesting a strongly right-skewed distribution. This structure is typical of
+  complex networks, in which highly connected nodes play a central role in
+  maintaining global connectivity and facilitating interactions across different
+  regions of the network, potentially spanning multiple musical genres.
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.40\textwidth}
-\centering
-\vspace{0pt}
-\includegraphics[width=\linewidth]{images/degree.pdf}
-\captionof{figure}{Artist collaboration network visualized in Gephi with node
-size proportional to degree.}
-\label{fig:degree_gephi}
+  \centering
+  \vspace{0pt}
+  \includegraphics[width=\linewidth]{images/degree.pdf}
+  \captionof{figure}{Artist collaboration network visualized in Gephi with node
+    size proportional to degree.}
+  \label{fig:degree_gephi}
 \end{minipage}
 
 \vspace{1em}
@@ -1072,12 +1057,11 @@ size proportional to degree.}
     \includegraphics[width=0.48\textwidth]{images/DDLG.png}
   }
   \caption{Degree distribution of the artist collaboration network.
-  The linear-scale histogram highlights the high concentration of low-degree
-  nodes, while the logarithmic-scale representation emphasizes the long-tailed
-  behavior induced by a small number of highly connected artists.}
+    The linear-scale histogram highlights the high concentration of low-degree
+    nodes, while the logarithmic-scale representation emphasizes the long-tailed
+    behavior induced by a small number of highly connected artists.}
   \label{fig:degree_distribution}
 \end{figure}
-
 
 \section{Conclusion}
 \label{conclusion}
@@ -1094,33 +1078,33 @@ your model differently, apply alternative measures)?
 
 \begin{thebibliography}{9}
 
-\bibitem{project-repo}
-\textit{Network Analysis Project Repository},
-GitHub,
-\url{https://github.com/edefbo1/Network_Analysis.git}
+  \bibitem{project-repo}
+  \textit{Network Analysis Project Repository},
+  GitHub,
+  \url{https://github.com/edefbo1/Network_Analysis.git}
 
-\bibitem{gephi}
-Gephi Consortium,
-\textit{Gephi: an open source graph visualization and analysis software},
-Gephi.org,
-\url{https://gephi.org/}
+  \bibitem{gephi}
+  Gephi Consortium,
+  \textit{Gephi: an open source graph visualization and analysis software},
+  Gephi.org,
+  \url{https://gephi.org/}
 
-\bibitem{networkx}
-\textit{NetworkX Documentation and Tutorial},
-NetworkX.org,
-\url{https://networkx.org/documentation/stable/tutorial.html}
+  \bibitem{networkx}
+  \textit{NetworkX Documentation and Tutorial},
+  NetworkX.org,
+  \url{https://networkx.org/documentation/stable/tutorial.html}
 
-\bibitem{kaggle-dataset}
-J. Freyberg,
-\textit{Spotify Artist Feature Collaboration Network},
-Kaggle Dataset,
-\url{https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network/}
+  \bibitem{kaggle-dataset}
+  J. Freyberg,
+  \textit{Spotify Artist Feature Collaboration Network},
+  Kaggle Dataset,
+  \url{https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network/}
 
-\bibitem{musicbrainz}
-MusicBrainz Foundation,
-\textit{MusicBrainz Database — Download and Documentation},
-MusicBrainz.org,
-\url{https://musicbrainz.org/doc/MusicBrainz_Database/Download}
+  \bibitem{musicbrainz}
+  MusicBrainz Foundation,
+  \textit{MusicBrainz Database — Download and Documentation},
+  MusicBrainz.org,
+  \url{https://musicbrainz.org/doc/MusicBrainz_Database/Download}
 
 \end{thebibliography}
 
