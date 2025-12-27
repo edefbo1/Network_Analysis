@@ -107,7 +107,7 @@ ricerca:
 
 The initial dataset used for this analysis was downloaded from
 \href{https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network}{Spotify
-  Artist Feature \& Collaboration Network} \cite{spotify_kaggle}. After careful
+  Artist Feature \& Collaboration Network} \cite{kaggle-dataset}. After careful
 inspection, it was considered a reliable source, as it is derived from publicly
 available data provided by the Spotify API and already pre-processed to
 represent collaboration relationships among artists.
@@ -146,7 +146,7 @@ adopted:
         In the first approach, nationality was inferred by analyzing the associated musical genres. For instance, an artist labeled with the genre \texttt{italian hip hop} was classified as \emph{Italian}. This method allowed the automatic assignment of nationality to a substantial subset of artists; however, it was not applicable in all cases, as many genres do not contain explicit geographical references.
 
   \item \textbf{Completion using an external dataset (MusicBrainz).}
-        For artists whose nationality could not be inferred in the first step, data from the \texttt{MusicBrainz Dump (mbdump)} \cite{musicbrainz_db} were integrated. A direct matching based solely on artist names posed significant challenges due to the presence of homonyms with different nationalities. To mitigate this issue, the integration was performed exclusively on artists that remained unclassified after the first inference step, thereby improving overall precision and preserving data consistency.
+        For artists whose nationality could not be inferred in the first step, data from the \texttt{MusicBrainz Dump (mbdump)} \cite{musicbrainz} were integrated. A direct matching based solely on artist names posed significant challenges due to the presence of homonyms with different nationalities. To mitigate this issue, the integration was performed exclusively on artists that remained unclassified after the first inference step, thereby improving overall precision and preserving data consistency.
 \end{enumerate}
 
 This hybrid procedure increased the coverage of nationality information and
@@ -184,12 +184,43 @@ consistente dal punto di vista dei generi musicali, riducendo al minimo le
 assegnazioni arbitrarie e sfruttando in modo integrato informazioni semantiche,
 strutturali e quantitative. Il risultato finale costituisce una base solida per
 le successive analisi di rete e di comunità artistiche.
-\section{Validità e Affidabilità}
+
+\section{Validity and Reliability}
 \label{validity-and-reliability-not-needed-for-the-project-proposal}
 
-How closely does the model of your dataset represent reality (validity)? How
-does the way you treat the data affect the reproducibility of the study
-(reliability)?
+The initial dataset is derived
+from the Spotify API and pre-processed to explicitly model collaboration
+relationships among artists, providing a reasonable approximation of actual
+musical interactions on the platform. However, the dataset reflects Spotify’s
+ecosystem and temporal snapshot, and therefore may not capture collaborations
+occurring outside the platform or informal artistic relationships.
+
+Additional artist-level attributes, such as nationality and dominant musical
+genre, were introduced to support higher-level social and cultural analyses.
+Nationality was inferred using a hybrid approach combining genre-based cues and
+external data from MusicBrainz, applied selectively to reduce ambiguity due to
+artist name homonyms. While this procedure increases coverage and interpretive
+power, it introduces a degree of uncertainty, particularly for artists whose
+identity or geographic origin is weakly signaled by available metadata.
+
+Similarly, musical genres were consolidated into a limited set of
+macro-categories through a multi-step process involving rule-based mapping,
+AI-assisted classification, and network-based inference. This approach improves
+comparability and completeness, but necessarily abstracts away finer-grained
+genre distinctions and may propagate local biases through collaboration-based
+inference.
+
+Regarding reliability, all data processing and enrichment steps follow
+deterministic rules or documented heuristics, ensuring that the analysis is
+reproducible given the same inputs and parameters. External data sources and
+AI-assisted mappings represent potential sources of variability; however, their
+use was constrained to well-defined stages and applied consistently across the
+dataset. Overall, the adopted methodology yields a dataset that is both valid and
+reliable for social network analysis, as it is grounded in authoritative data
+sources, enriched through controlled and well-documented procedures, and
+constructed to balance descriptive accuracy with reproducibility, making it a
+solid foundation for the subsequent network and community analyses.
+
 
 \section{Misure e Risultati}
 \label{measures}
@@ -697,6 +728,13 @@ classifica, suggerendo che le sue collaborazioni coinvolgono prevalentemente
 artisti meno centrali o più periferici rispetto al nucleo principale della
 rete.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/eigenvector.pdf}
+    \caption{Caption}
+    \label{fig:placeholder}
+\end{figure}
+
 \paragraph{Closeness Centrality} (NON MI CONVINCE)
 La \textbf{closeness centrality} misura la vicinanza di un nodo rispetto a tutti gli altri nodi della rete, calcolando l'inverso della distanza media basata sui cammini minimi. Un artista con elevata closeness centrality può raggiungere rapidamente qualsiasi altro artista nella rete attraverso un numero limitato di intermediari.
 
@@ -938,73 +976,91 @@ approach, both the number of detected communities and their genre homogeneity
 were evaluated by measuring the purity of the dominant macro-genre within each
 community.
 
+\noindent
 \subsubsection*{Louvain}
-The Louvain algorithm identified a total of 34 communities, revealing a relatively fragmented network structure. Several communities exhibit a notable degree of genre homogeneity, particularly for the \emph{Hip Hop / Rap} and \emph{Pop} macro-genres, with purity values exceeding 0.6 in some cases and reaching 1.0 in smaller communities. Nevertheless, a substantial number of communities display a mixed composition, characterized by the coexistence of multiple dominant macro-genres. This suggests that artist collaborations are not strictly constrained by genre boundaries, especially within larger clusters, where cross-genre interactions appear to be more prevalent.
 
-\subsubsection*{Analysis with Section 2.2.3}
-\subsubsection*{Analysis with Section 2.2.3}
+\noindent
+\begin{minipage}[t]{0.55\textwidth}
+\setlength{\parindent}{0pt}
+The Louvain algorithm identified a total of 34 communities, revealing a
+relatively fragmented network structure. Several communities exhibit a high
+degree of genre homogeneity, particularly for the \emph{Hip Hop / Rap} and
+\emph{Pop} macro-genres, with purity values exceeding 0.6 and reaching 1.0 in
+smaller clusters. At the same time, many communities show a mixed composition,
+with multiple dominant macro-genres coexisting. This behavior is visually
+reflected in the community layout produced by the Louvain algorithm in Gephi
+(Figure~\ref{fig:louvain}), where dense, genre-centered clusters coexist with
+more diffuse, heterogeneous structures. Overall, this indicates that artist
+collaborations are not strictly constrained by genre boundaries, especially
+within larger communities where cross-genre interactions are more frequent.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.40\textwidth}
+\centering
+\vspace{0pt}
+\includegraphics[width=\linewidth]{images/louvain.pdf}
+\captionof{figure}{Community structure obtained by applying the Louvain
+algorithm in Gephi.}
+\label{fig:louvain}
+\end{minipage}
 
-The results of the community detection analysis can be further interpreted in
-light of the genre assortativity and modularity measures discussed in Section
-2.2.3. The genre assortativity coefficient of \textbf{0.4778} indicates a
-strong tendency for artists to collaborate with others belonging to the same or
-closely related macro-genres. This finding is coherent with the presence of
-several high-purity communities identified by the Louvain algorithm,
-particularly for \emph{Hip Hop / Rap} and \emph{Pop}, where intra-genre
-collaborations dominate and small, highly homogeneous clusters emerge.
 
-At the same time, the modularity value of \textbf{Q = 0.2987}, classified as
-moderate, provides a structural explanation for the mixed composition observed
-in many communities. While genre clearly influences collaboration patterns, it
-does not induce a rigid compartmentalization of the network. This is reflected
-in the Louvain results by the existence of larger communities characterized by
-multiple dominant macro-genres, and even more clearly in the Edge Betweenness
-partition, where genre purity frequently falls below 0.5. These outcomes are
-consistent with a network in which genre-based affinity coexists with a
-substantial number of cross-genre ties.
 
-The analysis of the most frequent genre pairs (Table~\ref{tab:genre-pairs})
-supports this interpretation. The very high number of intra-genre
-collaborations within \emph{Hip Hop / Rap} and \emph{Pop} explains both the
-positive assortativity and the formation of cohesive genre-centered
-communities. However, the strong presence of cross-genre collaborations,
-especially between \emph{Hip Hop / Rap} and \emph{Pop} (596 collaborations),
-acts as a structural bridge that limits the overall modularity and promotes
-inter-community connectivity. This bridging role helps explain why community
-detection algorithms, particularly Edge Betweenness, tend to aggregate artists
-from different macro-genres into the same clusters.
 
-Overall, the combined evidence from community detection, assortativity, and
-modularity points to a pattern of \emph{selective mixing}: collaborations are
-preferentially intra-genre, generating cohesive substructures, but a set of
-well-established cross-genre connections prevents the emergence of isolated
-genre-based components. In the context of the Italian music scene, this results
-in a network that is both specialized and interconnected, where dominant genres
-such as hip hop and pop function simultaneously as cohesive communities and as
-connective hubs across stylistic boundaries.
+\subsubsection*{Louvain versus Genre Assortativity}
+The community detection results can be interpreted using genre assortativity
+and modularity measures. The genre assortativity coefficient
+($r = 0.4778$) indicates a clear homophilic tendency, with artists more likely
+to collaborate within the same or closely related macro-genres. This behavior
+is reflected in the Louvain partition, which identifies high-purity communities,
+particularly for \emph{Hip Hop / Rap} and \emph{Pop}.
+
+The moderate modularity value ($Q = 0.2987$) suggests that genre does not induce
+a strong structural separation of the network. Several communities exhibit a
+mixed genre composition, especially in the Edge Betweenness partition, where
+genre purity is often below $0.5$. This pattern is explained by the presence of
+numerous cross-genre collaborations, notably between \emph{Hip Hop / Rap} and
+\emph{Pop}, which act as structural bridges and limit overall modularity.
+
+Overall, the network displays a pattern of \emph{selective mixing}: local
+genre-based homophily coexists with cross-genre ties, resulting in a structure
+that is both cohesive and interconnected.
+
 
 \subsubsection*{Edge Betweenness}
 The Edge Betweenness (Girvan--Newman) algorithm produced 17 communities, resulting in a coarser partitioning of the network compared to the Louvain method. The identified communities are generally less pure, with genre purity values frequently below 0.5, particularly in larger clusters dominated by \emph{Pop} and \emph{Hip Hop / Rap}. This outcome indicates that the iterative removal of highly central edges tends to group together artists from different macro-genres, emphasizing the presence of bridge nodes and inter-genre collaborations rather than a clear separation based on musical genre.
 
-\subsubsection{Degree Distribution}
-The analysis of the degree distribution of the artist collaboration network
-provides relevant insights into the global structure of the graph. The minimum
-degree of 1 indicates the presence of artists involved in a single
-collaboration, while the maximum degree of 114 highlights the existence of a
-small number of highly connected nodes acting as hubs within the network. The
-average degree, equal to 5.20, suggests that the network is overall sparse,
-with most artists collaborating with only a limited number of peers.
 
-As shown in Figure~\ref{fig:degree_distribution}, the degree distribution,
-examined both on a linear scale (Figure~\ref{fig:dd_linear}) and a logarithmic
-scale (Figure~\ref{fig:dd_log}), exhibits a strongly right-skewed shape with a
-pronounced long tail. This behavior is characteristic of complex, scale-free or
-otherwise heterogeneous networks, where many low-degree nodes coexist with a
-few extremely high-degree nodes. In the musical context, this reflects a system
-in which most artists engage in occasional collaborations, while a restricted
-set of central artists concentrates a large number of collaborations, acting as
-key connectors across different regions of the network and potentially across
-distinct musical genres.
+\subsubsection{Degree Distribution}
+
+\noindent
+\begin{minipage}[t]{0.55\textwidth}
+\setlength{\parindent}{0pt}
+The analysis of the degree distribution provides insight into the global
+structure of the artist collaboration network. The minimum degree of 1 reflects
+the presence of artists involved in a single collaboration, while the maximum
+degree of 114 highlights a small set of highly connected nodes acting as hubs.
+The average degree of 5.20 indicates an overall sparse network.
+
+This heterogeneous connectivity pattern is clearly visible in the Gephi
+visualization (Figure~\ref{fig:degree_gephi}), where node size is proportional
+to degree. A large number of small nodes coexist with a few prominent hubs,
+suggesting a strongly right-skewed distribution. This structure is typical of
+complex networks, in which highly connected nodes play a central role in
+maintaining global connectivity and facilitating interactions across different
+regions of the network, potentially spanning multiple musical genres.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.40\textwidth}
+\centering
+\vspace{0pt}
+\includegraphics[width=\linewidth]{images/degree.pdf}
+\captionof{figure}{Artist collaboration network visualized in Gephi with node
+size proportional to degree.}
+\label{fig:degree_gephi}
+\end{minipage}
+
+\vspace{1em}
 
 \begin{figure}[H]
   \centering
@@ -1016,11 +1072,12 @@ distinct musical genres.
     \includegraphics[width=0.48\textwidth]{images/DDLG.png}
   }
   \caption{Degree distribution of the artist collaboration network.
-    The linear-scale histogram highlights the strong concentration of low-degree nodes,
-    while the logarithmic-scale representation emphasizes the long-tailed behavior
-    caused by highly connected artists (hubs).}
+  The linear-scale histogram highlights the high concentration of low-degree
+  nodes, while the logarithmic-scale representation emphasizes the long-tailed
+  behavior induced by a small number of highly connected artists.}
   \label{fig:degree_distribution}
 \end{figure}
+
 
 \section{Conclusion}
 \label{conclusion}
@@ -1034,5 +1091,37 @@ Do you think your work solves the problem presented above? To which extent
 (completely, what parts)? Why? What could you have done differently to answer
 your research problems (e.g., gather data with additional information, build
 your model differently, apply alternative measures)?
+
+\begin{thebibliography}{9}
+
+\bibitem{project-repo}
+\textit{Network Analysis Project Repository},
+GitHub,
+\url{https://github.com/edefbo1/Network_Analysis.git}
+
+\bibitem{gephi}
+Gephi Consortium,
+\textit{Gephi: an open source graph visualization and analysis software},
+Gephi.org,
+\url{https://gephi.org/}
+
+\bibitem{networkx}
+\textit{NetworkX Documentation and Tutorial},
+NetworkX.org,
+\url{https://networkx.org/documentation/stable/tutorial.html}
+
+\bibitem{kaggle-dataset}
+J. Freyberg,
+\textit{Spotify Artist Feature Collaboration Network},
+Kaggle Dataset,
+\url{https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network/}
+
+\bibitem{musicbrainz}
+MusicBrainz Foundation,
+\textit{MusicBrainz Database — Download and Documentation},
+MusicBrainz.org,
+\url{https://musicbrainz.org/doc/MusicBrainz_Database/Download}
+
+\end{thebibliography}
 
 \end{document}
