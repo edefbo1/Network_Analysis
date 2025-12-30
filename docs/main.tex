@@ -15,68 +15,67 @@
 \usepackage{enumitem}
 \usepackage{subfig}
 \usepackage{titlesec}
-
 \setcounter{secnumdepth}{4} 
 \titleformat{\paragraph}
   {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
 \renewcommand{\theparagraph}{\thesubsubsection.\arabic{paragraph}}
 
 \begin{document}
+\title{Network Analysis of Musical Collaborations on Spotify: The Italian Music Scene}
+\author{Federico , matricola
+  \\Federica Santisi, matricola
+  \\Giorgia Pirelli, matricola}
+\date{December 2025}
 \maketitle
-
 \section{Introduction}
 \label{introduction}
 
-L'industria musicale ha subito trasformazioni radicali negli ultimi due
-decenni, passando da un modello tradizionale basato sulla vendita fisica di
-dischi a un ecosistema digitale dominato dalle piattaforme di streaming.
-Spotify, lanciato nel 2008, è diventato il principale servizio di streaming
-musicale a livello globale, con oltre 500 milioni di utenti attivi e un
-catalogo che supera i 100 milioni di brani.
+The music industry has undergone radical transformations in the last two
+decades, shifting from a traditional model based on physical record sales to a
+digital ecosystem dominated by streaming platforms. Spotify, launched in 2008,
+has become the leading global music streaming service, with over 500 million
+active users and a catalog exceeding 100 million tracks.
 
-In questo nuovo panorama, le collaborazioni musicali, comunemente note come
-"featuring", hanno assunto un ruolo centrale. Se in passato le collaborazioni
-erano eventi relativamente rari e spesso limitati a progetti speciali, oggi
-rappresentano una strategia fondamentale per artisti di ogni livello di
-popolarità. Le collaborazioni permettono agli artisti di raggiungere nuove
-audience, sperimentare con generi musicali diversi, aumentare la propria
-visibilità sulle piattaforme di streaming e creare connessioni strategiche
-all'interno dell'industria musicale.
+In this new landscape, musical collaborations, commonly known as "featurings,"
+have assumed a central role. Whereas in the past collaborations were relatively
+rare events often limited to special projects, today they represent a
+fundamental strategy for artists at every level of popularity. Collaborations
+enable artists to reach new audiences, experiment with different musical
+genres, increase their visibility on streaming platforms, and forge strategic
+connections within the music industry.
 
-La Social Network Analysis (SNA) offre strumenti metodologici potenti per
-studiare queste dinamiche relazionali. Rappresentando gli artisti come nodi e
-le loro collaborazioni come archi, è possibile costruire una rete che cattura
-la complessità delle interazioni nel panorama musicale contemporaneo.
+Social Network Analysis (SNA) offers powerful methodological tools for studying
+these relational dynamics. By representing artists as nodes and their
+collaborations as edges, it is possible to construct a network that captures
+the complexity of interactions in the contemporary musical landscape.
 
-Questo studio si concentra sull'analisi delle collaborazioni tra artisti su
-Spotify, con un focus particolare sulla scena musicale italiana come caso di
-studio principale.
+This study focuses on the analysis of collaborations among artists on Spotify,
+with a particular emphasis on the Italian music scene as the primary case
+study.
 
-\subsection*{Domande di Ricerca}
-Attraverso una prospettiva di rete, questo lavoro mira a rispondere a domande
-fondamentali sul funzionamento dell'ecosistema musicale italiano e il suo
-posizionamento nel contesto internazionale:
+\subsection*{Research Questions}
+Through a network perspective, this work aims to answer fundamental questions
+about the functioning of the Italian musical ecosystem and its positioning in
+the international context:
 \begin{enumerate}[leftmargin=*, itemsep=5pt]
-  \item Quali sono le caratteristiche strutturali fondamentali della rete di
-        collaborazioni musicali italiane su Spotify?
-  \item Come si posiziona la scena italiana rispetto ai principali paesi europei ed non
-        europei?
-  \item Chi sono gli artisti più centrali e influenti, e che tipo di ruolo strutturale
-        ricoprono?
-  \item Come sono distribuiti i collegamenti nella rete?
-  \item Quali sono i pattern di collaborazione prevalenti? Gli artisti tendono a
-        collaborare con colleghi simili per grado di connessione, popolarità o genere
-        musicale?
-  \item Esistono comunità ben definite nella rete? Come si relazionano con i generi
-        musicali?
-  \item Quali strategie collaborative adottano gli artisti emergenti rispetto agli
-        artisti affermati?
+  \item What are the fundamental structural characteristics of the Italian musical
+        collaboration network on Spotify?
+  \item How does the Italian scene position itself relative to major European and
+        non-European countries?
+  \item Who are the most central and influential artists, and what structural role do
+        they occupy?
+  \item How are connections distributed within the network?
+  \item What are the prevalent collaboration patterns? Do artists tend to collaborate
+        with peers similar in terms of connectivity, popularity, or musical genre?
+  \item Do well-defined communities exist in the network? How do they relate to musical
+        genres?
+  \item What collaborative strategies do emerging artists adopt compared to established
+        artists?
 \end{enumerate}
 
-Per rispondere a questi interrogativi, lo studio applica un'ampia gamma di
-metriche e tecniche di analisi di rete a un dataset ricavato da Spotify,
-opportunamente arricchito con informazioni su nazionalità e genere degli
-artisti.
+To address these questions, the study applies a wide range of network metrics
+and analysis techniques to a dataset derived from Spotify, appropriately
+enriched with information on artist nationality and genre.
 
 \section{Datasets}
 \label{datasets}
@@ -128,38 +127,36 @@ adopted:
 This hybrid procedure increased the coverage of nationality information and
 enabled a more accurate subsequent analysis, particularly when comparing
 artistic communities across different countries.
-
-\subsection{Aggiunta del genere artistico}
-Per associare uno o più generi musicali agli artisti del dataset, è stata
-progettata una procedura con l’obiettivo di massimizzare il numero di artisti
-con genere musicale assegnato, mantenendo al contempo coerenza e plausibilità
-semantica delle assegnazioni. Il processo si articola in più fasi successive,
-ciascuna delle quali interviene solo sugli artisti rimasti privi di genere nel
-passaggio precedente.
+\subsection{Addition of Musical Genre}
+To associate one or more musical genres with the artists in the dataset, a
+procedure was designed with the objective of maximizing the number of artists
+assigned a musical genre, while simultaneously maintaining the consistency and
+semantic plausibility of the assignments. The process unfolds across multiple
+successive stages, each intervening only on artists still lacking a genre from
+the previous step.
 
 \begin{itemize}
-  \item \textbf{Mappatura diretta dei generi Spotify.}
-        In una prima fase, i generi specifici forniti da Spotify (ad esempio \emph{italian pop}, \emph{alternative rock}, \emph{deep house}) sono stati normalizzati e ricondotti a un insieme limitato di \emph{macro-categorie} musicali (come \emph{Pop}, \emph{Rock}, \emph{Hip Hop / Rap}, \emph{Elettronica / Dance}, ecc.). Questa mappatura è stata realizzata tramite regole lessicali e keyword-based, consentendo di ridurre l’elevata frammentazione dei generi originali e di ottenere una rappresentazione più compatta e comparabile.
+  \item \textbf{Direct mapping of Spotify genres.}
+        In a first stage, the specific genres provided by Spotify (e.g., \emph{italian pop}, \emph{alternative rock}, \emph{deep house}) were normalized and mapped to a limited set of musical \emph{macro-categories} (such as \emph{Pop}, \emph{Rock}, \emph{Hip Hop / Rap}, \emph{Electronic / Dance}, etc.). This mapping was implemented through lexical and keyword-based rules, enabling the reduction of the high fragmentation of the original genres and yielding a more compact and comparable representation.
 
-  \item \textbf{Completamento assistito tramite AI.}
-        I generi che non risultavano mappabili automaticamente nella fase precedente (raccolti nella categoria \emph{Altri / Specifici}) sono stati estratti e forniti come input a un processo di classificazione assistito da intelligenza artificiale. L’AI ha ricondotto ciascun genere residuo a una delle macro-categorie musicali precedentemente definite, sulla base di similarità semantiche e conoscenza musicale generale. Le associazioni così ottenute sono state successivamente reintegrate nel dataset, consentendo di ridurre in modo significativo il numero di generi non classificati e di migliorare la copertura complessiva della mappatura, mantenendo coerenza con lo schema di categorizzazione adottato.
+  \item \textbf{AI-assisted completion.}
+        Genres that could not be automatically mapped in the previous stage (collected in the \emph{Others / Specific} category) were extracted and provided as input to an artificial intelligence-assisted classification process. The AI mapped each remaining genre to one of the previously defined musical macro-categories, based on semantic similarities and general musical knowledge. The associations obtained were subsequently reintegrated into the dataset, allowing for a significant reduction in the number of unclassified genres and an improvement in the overall mapping coverage, while maintaining consistency with the adopted categorization scheme.
 
-  \item \textbf{Inferenza tramite collaborazioni artistiche.}
-        Per gli artisti privi di genere dopo la mappatura diretta, è stato sfruttato il grafo delle collaborazioni. In particolare, sono stati assegnati i generi più frequenti tra i collaboratori diretti; qualora ciò non fosse sufficiente, l’inferenza è stata estesa tramite una ricerca BFS (Breadth-First Search) fino a tre livelli di distanza nella rete, selezionando i generi più ricorrenti nei nodi visitati.
+  \item \textbf{Inference via artistic collaborations.}
+        For artists still lacking a genre after direct mapping, the collaboration graph was leveraged. Specifically, the most frequent genres among their direct collaborators were assigned; if this was insufficient, the inference was extended through a Breadth-First Search (BFS) up to three levels of distance in the network, selecting the most recurrent genres among the visited nodes.
 
-  \item \textbf{Inferenza basata su metriche di popolarità.}
-        Gli artisti ancora non classificati sono stati analizzati in base a indicatori quantitativi come numero di follower e popolarità. Attraverso semplici euristiche derivate da pattern osservati nel dataset (ad esempio alta popolarità associata a generi mainstream), sono stati inferiti i generi più probabili.
+  \item \textbf{Inference based on popularity metrics.}
+        Artists still unclassified were analyzed based on quantitative indicators such as follower count and popularity. Through simple heuristics derived from patterns observed in the dataset (e.g., high popularity associated with mainstream genres), the most probable genres were inferred.
 
-  \item \textbf{Assegnazione di fallback globale.}
-        Infine, per i rari casi rimasti senza genere, è stato applicato un meccanismo di fallback basato sui generi globalmente più comuni nel dataset, garantendo che ogni artista fosse associato ad almeno una macro-categoria musicale.
-
+  \item \textbf{Global fallback assignment.}
+        Finally, for the rare cases still without a genre, a fallback mechanism based on the globally most common genres in the dataset was applied, ensuring that every artist was associated with at least one musical macro-category.
 \end{itemize}
 
-Questa strategia multilivello ha permesso di ottenere un dataset completo e
-consistente dal punto di vista dei generi musicali, riducendo al minimo le
-assegnazioni arbitrarie e sfruttando in modo integrato informazioni semantiche,
-strutturali e quantitative. Il risultato finale costituisce una base solida per
-le successive analisi di rete e di comunità artistiche.
+This multi-level strategy enabled the creation of a dataset that is complete
+and consistent from a musical genre perspective, minimizing arbitrary
+assignments and integrally exploiting semantic, structural, and quantitative
+information. The final result constitutes a solid foundation for the subsequent
+network and artistic community analyses.
 
 \section{Validity and Reliability}
 \label{validity-and-reliability-not-needed-for-the-project-proposal}
@@ -197,362 +194,461 @@ data sources, enriched through controlled and well-documented procedures, and
 constructed to balance descriptive accuracy with reproducibility, making it a
 solid foundation for the subsequent network and community analyses.
 
-\section{Misure e Risultati}
+\section{Measures and Results}
 \label{measures}
-In questa sezione si riassumono in modo sintetico le principali misure utilizzate, le tecnologie impiegate e il loro legame con gli obiettivi dello studio.
-\subsection*{Rappresentazione della rete}
+This section concisely summarizes the main measures used, the technologies employed, and their connection to the study's objectives.
+\subsection*{Network Representation}
 \begin{itemize}
-  \item Grafo non orientato $G = (V, E)$: nodi = artisti (\texttt{spotify\_id}), archi
-        = collaborazioni tra artisti presenti nelle tracce.
-  \item Implementazione in Python con \texttt{pandas} per i CSV dei nodi/archi e
-        \texttt{NetworkX} per la costruzione del grafo e il calcolo delle misure.
+  \item Undirected graph $G = (V, E)$: nodes = artists (\texttt{spotify\_id}), edges =
+        collaborations between artists present in tracks.
+  \item Python implementation using \texttt{pandas} for node/edge CSV files and
+        \texttt{NetworkX} for graph construction and measure calculation.
 \end{itemize}
 
-\subsection*{Misure di centralità}
+\subsection*{Centrality Measures}
 \begin{itemize}
-  \item \textbf{Degree centrality}: normalizza il numero di collaborazioni di ciascun artista, identifica gli hub più connessi e viene usata per selezionare i top artisti nel sottografo di analisi.
-  \item \textbf{Betweenness centrality}: misura quante volte un artista cade sui cammini minimi tra coppie di nodi, individuando i ``broker'' strutturali tra comunità e generi diversi.
-  \item \textbf{Closeness centrality}: inverso della distanza media da un artista a tutti gli altri, quantifica quanto rapidamente un artista può raggiungere il resto della rete.
-  \item \textbf{Eigenvector centrality}: assegna punteggi più alti agli artisti collegati ad altri artisti centrali, catturando l’appartenenza al ``core'' della scena.
+  \item \textbf{Degree centrality}: normalizes the number of collaborations for each artist, identifies the most connected hubs, and is used to select the top artists in the analysis subgraph.
+  \item \textbf{Betweenness centrality}: measures how often an artist lies on the shortest paths between pairs of nodes, identifying structural "brokers" between different communities and genres.
+  \item \textbf{Closeness centrality}: inverse of the average distance from an artist to all others, quantifies how quickly an artist can reach the rest of the network.
+  \item \textbf{Eigenvector centrality}: assigns higher scores to artists connected to other central artists, capturing membership in the scene's "core".
 \end{itemize}
 
-\subsection*{Community detection e bridge}
+\subsection*{Community Detection and Bridges}
 \begin{itemize}
-  \item \textbf{Louvain}: individua comunità massimizzando la modularità, permettendo di associare cluster strutturali a macro-generi, scene nazionali o gruppi di etichetta.
-  \item \textbf{Edge betweenness} e \textbf{constraint} di Burt: identificano rispettivamente collaborazioni-ponte tra comunità e artisti con accesso a \textit{structural holes}, fondamentali per la diffusione di stili e contenuti tra mondi diversi.
+  \item \textbf{Louvain}: identifies communities by maximizing modularity, allowing the association of structural clusters with macro-genres, national scenes, or label groups.
+  \item \textbf{Edge betweenness} and \textbf{Burt's constraint}: respectively identify bridge collaborations between communities and artists with access to \textit{structural holes}, fundamental for the diffusion of styles and content between different worlds.
 \end{itemize}
 
-\subsection*{Generi, nazionalità e successo}
+\subsection*{Genres, Nationality, and Success}
 \begin{itemize}
-  \item Generi e nazionalità sono gestiti come attributi dei nodi (\texttt{genre},
-        \texttt{nationality}); si contano collaborazioni intra/inter-genere e
-        intra/inter-nazionali per valutare assortatività e aperture transnazionali.
-  \item Per gli artisti senza genere, il genere viene inferito dal genere più frequente
-        nel vicinato di rete, con soglia minima di collaborazioni per garantire
-        robustezza.
-  \item Le misure strutturali sono correlate con indicatori esterni
-        (\texttt{popularity} Spotify, numero collaborazioni, collaborazioni estere,
-        presenza in chart) per studiare il legame tra posizione nella rete, popolarità
-        ed espansione internazionale.
+  \item Genres and nationalities are managed as node attributes (\texttt{genre},
+        \texttt{nationality}); intra/inter-genre and intra/inter-nationality
+        collaborations are counted to assess assortativity and transnational openness.
+  \item For artists without a genre, the genre is inferred from the most frequent genre
+        in their network neighborhood, with a minimum collaboration threshold to ensure
+        robustness.
+  \item Structural measures are correlated with external indicators (Spotify
+        \texttt{popularity}, number of collaborations, foreign collaborations, chart
+        presence) to study the link between network position, popularity, and
+        international expansion.
 \end{itemize}
 
-\subsection*{Artisti emergenti}
+\subsection*{Emerging Artists}
 \begin{itemize}
-  \item Si costruisce un \texttt{DataFrame} con \texttt{popularity} e numero di
-        collaborazioni per artista; soglie su entrambi gli indicatori definiscono tre
-        classi: \emph{emergente}, \emph{intermedio}, \emph{affermato}.
-  \item La matrice delle collaborazioni tra classi (emergente–emergente,
-        emergente–affermato, ecc.) mostra le strategie di networking (orizzontale tra
-        pari vs collegamento verso artisti affermati) e come queste si riflettano nella
-        crescita di centralità e popolarità.
+  \item A \texttt{DataFrame} is constructed with \texttt{popularity} and number of
+        collaborations per artist; thresholds on both indicators define three classes:
+        \emph{emerging}, \emph{intermediate}, \emph{established}.
+  \item The collaboration matrix between classes (emerging–emerging,
+        emerging–established, etc.) shows networking strategies (horizontal among peers
+        vs. linking to established artists) and how these are reflected in growth in
+        centrality and popularity.
 \end{itemize}
-\subsection{Analisi generale della rete di collaborazioni musicali italiane}
+\subsection{General Analysis of the Italian Musical Collaboration Network}
 
-Al fine di delineare le differenze strutturali chiave e ottenere una panoramica
-della topologia e delle dinamiche interne della rete di collaborazioni musicali
-italiane, è stata calcolata una serie di misure generali, come riportato nella
-Tabella \ref{tab:metrics_italia}.
+In order to outline the key structural differences and obtain an overview of
+the topology and internal dynamics of the Italian musical collaboration
+network, a series of general metrics were calculated, as reported in Table
+\ref{tab:metrics_italia}.
 
-Il \textbf{numero di componenti connesse} è stato misurato per identificare la
-presenza di sottogruppi isolati all'interno dell'ecosistema musicale nazionale.
-Sia il \textbf{grado massimo} che il \textbf{grado medio} dei nodi sono stati
-calcolati per valutare la connettività globale della rete e per quantificare
-l'intensità dell'attività collaborativa degli artisti. La \textbf{densità}
-della rete è stata calcolata per misurare la sua coesione complessiva. Il
-\textbf{diametro} e la \textbf{lunghezza media del percorso più breve}
-forniscono una valutazione dell'efficienza del flusso di informazioni e
-indicano la facilità con cui gli artisti possono essere raggiunti gli uni
-attraverso gli altri. Infine, il \textbf{coefficiente di clustering medio} e la
-\textbf{transitività} sono stati calcolati per misurare la coesione locale
-della rete e la tendenza alla formazione di gruppi strettamente connessi.
+The \textbf{number of connected components} was measured to identify the
+presence of isolated subgroups within the national musical ecosystem. Both the
+\textbf{maximum degree} and the \textbf{average degree} of nodes were
+calculated to assess the network's global connectivity and to quantify the
+intensity of artists' collaborative activity. The network's \textbf{density}
+was calculated to measure its overall cohesion. The \textbf{diameter} and the
+\textbf{average shortest path length} provide an assessment of information flow
+efficiency and indicate the ease with which artists can reach each other.
+Finally, the \textbf{average clustering coefficient} and \textbf{transitivity}
+were calculated to measure the network's local cohesion and the tendency
+towards the formation of tightly-knit groups.
 
-I sedici componenti connessi suggeriscono l'esistenza di gruppi isolati,
-corrispondenti a nicchie o comunità artistiche con contatti limitati con il
-resto dell'ecosistema nazionale. Ciascun artista è connesso, in media, a circa
-cinque colleghi nella rete. Tuttavia, la distribuzione del grado è fortemente
-eterogenea: la presenza di un nodo con grado 114 rivela un \textit{hub} di
-importanza centrale, mentre il 54.6\% degli artisti presenta un grado pari a 1,
-collaborando dunque con un solo altro artista. La densità estremamente bassa
-(circa lo 0.31\% delle possibili connessioni è realizzata) conferma la natura
-\textbf{sparsa} della rete. Il diametro della rete è pari a 10, indicando che
-due artisti qualsiasi possono essere collegati attraverso al massimo 10
-collaborazioni intermedie. Nonostante la bassa densità, la rete presenta una
-lunghezza media del percorso contenuta (4.14), indicando che gli artisti sono
-collegati attraverso poche collaborazioni intermedie.
+\begin{table}[h]
+  \centering
+  \caption{Structural characteristics of the Italian musical collaboration network}
+  \label{tab:metrics_italia}
+  \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Parameter}             & \textbf{Value} \\
+    \hline
+    Total nodes (artists)          & 1,656          \\
+    Total edges (collaborations)   & 4,307          \\
+    Connected components           & 16             \\
+    Maximum node degree            & 114            \\
+    Average node degree            & 5.20           \\
+    Density                        & 0.00314        \\
+    Diameter                       & 10             \\
+    Average shortest path length   & 4.14           \\
+    Average clustering coefficient & 0.119          \\
+    Transitivity                   & 0.128          \\
+    \hline
+  \end{tabular}
+\end{table}
 
-I valori del coefficiente di clustering medio (0.119) e della transitività
-(0.128) sono moderati e tra loro vicini. Ciò indica una tendenza misurabile,
-seppur non dominante, alla \textbf{chiusura triadica}: due collaboratori di uno
-stesso artista hanno una probabilità di circa il 12\% di aver collaborato a
-loro volta. Questa coesione locale favorisce la formazione di circoli artistici
-coesi e comunità parzialmente clusterizzate, contribuendo alla stabilità delle
-relazioni collaborative e alla condivisione di pratiche artistiche all'interno
-di sottogruppi, pur mantenendo sufficiente apertura per permettere connessioni
-tra comunità diverse.
+The sixteen connected components suggest the existence of isolated groups,
+corresponding to niches or artistic communities with limited contact with the
+rest of the national ecosystem. Each artist is connected, on average, to about
+five colleagues in the network. However, the degree distribution is highly
+heterogeneous: the presence of a node with degree 114 reveals a central
+\textit{hub} of major importance, while 54.6\% of artists have a degree of 1,
+thus collaborating with only one other artist. The extremely low density
+(approximately 0.31\% of possible connections are realized) confirms the
+\textbf{sparse} nature of the network. The network diameter is 10, indicating
+that any two artists can be connected through at most 10 intermediate
+collaborations. Despite the low density, the network presents a modest average
+path length (4.14), indicating that artists are connected through few
+intermediate steps.
 
-\subsection{Analisi comparativa con i principali paesi europei}
+The values of the average clustering coefficient (0.119) and transitivity
+(0.128) are moderate and close to each other. This indicates a measurable,
+though not dominant, tendency towards \textbf{triadic closure}: two
+collaborators of the same artist have approximately a 12\% probability of
+having collaborated with each other in turn. This local cohesion fosters the
+formation of cohesive artistic circles and partially clustered communities,
+contributing to the stability of collaborative relationships and the sharing of
+artistic practices within subgroups, while maintaining sufficient openness to
+allow connections between different communities.
 
-Per collocare i risultati italiani in un contesto continentale più ampio,
-l’analisi è stata estesa ai principali paesi europei. Questo approccio consente
-una valutazione comparativa delle dinamiche collaborative.
+\subsection{Comparative Analysis with Major European Countries}
 
-La Tabella \ref{tab:comparative_results_eu} mostra i primi cinque paesi europei
-per numero di artisti (Italia, Francia, Germania, Regno Unito e Paesi Bassi) e,
-successivamente, altri paesi analizzati, fornendo un quadro completo delle
-principali reti collaborative europee.
+To situate the Italian results in a broader continental context, the analysis
+was extended to major European countries. This approach enables a comparative
+evaluation of collaborative dynamics.
 
+Table \ref{tab:comparative_results_eu} shows the top five European countries by
+number of artists (Italy, France, Germany, United Kingdom, and the Netherlands)
+and, subsequently, other analyzed countries, providing a comprehensive picture
+of the main European collaborative networks.
 
-Dall'analisi emergono differenze strutturali significative tra i paesi,
-evidenziando modelli distinti di collaborazione musicale:
+\begin{table}[h]
+  \centering
+  \caption{Comparison with major European countries}
+  \label{tab:comparative_results_eu}
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|l|c|c|c|c|c|}
+      \hline
+      \textbf{Metric}      & \textbf{Italy} & \textbf{France} & \textbf{Germany} & \textbf{United Kingdom} & \textbf{Netherlands} \\
+      \hline
+      Total nodes          & 1,656 (3rd)    & 1,643 (4th)     & 2,706 (2nd)      & 3,290 (1st)             & 1,420 (5th)          \\
+      Total edges          & 4,307 (5th)    & 4,754 (4th)     & 5,929 (2nd)      & 7,532 (1st)             & 5,143 (3rd)          \\
+      Average degree       & 5.20 (5th)     & 5.79 (2nd)      & 4.38 (7th)       & 4.58 (6th)              & 7.24 (1st)           \\
+      Connected components & 16 (4th)       & 27 (6th)        & 32 (7th)         & 70 (9th)                & 12 (3rd)             \\
+      Average clustering   & 0.119 (4th)    & 0.113 (6th)     & 0.120 (3rd)      & 0.062 (9th)             & 0.151 (2nd)          \\
+      \hline
+    \end{tabular}%
+  }
+\end{table}
+
+The analysis reveals significant structural differences between countries,
+highlighting distinct models of musical collaboration:
 \begin{enumerate}
-  \item \textbf{Paesi Bassi}: Presentano l'\textbf{average degree} più alto d'Europa (7.24) nonostante siano solo quinti per numero di artisti. Il loro \textbf{average clustering coefficient} (0.151) è il secondo più alto, e la percentuale di hub artists (17.8\%) è la massima in Europa.
+  \item \textbf{Netherlands}: They have the highest \textbf{average degree} in Europe (7.24) despite ranking only fifth in number of artists. Their \textbf{average clustering coefficient} (0.151) is the second highest, and the percentage of hub artists (17.8\%) is the maximum in Europe.
 
-  \item \textbf{Polonia}: Con un \textbf{average degree} di 6.20 e \textbf{average clustering coefficient} di 0.167, rappresentano un modello di rete altamente coesa e interconnessa. Solo 8 \textbf{connected components} indicano un'eccellente integrazione strutturale.
+  \item \textbf{Poland}: With an \textbf{average degree} of 6.20 and an \textbf{average clustering coefficient} of 0.167, they represent a model of a highly cohesive and interconnected network. Only 8 \textbf{connected components} indicate excellent structural integration.
 
-  \item \textbf{Grecia}: Ha il \textbf{average clustering coefficient} più alto d'Europa (0.183) e un ottimo \textbf{average degree} (5.47). Con soli 4 \textbf{connected components}, è una delle reti meglio integrate.
+  \item \textbf{Greece}: Has the highest \textbf{average clustering coefficient} in Europe (0.183) and a very good \textbf{average degree} (5.47). With only 4 \textbf{connected components}, it is one of the best-integrated networks.
 
-  \item \textbf{Regno Unito}: Nonostante le dimensioni maggiori (3.290 artisti), presenta il \textbf{average clustering coefficient} più basso (0.062) e la frammentazione più alta (70 \textbf{connected components}), riflettendo un mercato vasto ma segmentato.
-        Presenta anche una densità di rete significativamente più bassa
-        (0.001392) rispetto a quella osservata per l'Italia (0.003143). Tale differenza
-        riflette due configurazioni strutturali distinte: da un lato, una rete
-        britannica estesa ma caratterizzata da un'elevata dispersione delle relazioni
-        collaborative; dall'altro, un ecosistema italiano di dimensioni più contenute
-        ma relativamente più denso e coeso.
-
+  \item \textbf{United Kingdom}: Despite its larger size (3,290 artists), it presents the lowest \textbf{average clustering coefficient} (0.062) and the highest fragmentation (70 \textbf{connected components}), reflecting a vast but segmented market.
+        It also shows a significantly lower network density
+        (0.001392) compared to that observed for Italy (0.003143). This difference
+        reflects two distinct structural configurations: on one hand, a British network
+        that is extensive but characterized by high dispersion of collaborative
+        relationships; on the other, an Italian ecosystem of more contained dimensions
+        but relatively denser and more cohesive.
 \end{enumerate}
 
-\subsubsection{Analisi multidimensionale e interpretazione dei pattern europei}
+\subsubsection{Multidimensional Analysis and Interpretation of European Patterns}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.95\textwidth]{network_size_eu.png}
-  \caption{Analisi multidimensionale comparativa delle reti di collaborazione musicale a livello europeo.}
+  \caption{Comparative multidimensional analysis of musical collaboration networks at the European level.}
   \label{fig:network_analysis_eu}
 \end{figure}
-La Figura \ref{fig:network_analysis_eu} presenta un'analisi multidimensionale comparativa
-delle reti di collaborazione musicale a livello europeo.
-L'analisi sintetizza tre aspetti critici della struttura
-delle reti europee: dimensione, intensità collaborativa e relazione tra queste
-variabili.
-Gli istogrammi presentano i primi 15 paesi europei per due metriche distinte: a
-sinistra il numero di artisti, al centro il numero totale di collaborazioni. In
-quest'ultimo si nota:
+
+Figure \ref{fig:network_analysis_eu} presents a comparative multidimensional
+analysis of musical collaboration networks at the European level. The analysis
+synthesizes three critical aspects of the structure of European networks: size,
+collaborative intensity, and the relationship between these variables. The
+histograms present the top 15 European countries for two distinct metrics: on
+the left, the number of artists; in the center, the total number of
+collaborations. In the latter, we observe:
 
 \begin{itemize}
-  \item Il \textbf{Regno Unito} (7.532 collaborazioni) e la \textbf{Germania} (5.927)
-        si collocano ai vertici per numero complessivo di collaborazioni; tale
-        risultato è principalmente riconducibile alla loro elevata numerosità di nodi.
+  \item The \textbf{United Kingdom} (7,532 collaborations) and \textbf{Germany} (5,927
+        collaborations) rank at the top for the overall number of collaborations; this
+        result is primarily attributable to their high number of nodes.
 
-  \item I \textbf{Paesi Bassi} (5.143 collaborazioni) rappresentano il caso più
-        rilevante: pur essendo quinti per numero di artisti, si posizionano terzi per
-        volume di collaborazioni, superando sia l'Italia (4.307) che la Francia
-        (4.754). Ciò indica un'intensa attività collaborativa.
+  \item The \textbf{Netherlands} (5,143 collaborations) represent the most relevant
+        case: despite being fifth in number of artists, they rank third for
+        collaboration volume, surpassing both Italy (4,307) and France (4,754). This
+        indicates intense collaborative activity.
 
-  \item La \textbf{Polonia} (3.391 collaborazioni) mostra un'intensità sorprendente,
-        superando paesi con reti più estese come Svezia (2.644) e Finlandia (2.329).
+  \item \textbf{Poland} (3,391 collaborations) shows surprising intensity, surpassing countries with larger networks such as Sweden (2,644) and Finland (2,329).
 \end{itemize}
 
-\subsubsection{Relazione Strutturale tra Artisti e Collaborazioni}
+\subsubsection{Structural Relationship Between Artists and Collaborations}
 
-Il grafico a destra esplora la relazione fondamentale tra la dimensione di una
-rete (numero di artisti) e la sua attività (numero di collaborazioni). La
-relazione tra il numero di artisti e il numero totale di collaborazioni è stata
-analizzata mediante una regressione lineare stimata con il metodo dei minimi
-quadrati, considerando tutti i paesi europei inclusi nello studio. La retta
-ottenuta, \( y = 2.44x - 76 \), descrive l'andamento medio delle reti musicali
-europee.
+The chart on the right explores the fundamental relationship between a
+network's size (number of artists) and its activity (number of collaborations).
+The relationship between the number of artists and the total number of
+collaborations was analyzed using linear regression estimated by the least
+squares method, considering all European countries included in the study. The
+resulting line, \( y = 2.44x - 76 \), describes the average trend of European
+musical networks.
 
 \begin{itemize}
-  \item \textbf{Coefficiente angolare (2.44)}: indica che, in media, a ogni
-        artista aggiuntivo corrispondono circa 2.44 collaborazioni in più.
-        Questo valore esprime l'intensità collaborativa media dei network
-        musicali analizzati.
+  \item \textbf{Slope coefficient (2.44)}: indicates that, on average, for each additional artist, there are approximately 2.44 more collaborations. This value expresses the average collaborative intensity of the analyzed musical networks.
 
-  \item \textbf{Intercetta (-76)}: il valore negativo suggerisce che reti molto
-        piccole tendono ad avere un numero di collaborazioni inferiore a quello
-        previsto dalla tendenza generale. In particolare, al di sotto di circa
-        30 artisti, la struttura della rete risulta meno attiva.
+  \item \textbf{Intercept (-76)}: the negative value suggests that very small networks tend to have a number of collaborations lower than that predicted by the general trend. In particular, below approximately 30 artists, the network structure appears less active.
 \end{itemize}
 
-La retta di regressione può quindi essere utilizzata come riferimento: i paesi
-posizionati al di sopra mostrano un livello di collaborazione superiore a
-quanto atteso rispetto alle loro dimensioni, mentre quelli al di sotto
-presentano un'attività collaborativa più contenuta.
+The regression line can therefore be used as a reference: countries positioned
+above it show a level of collaboration higher than expected given their size,
+while those below exhibit more contained collaborative activity.
 
 \begin{itemize}
-  \item I paesi che si collocano \textbf{sopra la retta di regressione} (Paesi Bassi,
-        Polonia, Grecia) rappresentano ecosistemi iper-collaborativi, dove il volume di
-        interazioni supera sistematicamente le aspettative date le dimensioni. Questi
-        sistemi sono tipicamente caratterizzati da alti valori di densità e
-        coefficiente di clustering.
+  \item Countries positioned \textbf{above the regression line} (Netherlands, Poland,
+        Greece) represent hyper-collaborative ecosystems, where the volume of
+        interactions systematically exceeds expectations given their dimensions. These
+        systems are typically characterized by high values of density and clustering
+        coefficient.
 
-  \item I paesi \textbf{prossimi alla retta} (Italia, Francia, Germania, Regno Unito)
-        seguono una relazione approssimativamente lineare, dell'attività collaborativa
-        in funzione della dimensione.
+  \item Countries \textbf{close to the line} (Italy, France, Germany, United Kingdom)
+        follow an approximately linear relationship between collaborative activity and
+        size.
 
-  \item La \textbf{dispersione} dei dati conferma l'assenza di un modello unico
-        europeo, evidenziando invece una pluralità di configurazioni strutturali.
+  \item The \textbf{dispersion} of the data confirms the absence of a single European
+        model, highlighting instead a plurality of structural configurations.
 \end{itemize}
 
-\subsection{Analisi comparativa con i principali paesi non-europei}
+\subsection{Comparative Analysis with Major Non-European Countries}
 
-Per collocare l'ecosistema musicale italiano in un contesto globale più ampio,
-è stata condotta un'analisi comparativa estesa a 49 paesi non-europei.
+To situate the Italian musical ecosystem in a broader global context, a
+comparative analysis was conducted, extended to 49 non-European countries.
+Table \ref{tab:comparative_results_global} presents the comparison between
+Italy and the top 5 non-European countries by network size.
 
-La Tabella \ref{tab:comparative_results_global} presenta il confronto tra
-l'Italia e i primi 5 paesi non-europei per dimensione della rete.
+\begin{table}[h]
+  \centering
+  \caption{Comparison with the top 5 non-European countries by network size}
+  \label{tab:comparative_results_global}
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|l|c|c|c|c|c|c|}
+      \hline
+      \textbf{Metric}      & \textbf{Italy} & \textbf{United States (1st)} & \textbf{Brazil (2nd)} & \textbf{India (3rd)} & \textbf{Japan (4th)} & \textbf{Mexico (5th)} \\
+      \hline
+      Total nodes          & 1,656          & 6,217                        & 1,859                 & 999                  & 890                  & 773                   \\
+      Total edges          & 4,307          & 14,860                       & 5,547                 & 2,834                & 1,103                & 1,665                 \\
+      Average degree       & 5.20           & 4.78                         & 5.97                  & 5.67                 & 2.48                 & 4.31                  \\
+      Connected components & 16             & 111                          & 3                     & 2                    & 38                   & 4                     \\
+      Average clustering   & 0.119          & 0.082                        & 0.173                 & 0.181                & 0.042                & 0.156                 \\
+      Density              & 0.00314        & 0.000769                     & 0.003212              & 0.005685             & 0.002788             & 0.005580              \\
+      \hline
+    \end{tabular}%
+  }
+\end{table}
 
-
-L'analisi rivela una marcata asimmetria dimensionale tra i sistemi musicali
-analizzati:
+The analysis reveals a marked dimensional asymmetry between the analyzed
+musical systems:
 
 \begin{itemize}
-  \item Gli \textbf{Stati Uniti} presentano caratteristiche dimensionali eccezionali,
-        con una rete di 6.217 artisti e 14.860 collaborazioni, oltre 3,7 volte più
-        grande della rete italiana. Questa dimensione considerevole è accompagnata da
-        una bassa densità (0.000769) che riflette l'ampia scala e diversificazione del
-        mercato musicale statunitense, con ben 111 gruppi distinti che operano in modo
-        relativamente isolato. Il grado medio (4.78) è leggermente inferiore a quello
-        italiano (5.20), indicando che, nonostante le dimensioni maggiori, la rete
-        statunitense mostra una minore intensità di connessioni per artista.
+  \item The \textbf{United States} present exceptional dimensional characteristics,
+        with a network of 6,217 artists and 14,860 collaborations, over 3.7 times
+        larger than the Italian network. This considerable size is accompanied by a low
+        density (0.000769) that reflects the large scale and diversification of the US
+        music market, with 111 distinct groups operating in a relatively isolated
+        manner. The average degree (4.78) is slightly lower than the Italian figure
+        (5.20), indicating that, despite the larger size, the US network shows lower
+        intensity of connections per artist.
 
-  \item Il \textbf{Brasile} (1.859 artisti) e l'\textbf{India} (999 artisti)
-        rappresentano i maggiori sistemi musicali emergenti, entrambi caratterizzati da
-        reti ad alta densità (0.003212 e 0.005685 rispettivamente) e da un'elevata
-        coesione strutturale. Questi valori indicano ecosistemi musicali altamente
-        integrati, con soli 3 e 2 gruppi distinti rispettivamente, che riflettono una
-        forte unità culturale e geografica.
+  \item \textbf{Brazil} (1,859 artists) and \textbf{India} (999 artists) represent the major emerging musical systems, both characterized by high-density networks (0.003212 and 0.005685 respectively) and high structural cohesion. These values indicate highly integrated musical ecosystems, with only 3 and 2 distinct groups respectively, reflecting a strong cultural and geographical unity.
 
-  \item L'Italia si posiziona al sesto posto a livello globale non-europeo per
-        dimensione, superando paesi come Corea del Sud (708) e Australia (653).
-        Rispetto al Giappone (890), l'Italia mostra una struttura molto più coesa: il
-        Giappone, pur avendo più artisti, presenta una rete più frammentata (38 gruppi
-        distinti) e un grado medio inferiore (2.48), mentre l'Italia, con 1.656
-        artisti, mantiene una forte integrazione (16 componenti) e un'elevata attività
-        collaborativa (grado medio 5.20).
+  \item Italy ranks sixth among non-European countries globally for size, surpassing
+        countries such as South Korea (708) and Australia (653). Compared to Japan
+        (890), Italy shows a much more cohesive structure: Japan, despite having more
+        artists, presents a more fragmented network (38 distinct groups) and a lower
+        average degree (2.48), while Italy, with 1,656 artists, maintains strong
+        integration (16 components) and high collaborative activity (average degree
+        5.20).
 \end{itemize}
 
-L'analisi identifica diversi modelli di ecosistemi musicali caratterizzati da
-intensa attività collaborativa:
+The analysis identifies several models of musical ecosystems characterized by
+intense collaborative activity:
 
 \begin{itemize}
-  \item \textbf{Porto Rico} rappresenta il caso più marcato di iper-collaboratività, con un grado medio particolarmente elevato (10.66) e un coefficiente di clustering alto (0.314).
+  \item \textbf{Puerto Rico} represents the most pronounced case of hyper-collaboration, with a particularly high average degree (10.66) and a high clustering coefficient (0.314).
 
-  \item Il \textbf{Brasile} e l'\textbf{India} mostrano strutture simili, con gradi
-        medi elevati (5.97 e 5.67 rispettivamente) e clustering significativo (0.173 e
-        0.181). Questi valori suggeriscono ecosistemi vibranti con forte tendenza alla
-        formazione di comunità coese, supportata da una bassa frammentazione (3 e 2
-        gruppi distinti) che indica scene musicali unificate e ben integrate.
+  \item \textbf{Brazil} and \textbf{India} show similar structures, with high average degrees (5.97 and 5.67 respectively) and significant clustering (0.173 and 0.181). These values suggest vibrant ecosystems with a strong tendency towards the formation of cohesive communities, supported by low fragmentation (3 and 2 distinct groups), which indicates unified and well-integrated music scenes.
 
-  \item La \textbf{Corea del Sud} presenta un caso interessante di rete moderatamente
-        grande (708 artisti) ma con alta densità (0.006185) e grado medio significativo
-        (4.37), riflettendo una scena musicale strutturata e interconnessa.
+  \item \textbf{South Korea} presents an interesting case of a moderately large network (708 artists) but with high density (0.006185) and significant average degree (4.37), reflecting a structured and interconnected music scene.
 
-  \item L'Italia, con un grado medio di 5.20, si colloca tra i paesi con maggiore
-        attività collaborativa a livello globale, superando paesi come Stati Uniti
-        (4.78), Germania (4.38), Regno Unito (4.58) e Corea del Sud (4.37). Questo
-        posizionamento indica una cultura musicale particolarmente orientata alla
-        collaborazione, che compensa le dimensioni più contenute della rete con una
-        maggiore intensità di interazioni.
+  \item Italy, with an average degree of 5.20, ranks among the countries with the
+        highest collaborative activity globally, surpassing countries such as the
+        United States (4.78), Germany (4.38), the United Kingdom (4.58), and South
+        Korea (4.37). This positioning indicates a musical culture particularly
+        oriented towards collaboration, which compensates for the more contained
+        network size with a greater intensity of interactions.
 \end{itemize}
 
-\subsubsection{Densità e frammentazione}
+\subsubsection{Density and Fragmentation}
 \begin{itemize}
-  \item I paesi \textbf{africani} analizzati (Ghana, Egitto, Nigeria, Algeria)
-        rappresentano il modello delle reti piccole ultra-dense, con densità che vanno
-        da 0.047 a 0.143. Queste reti, pur avendo un numero limitato di artisti (14-66
-        nodi), mostrano un'elevatissima interconnessione interna. In particolare, Ghana
-        (0.138) e Algeria (0.143) presentano densità oltre 40 volte superiori a quella
-        statunitense (0.000769), indicando scene musicali estremamente compatte dove
-        quasi tutti gli artisti collaborano direttamente tra loro.
+  \item The analyzed \textbf{African} countries (Ghana, Egypt, Nigeria, Algeria)
+        represent the model of small, ultra-dense networks, with densities ranging from
+        0.047 to 0.143. These networks, despite having a limited number of artists
+        (14-66 nodes), show extremely high internal interconnection. In particular,
+        Ghana (0.138) and Algeria (0.143) present densities over 40 times higher than
+        the US figure (0.000769), indicating extremely compact music scenes where
+        almost all artists collaborate directly with each other.
 
-  \item Le reti \textbf{latinoamericane} mostrano densità intermedie ma
-        significativamente superiori alle reti europee e nordamericane: Venezuela
-        (0.077), Panama (0.065), Colombia (0.010), Argentina (0.010). Questi valori,
-        compresi tra 3 e 10 volte la densità italiana, riflettono scene musicali
-        regionalmente coese ma sufficientemente ampie da sostenere una certa
-        diversificazione interna. La bassa frammentazione (2-5 componenti connesse)
-        conferma l'alto grado di integrazione di queste reti.
+  \item \textbf{Latin American} networks show intermediate densities but significantly higher than European and North American networks: Venezuela (0.077), Panama (0.065), Colombia (0.010), Argentina (0.010). These values, ranging from 3 to 10 times the Italian density, reflect regionally cohesive music scenes that are sufficiently broad to support a certain internal diversification. The low fragmentation (2-5 connected components) confirms the high degree of integration of these networks.
 
-  \item L'Italia (densità 0.00314) si colloca in una posizione intermedia nel panorama
-        globale. Se confrontata con i primi 5 paesi non-europei per dimensione,
-        presenta una densità:
+  \item Italy (density 0.00314) occupies an intermediate position in the global
+        panorama. When compared to the top 5 non-European countries by size, it
+        presents a density:
         \begin{itemize}
-          \item 4 volte superiore a quella degli Stati Uniti (0.000769)
-          \item simile a quella del Brasile (0.003212)
-          \item circa la metà di quella dell'India (0.005685) e del Messico (0.005580)
-          \item superiore a quella del Giappone (0.002788)
+          \item 4 times higher than that of the United States (0.000769)
+          \item similar to that of Brazil (0.003212)
+          \item about half that of India (0.005685) and Mexico (0.005580)
+          \item higher than that of Japan (0.002788)
         \end{itemize}
-        Questo posizionamento riflette una rete che bilancia efficacemente dimensione (1.656 nodi) e coesione.
+        This positioning reflects a network that effectively balances size (1,656 nodes) and cohesion.
 
-  \item Tra i paesi con reti di dimensioni simili all'Italia (1.000-2.000 nodi),
-        l'India (999 nodi, densità 0.005685) e la Corea del Sud (708 nodi, densità
-        0.006185) mostrano densità quasi doppie rispetto all'Italia, riflettendo
-        modelli di collaborazione più intensi. Tuttavia, l'Italia compensa con un grado
-        medio (5.20) superiore a quello di molti di questi paesi, indicando che pur con
-        una densità complessiva moderata, gli artisti italiani tendono a collaborare
-        con un numero maggiore di colleghi.
+  \item Among countries with networks of similar size to Italy (1,000-2,000 nodes),
+        India (999 nodes, density 0.005685) and South Korea (708 nodes, density
+        0.006185) show densities almost double that of Italy, reflecting more intense
+        collaboration models. However, Italy compensates with an average degree (5.20)
+        higher than that of many of these countries, indicating that despite a moderate
+        overall density, Italian artists tend to collaborate with a greater number of
+        colleagues.
 \end{itemize}
 
-\subsubsection{Clustering e coesione Locale}
+\subsubsection{Clustering and Local Cohesion}
 \begin{itemize}
-  \item I più alti valori di \textbf{clustering coefficient} si osservano in
-        \textbf{Porto Rico} (0.314), \textbf{Ghana} (0.287) e \textbf{Repubblica
-          Dominicana} (0.275). Questi valori eccezionalmente elevati, compresi tra 8 e 11
-        volte quelli di paesi come Canada o Australia, indicano una forte tendenza alla
-        formazione di "triadi chiuse" nelle quali i collaboratori di un artista tendono
-        a collaborare frequentemente anche tra loro. Questo modello suggerisce comunità
-        musicali estremamente coese.
+  \item The highest values of the \textbf{clustering coefficient} are observed in
+        \textbf{Puerto Rico} (0.314), \textbf{Ghana} (0.287), and the \textbf{Dominican
+          Republic} (0.275). These exceptionally high values, ranging from 8 to 11 times
+        those of countries like Canada or Australia, indicate a strong tendency towards
+        the formation of "closed triads" in which an artist's collaborators tend to
+        frequently collaborate with each other as well. This model suggests extremely
+        cohesive musical communities.
 
-  \item \textbf{India} (0.181) e \textbf{Brasile} (0.173) mostrano valori di clustering elevati che,
-        combinati con le dimensioni significative delle loro reti (999 e 1.859 nodi rispettivamente),
-        riflettono scene musicali che uniscono ampiezza a forte coesione interna. Questi valori,
-        circa 1.5-2 volte superiori a quello italiano, indicano ecosistemi musicali in cui si
-        nota la formazione di comunità artistiche
-        strettamente interconnesse.
+  \item \textbf{India} (0.181) and \textbf{Brazil} (0.173) show high clustering values which, combined with the significant sizes of their networks (999 and 1,859 nodes respectively), reflect music scenes that combine breadth with strong internal cohesion. These values, approximately 1.5-2 times higher than the Italian one, indicate musical ecosystems in which the formation of closely interconnected artistic communities is noted.
 
-  \item L'Italia (0.119) presenta un valore di clustering moderato ma significativo nel
-        contesto globale. Il confronto con i principali paesi non-europei rivela che:
+  \item Italy (0.119) presents a moderate but significant clustering value in the
+        global context. The comparison with major non-European countries reveals that:
         \begin{itemize}
-          \item Il clustering italiano è superiore a quello degli Stati Uniti (0.082) e del
-                Giappone (0.042)
-          \item È inferiore a quello di India (0.181), Brasile (0.173) e Messico (0.156)
-          \item Si colloca in una posizione intermedia tra i paesi con reti di dimensioni
-                simili
+          \item Italian clustering is higher than that of the United States (0.082) and Japan
+                (0.042)
+          \item It is lower than that of India (0.181), Brazil (0.173), and Mexico (0.156)
+          \item It occupies an intermediate position among countries with networks of similar
+                dimensions
         \end{itemize}
-        Questo posizionamento indica una rete che bilancia coesione locale e apertura: sufficientemente
-        coesa da favorire la formazione di circoli artistici stabili, ma anche abbastanza aperta da
-        permettere nuove connessioni e scambi esterni.
+        This positioning indicates a network that balances local cohesion and openness: sufficiently cohesive to foster the formation of stable artistic circles, but also open enough to allow new connections and external exchanges.
 
-  \item I bassi valori di clustering in paesi come \textbf{Canada} (0.037),
-        \textbf{Australia} (0.035) e \textbf{Cina} (0.027) suggeriscono strutture
-        reticolari meno inclini alla chiusura triadica. Questi valori, circa 3-4 volte
-        inferiori a quello italiano.
+  \item The low clustering values in countries such as \textbf{Canada} (0.037),
+        \textbf{Australia} (0.035), and \textbf{China} (0.027) suggest network
+        structures less inclined towards triadic closure. These values are
+        approximately 3-4 times lower than the Italian one.
 \end{itemize}
 \subsection{Nodes}
 \subsubsection{Centrality Measures}
 
-To identify the structurally most important artists in the collaboration network, four centrality measures were calculated. The objective is to understand which artists occupy strategic positions and how these positions manifest themselves through different aspects of the network's structure.
+To identify the structurally most important artists in the collaboration
+network, four centrality measures were calculated. The objective is to
+understand which artists occupy strategic positions and how these positions
+manifest themselves through different aspects of the network's structure.
 
 \paragraph{Degree Centrality}
 
 \textbf{Degree centrality} quantifies the number of direct connections of a node, normalized by the maximum possible number of connections. In the analyzed musical network, this measure represents the number of distinct artists with whom a given artist has collaborated.
 
-The implementation calculates both the absolute degree and the normalized degree centrality. The results reveal a strongly asymmetric distribution: the average degree centrality is 0.0031, while the maximum value reaches 0.0689. This distribution indicates that the majority of artists maintain a limited number of collaborations, while a small group of nodes concentrates a significantly high number of connections.
+The implementation calculates both the absolute degree and the normalized
+degree centrality. The results reveal a strongly asymmetric distribution: the
+average degree centrality is 0.0031, while the maximum value reaches 0.0689.
+This distribution indicates that the majority of artists maintain a limited
+number of collaborations, while a small group of nodes concentrates a
+significantly high number of connections.
 
-Table \ref{tab:degree-centrality} presents the ten artists with the highest degree centrality:
+Table \ref{tab:degree-centrality} presents the ten artists with the highest
+degree centrality:
+\begin{table}[h]
+  \centering
+  \caption{Top 10 artisti per Degree Centrality}
+  \label{tab:degree-centrality}
+  \begin{tabular}{c l r}
+    \hline
+    \textbf{Posizione} & \textbf{Artista} & \textbf{Degree Centrality} \\
+    \hline
+    1                  & Guè              & 0.0689                     \\
+    2                  & Andrea Bocelli   & 0.0622                     \\
+    3                  & Clementino       & 0.0508                     \\
+    4                  & Gemitaiz         & 0.0489                     \\
+    5                  & Night Skinny     & 0.0483                     \\
+    6                  & Don Joe          & 0.0477                     \\
+    7                  & Inoki            & 0.0441                     \\
+    8                  & Fabri Fibra      & 0.0435                     \\
+    9                  & Emis Killa       & 0.0429                     \\
+    10                 & Ennio Morricone  & 0.0411                     \\
+    \hline
+  \end{tabular}
+\end{table}
 
-Guè emerges as the most connected node in the network with 114 distinct collaborations, establishing himself as a central hub of the Italian music scene. The presence of Andrea Bocelli in second place with 103 collaborations is particularly significant: despite working in a substantially different musical genre (classical/pop crossover), he has developed an extensive network of collaborations spanning multiple genres. The predominance of hip hop artists in the top positions (Clementino, Gemitaiz, Night Skinny, Don Joe, Inoki, Fabri Fibra, Emis Killa) confirms that this genre has a high propensity for collaboration and constitutes a central element in the network's structure. The presence of Ennio Morricone in tenth place introduces an element of generational and stylistic diversity into the ranking.
+Guè emerges as the most connected node in the network with 114 distinct
+collaborations, establishing himself as a central hub of the Italian music
+scene. The presence of Andrea Bocelli in second place with 103 collaborations
+is particularly significant: despite working in a substantially different
+musical genre (classical/pop crossover), he has developed an extensive network
+of collaborations spanning multiple genres. The predominance of hip hop artists
+in the top positions (Clementino, Gemitaiz, Night Skinny, Don Joe, Inoki, Fabri
+Fibra, Emis Killa) confirms that this genre has a high propensity for
+collaboration and constitutes a central element in the network's structure. The
+presence of Ennio Morricone in tenth place introduces an element of
+generational and stylistic diversity into the ranking.
 
 \paragraph{Eigenvector Centrality}
 
 \textbf{Eigenvector centrality} assigns importance not only to the quantity of connections but also to their quality: an artist has high eigenvector centrality if they are connected to other artists who themselves occupy central positions in the network. The algorithm converges iteratively, assigning each node a score proportional to the sum of the scores of its adjacent nodes.
 
-The results show an even more pronounced concentration compared to degree centrality: the average value is 0.0089 while the maximum reaches 0.2573, highlighting that a small number of artists form a highly cohesive central core.
+The results show an even more pronounced concentration compared to degree
+centrality: the average value is 0.0089 while the maximum reaches 0.2573,
+highlighting that a small number of artists form a highly cohesive central
+core.
 
-Table \ref{tab:eigenvector-centrality} presents the ten artists with the highest eigenvector centrality:
+Table \ref{tab:eigenvector-centrality} presents the ten artists with the
+highest eigenvector centrality:
+\begin{table}[h]
+  \centering
+  \caption{Top 10 artists by Eigenvector Centrality}
+  \label{tab:eigenvector-centrality}
+  \begin{tabular}{c l r}
+    \hline
+    \textbf{Rank} & \textbf{Artist} & \textbf{Eigenvector Centrality} \\
+    \hline
+    1             & Guè             & 0.2573                          \\
+    2             & Gemitaiz        & 0.2069                          \\
+    3             & Emis Killa      & 0.1904                          \\
+    4             & Night Skinny    & 0.1903                          \\
+    5             & Fabri Fibra     & 0.1717                          \\
+    6             & Marracash       & 0.1677                          \\
+    7             & Jake La Furia   & 0.1664                          \\
+    8             & Don Joe         & 0.1650                          \\
+    9             & MadMan          & 0.1533                          \\
+    10            & Lazza           & 0.1425                          \\
+    \hline
+  \end{tabular}
+\end{table}
 
-Guè maintains the dominant position with a value considerably higher than the other artists (approximately 25\% more than the second-ranked artist), indicating that his collaborations predominantly involve the most central artists in the scene. The exclusive presence of hip hop artists in this ranking reveals the existence of a central core dominated by this genre. Artists such as Marracash, Jake La Furia, Don Joe, MadMan, and Lazza form a highly interconnected core that defines the center of the Italian hip hop network. It is noteworthy that Andrea Bocelli, despite having a high number of collaborations (second in degree centrality), is absent from this ranking, suggesting that his collaborations predominantly involve less central or more peripheral artists compared to the network's main core.
+Guè maintains the dominant position with a value considerably higher than the
+other artists (approximately 25\% more than the second-ranked artist),
+indicating that his collaborations predominantly involve the most central
+artists in the scene. The exclusive presence of hip hop artists in this ranking
+reveals the existence of a central core dominated by this genre. Artists such
+as Marracash, Jake La Furia, Don Joe, MadMan, and Lazza form a highly
+interconnected core that defines the center of the Italian hip hop network. It
+is noteworthy that Andrea Bocelli, despite having a high number of
+collaborations (second in degree centrality), is absent from this ranking,
+suggesting that his collaborations predominantly involve less central or more
+peripheral artists compared to the network's main core.
 
 \begin{figure}
   \centering
@@ -564,55 +660,222 @@ Guè maintains the dominant position with a value considerably higher than the o
 \paragraph{Closeness Centrality}
 \textbf{Closeness centrality} measures the closeness of a node to all other nodes in the network, calculating the inverse of the average distance based on shortest paths. An artist with high closeness centrality can rapidly reach any other artist in the network through a limited number of intermediaries.
 
-The results show an average value of 0.2336 with a maximum of 0.3677, indicating that even the most central artists require an average of about three steps to reach any other node in the network.
+The results show an average value of 0.2336 with a maximum of 0.3677,
+indicating that even the most central artists require an average of about three
+steps to reach any other node in the network.
 
-In the practical context of the music scene, high closeness centrality confers concrete strategic advantages: optimally positioned artists can more easily access information and emerging trends in different parts of the scene, initiate collaborations with distant artists in the network through few intermediaries, and rapidly disseminate their own style or musical innovations throughout the entire ecosystem. This metric therefore identifies artists who, regardless of their belonging to the central core, occupy positions that facilitate communication and the circulation of opportunities throughout the entire network.
+In the practical context of the music scene, high closeness centrality confers
+concrete strategic advantages: optimally positioned artists can more easily
+access information and emerging trends in different parts of the scene,
+initiate collaborations with distant artists in the network through few
+intermediaries, and rapidly disseminate their own style or musical innovations
+throughout the entire ecosystem. This metric therefore identifies artists who,
+regardless of their belonging to the central core, occupy positions that
+facilitate communication and the circulation of opportunities throughout the
+entire network.
 
-Table \ref{tab:closeness-centrality} presents the ten artists with the highest closeness centrality:
+Table \ref{tab:closeness-centrality} presents the ten artists with the highest
+closeness centrality:
 
-Guè confirms his dominant position, being optimally positioned to access the entire network with the minimum number of intermediaries. Clementino and J-AX emerge particularly in this metric compared to eigenvector centrality, suggesting they occupy strategic bridging positions: although not in the densest core, their collaborations traverse different network clusters, allowing them to act as efficient connectors between different subcommunities. The presence of Elisa (ninth position) and Rocco Hunt (tenth position) introduces significant genre diversification. These artists, although not belonging to the dominant hip hop core, maintain positions of global closeness that facilitate the transmission of cross-genre influences. The network, although dominated by hip hop in its central core, therefore maintains a structure that allows efficient communication between different genres, suggesting a musical ecosystem where barriers between genre communities do not hinder the rapid circulation of ideas and collaborative opportunities.
+\begin{table}[h]
+  \centering
+  \caption{Top 10 artists by Closeness Centrality}
+  \label{tab:closeness-centrality}
+  \begin{tabular}{c l r}
+    \hline
+    \textbf{Rank} & \textbf{Artist} & \textbf{Closeness Centrality} \\
+    \hline
+    1                  & Guè              & 0.3677                        \\
+    2                  & Clementino       & 0.3576                        \\
+    3                  & Gemitaiz         & 0.3537                        \\
+    4                  & Fabri Fibra      & 0.3500                        \\
+    5                  & J-AX             & 0.3487                        \\
+    6                  & Night Skinny     & 0.3480                        \\
+    7                  & Marracash        & 0.3466                        \\
+    8                  & Emis Killa       & 0.3464                        \\
+    9                  & Elisa            & 0.3447                        \\
+    10                 & Rocco Hunt       & 0.3420                        \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Guè confirms his dominant position, being optimally positioned to access the
+entire network with the minimum number of intermediaries. Clementino and J-AX
+emerge particularly in this metric compared to eigenvector centrality,
+suggesting they occupy strategic bridging positions: although not in the
+densest core, their collaborations traverse different network clusters,
+allowing them to act as efficient connectors between different subcommunities.
+The presence of Elisa (ninth position) and Rocco Hunt (tenth position)
+introduces significant genre diversification. These artists, although not
+belonging to the dominant hip hop core, maintain positions of global closeness
+that facilitate the transmission of cross-genre influences. The network,
+although dominated by hip hop in its central core, therefore maintains a
+structure that allows efficient communication between different genres,
+suggesting a musical ecosystem where barriers between genre communities do not
+hinder the rapid circulation of ideas and collaborative opportunities.
 
 \paragraph{Betweenness Centrality}
 
 \textbf{Betweenness centrality} identifies nodes that are frequently found on the shortest paths between other pairs of nodes. Artists with high betweenness act as intermediaries between different components of the network, even without necessarily having a high number of direct connections. The calculation was approximated by sampling 1000 random nodes for computational efficiency reasons.
 
-The results show a strongly asymmetric distribution: the average value is 0.0018 while the maximum reaches 0.1250, indicating that a very limited number of nodes controls the flow of connections between different clusters in the network.
+The results show a strongly asymmetric distribution: the average value is
+0.0018 while the maximum reaches 0.1250, indicating that a very limited number
+of nodes controls the flow of connections between different clusters in the
+network.
 
-Andrea Bocelli dominates this metric with a value significantly higher than the other artists (almost 40\% higher than the second-ranked artist), revealing his structural role as a bridge between different musical contexts. Despite not belonging to the hip hop core identified by eigenvector centrality, Bocelli connects classical and pop music with other genres, acting as an essential intermediary in the overall network structure. The presence of Ennio Morricone (fifth position), DJ Matrix (sixth position), Jovanotti (ninth position) and Cristina D'Avena (tenth position) - artists working in genres other than hip hop - confirms that betweenness centrality captures a structural role distinct from local centrality. These artists do not belong to the central core but occupy gatekeeping positions between different genre communities. Clementino maintains a high position in all analyzed metrics (third in degree, second in closeness and betweenness), confirming himself as one of the structurally most relevant artists in the network: an integral part of the hip hop core but with strong bridging capabilities towards other music scenes.
+Andrea Bocelli dominates this metric with a value significantly higher than the
+other artists (almost 40\% higher than the second-ranked artist), revealing his
+structural role as a bridge between different musical contexts. Despite not
+belonging to the hip hop core identified by eigenvector centrality, Bocelli
+connects classical and pop music with other genres, acting as an essential
+intermediary in the overall network structure. The presence of Ennio Morricone
+(fifth position), DJ Matrix (sixth position), Jovanotti (ninth position) and
+Cristina D'Avena (tenth position) - artists working in genres other than hip
+hop - confirms that betweenness centrality captures a structural role distinct
+from local centrality. These artists do not belong to the central core but
+occupy gatekeeping positions between different genre communities. Clementino
+maintains a high position in all analyzed metrics (third in degree, second in
+closeness and betweenness), confirming himself as one of the structurally most
+relevant artists in the network: an integral part of the hip hop core but with
+strong bridging capabilities towards other music scenes.
 
-Table \ref{tab:betweenness-centrality} presents the ten artists with the highest betweenness centrality:
+Table \ref{tab:betweenness-centrality} presents the ten artists with the
+highest betweenness centrality:
+
+\begin{table}[h]
+  \centering
+  \caption{Top 10 artists by Betweenness Centrality}
+  \label{tab:betweenness-centrality}
+  \begin{tabular}{c l r}
+    \hline
+    \textbf{Rank} & \textbf{Artist} & \textbf{Betweenness Centrality} \\
+    \hline
+    1                  & Andrea Bocelli   & 0.1250                          \\
+    2                  & Clementino       & 0.0910                          \\
+    3                  & Guè              & 0.0642                          \\
+    4                  & Elisa            & 0.0611                          \\
+    5                  & Ennio Morricone  & 0.0575                          \\
+    6                  & DJ Matrix        & 0.0558                          \\
+    7                  & J-AX             & 0.0538                          \\
+    8                  & Inoki            & 0.0509                          \\
+    9                  & Jovanotti        & 0.0452                          \\
+    10                 & Cristina D'Avena & 0.0422                          \\
+    \hline
+  \end{tabular}
+\end{table}
 
 \subsubsection{Assortativity}
 
-Assortativity analysis examines connection tendencies based on specific node attributes. Three forms of assortativity were calculated to characterize collaboration patterns in the Italian musical network.
+Assortativity analysis examines connection tendencies based on specific node
+attributes. Three forms of assortativity were calculated to characterize
+collaboration patterns in the Italian musical network.
 
 \paragraph{Degree Assortativity}
 
-The obtained degree assortativity coefficient is \textbf{-0.1052}, indicating a slightly \textbf{disassortative} network. This negative value means that artists with numerous collaborations tend to connect with artists who have fewer, rather than collaborating predominantly with each other.
+The obtained degree assortativity coefficient is \textbf{-0.1052}, indicating a
+slightly \textbf{disassortative} network. This negative value means that
+artists with numerous collaborations tend to connect with artists who have
+fewer, rather than collaborating predominantly with each other.
 
-In the context of the analyzed musical network, this pattern suggests that hubs (artists with high degree) do not form an isolated group but include less prolific artists in their collaborations. This may reflect various dynamics: established artists providing visibility to emerging artists, producers and featuring artists collaborating with a broad spectrum of artists at different activity levels, or more generally a relatively open music scene where the number of past collaborations does not constitute a significant barrier for future opportunities. The negative value, albeit moderate, is consistent with a structure that facilitates mobility and access even for less central artists, in contrast with rigidly hierarchical models where exclusively the most successful figures collaborate with each other.
+In the context of the analyzed musical network, this pattern suggests that hubs
+(artists with high degree) do not form an isolated group but include less
+prolific artists in their collaborations. This may reflect various dynamics:
+established artists providing visibility to emerging artists, producers and
+featuring artists collaborating with a broad spectrum of artists at different
+activity levels, or more generally a relatively open music scene where the
+number of past collaborations does not constitute a significant barrier for
+future opportunities. The negative value, albeit moderate, is consistent with a
+structure that facilitates mobility and access even for less central artists,
+in contrast with rigidly hierarchical models where exclusively the most
+successful figures collaborate with each other.
 
 \paragraph{Followers Assortativity}
 
-The followers assortativity coefficient is \textbf{0.0724}, a positive but near-zero value, indicating a very weak tendency towards assortative patterns based on popularity.
+The followers assortativity coefficient is \textbf{0.0724}, a positive but
+near-zero value, indicating a very weak tendency towards assortative patterns
+based on popularity.
 
-This result suggests that popularity, measured through the number of Spotify followers, exerts a limited influence on collaboration patterns. Artists with a high number of followers do not show a marked preference for exclusive collaborations with other artists of similar popularity, nor does a clear segregation emerge between different popularity strata. Detailed analysis categorizes edges into High-High, Low-Low and High-Low using the median as a threshold, revealing that there are both collaborations between artists of similar popularity and collaborations with artists of a different popularity level from their own, in relatively balanced proportions.
+This result suggests that popularity, measured through the number of Spotify
+followers, exerts a limited influence on collaboration patterns. Artists with a
+high number of followers do not show a marked preference for exclusive
+collaborations with other artists of similar popularity, nor does a clear
+segregation emerge between different popularity strata. Detailed analysis
+categorizes edges into High-High, Low-Low and High-Low using the median as a
+threshold, revealing that there are both collaborations between artists of
+similar popularity and collaborations with artists of a different popularity
+level from their own, in relatively balanced proportions.
 
-This pattern indicates a relatively fluid Italian musical ecosystem regarding fame: collaborations are not strongly constrained by the number of followers, and established artists show willingness to collaborate with less-known colleagues. However, the slightly positive value suggests the existence of a weak homophilic preference: very popular artists collaborate more frequently with other popular artists, but this tendency does not create significant structural barriers.
+This pattern indicates a relatively fluid Italian musical ecosystem regarding
+fame: collaborations are not strongly constrained by the number of followers,
+and established artists show willingness to collaborate with less-known
+colleagues. However, the slightly positive value suggests the existence of a
+weak homophilic preference: very popular artists collaborate more frequently
+with other popular artists, but this tendency does not create significant
+structural barriers.
 
 \paragraph{Genre Assortativity and Modularity}
 
-The results regarding musical genre show markedly different patterns compared to the other forms of assortativity. The genre assortativity coefficient is \textbf{0.4778}, a decidedly positive value indicating a strong assortative tendency. The modularity is \textbf{Q = 0.2987}, classifiable as moderate according to the implemented interpretative scale (between 0.1 and 0.3).
+The results regarding musical genre show markedly different patterns compared
+to the other forms of assortativity. The genre assortativity coefficient is
+\textbf{0.4778}, a decidedly positive value indicating a strong assortative
+tendency. The modularity is \textbf{Q = 0.2987}, classifiable as moderate
+according to the implemented interpretative scale (between 0.1 and 0.3).
 
-These values reveal that musical genre exerts a significant influence on collaboration patterns: artists tend to collaborate predominantly with other artists of the same genre or related genres. However, the moderate (not high) modularity indicates that this tendency does not produce impermeable compartments: there are numerous cross-genre collaborations that keep the network globally interconnected.
+These values reveal that musical genre exerts a significant influence on
+collaboration patterns: artists tend to collaborate predominantly with other
+artists of the same genre or related genres. However, the moderate (not high)
+modularity indicates that this tendency does not produce impermeable
+compartments: there are numerous cross-genre collaborations that keep the
+network globally interconnected.
 
-Table \ref{tab:genre-pairs} presents the ten most frequent genre pairs in collaborations:
+Table \ref{tab:genre-pairs} presents the ten most frequent genre pairs in
+collaborations:
+\begin{table}[h]
+  \centering
+  \caption{Top 10 genre pairs in collaborations}
+  \label{tab:genre-pairs}
+  \begin{tabular}{c l r l}
+    \hline
+    \textbf{Rank} & \textbf{Genre 1}           & \textbf{N. collab.} & \textbf{Genre 2} \\
+    \hline
+    1             & Hip Hop / Rap               & 1829                & (intra-genere)    \\
+    2             & Pop                         & 819                 & (intra-genere)    \\
+    3             & Hip Hop / Rap               & 596                 & Pop               \\
+    4             & Hip Hop / Rap               & 104                 & Indie             \\
+    5             & Elettronica / Dance         & 85                  & (intra-genere)    \\
+    6             & Classica / Orchestrale      & 72                  & (intra-genere)    \\
+    7             & Elettronica / Dance         & 62                  & Pop               \\
+    8             & Indie                       & 45                  & Pop               \\
+    9             & Soundtrack / Film Score     & 37                  & (intra-genere)    \\
+    10            & Elettronica / Dance         & 34                  & Hip Hop / Rap     \\
+    \hline
+  \end{tabular}
+\end{table}
 
-Hip Hop / Rap dominates with 1829 intra-genre collaborations, confirming the high density and cohesion of this musical community. Pop presents 819 internal collaborations, also demonstrating significant internal cohesion. The Hip Hop / Rap + Pop combination accounts for 596 edges, constituting by far the most frequent cross-genre contamination. This reveals a fundamental structural bridge between the two dominant genres of the Italian scene. The Hip Hop / Rap + Indie (104 edges) and Elettronica / Dance + Pop (62 edges) combinations represent other significant contaminations, although with considerably lower frequency. Genres such as Classica/Orchestrale (72 internal edges), Elettronica/Dance (85 edges), and Soundtrack (37 edges) highlight communities of more limited size but still internally cohesive.
+Hip Hop / Rap dominates with 1829 intra-genre collaborations, confirming the
+high density and cohesion of this musical community. Pop presents 819 internal
+collaborations, also demonstrating significant internal cohesion. The Hip Hop /
+Rap + Pop combination accounts for 596 edges, constituting by far the most
+frequent cross-genre contamination. This reveals a fundamental structural
+bridge between the two dominant genres of the Italian scene. The Hip Hop / Rap
++ Indie (104 edges) and Elettronica / Dance + Pop (62 edges) combinations
+represent other significant contaminations, although with considerably lower
+frequency. Genres such as Classica/Orchestrale (72 internal edges),
+Elettronica/Dance (85 edges), and Soundtrack (37 edges) highlight communities
+of more limited size but still internally cohesive.
 
-The ratio between intra-genre and inter-genre edges, calculated by the function through the analysis of overlaps between genre lists, shows that collaborations remain predominantly within genre boundaries, with relevant exceptions.
+The ratio between intra-genre and inter-genre edges, calculated by the function
+through the analysis of overlaps between genre lists, shows that collaborations
+remain predominantly within genre boundaries, with relevant exceptions.
 
-In the context of the Italian music scene, these results describe a picture of specialization with selective contamination: genres maintain distinct identities and artists collaborate predominantly within their stylistic boundaries, but there are consolidated bridges between complementary genres, particularly between hip hop and pop. The high density of hip hop (1829 internal collaborations) confirms what emerged from the centrality analysis: this genre not only dominates the central core of the network but has developed an extremely rich and interconnected internal ecosystem.
+In the context of the Italian music scene, these results describe a picture of
+specialization with selective contamination: genres maintain distinct
+identities and artists collaborate predominantly within their stylistic
+boundaries, but there are consolidated bridges between complementary genres,
+particularly between hip hop and pop. The high density of hip hop (1829
+internal collaborations) confirms what emerged from the centrality analysis:
+this genre not only dominates the central core of the network but has developed
+an extremely rich and interconnected internal ecosystem.
 
 \subsection{Network}
 \subsubsection{Community Detection}
@@ -724,27 +987,39 @@ The Edge Betweenness (Girvan--Newman) algorithm produced 17 communities, resulti
 
 \section{Conclusion}
 \label{conclusion}
-The investigation demonstrates that the graph of Italian musical collaborations on Spotify exhibits structural properties typical of real-world complex networks: high sparsity, heterogeneous degree distribution with a long tail, and the presence of central hubs. The quantitative analysis of centrality metrics reveals a significant concentration of relational power within a cohesive core dominated by the Hip Hop/Rap genre, while betweenness measures identify strategic bridge nodes connecting distinct stylistic communities. Assortativity and modularity coefficients indicate strong homophily based on genre, yet with sufficient permeability to ensure global interconnectedness. The transnational comparative analysis, based on linear regression between node and edge cardinality, places Italy above the average European trend, characterizing it as a case of a hyper-collaborative, non-scalable ecosystem. The results confirm the utility of network metrics for dynamically modeling the production structure of a cultural sector.
+The investigation demonstrates that the graph of Italian musical collaborations on
+Spotify exhibits structural properties typical of real-world complex networks: high sparsity,
+heterogeneous degree distribution with a long tail, and the presence of central hubs.
+The quantitative analysis of centrality metrics reveals a significant concentration of
+relational power within a cohesive core dominated by the Hip Hop/Rap genre, while betweenness
+measures identify strategic bridge nodes connecting distinct stylistic communities. Assortativity
+and modularity coefficients indicate strong homophily based on genre, yet with sufficient
+permeability to ensure global interconnectedness. The transnational comparative analysis,
+based on linear regression between node and edge cardinality, places Italy above the average European trend,
+characterizing it as a case of a hyper-collaborative, non-scalable ecosystem.
+The results confirm the utility of network metrics for dynamically modeling the production structure
+of a cultural sector.
 
 Qualitative analysis of the quantitative findings of the study.
 
 \section{Critique}
 \label{critique}
 
-Nonostante l'analisi abbia prodotto risultati significativi e interpretabili, è
-importante riconoscere le principali limitazioni intrinseche al nostro
-approccio metodologico e ai dati utilizzati.
+Despite the analysis having produced significant and interpretable results, it
+is important to acknowledge the main intrinsic limitations of our
+methodological approach and the data used.
 
 \begin{itemize}[leftmargin=*]
 
-  \item \textbf{Dati parziali e limitati alla piattaforma}: Il dataset include esclusivamente collaborazioni registrate ufficialmente su Spotify, escludendo quelle avvenute su altre piattaforme (YouTube, SoundCloud), in contesti live, o in forme non ufficiali. Ciò può portare a una sottostima della densità della rete, specialmente per generi underground o per artisti emergenti che operano al di fuori dei canali mainstream.
-  \item \textbf{Inferenza automatica degli attributi}: La nazionalità e il genere musicale sono stati assegnati tramite procedure automatizzate. Sebbene questo abbia massimizzato la copertura, può aver introdotto errori sistematici o semplificazioni eccessive.
+  \item \textbf{Partial and platform-limited data}: The dataset includes exclusively collaborations officially registered on Spotify, excluding those occurring on other platforms (YouTube, SoundCloud), in live contexts, or in unofficial forms. This may lead to an underestimation of network density, especially for underground genres or emerging artists operating outside mainstream channels.
 
-  \item \textbf{Analisi statica vs. dinamica}: La rete è stata trattata come un’istantanea fissa nel tempo. Un approccio longitudinale avrebbe permesso di studiare come le comunità si formano, come la centralità degli artisti cambia in risposta a eventi (uscita di un album, ingresso in classifica), e come le strategie collaborative si evolvono nelle diverse fasi della carriera.
+  \item \textbf{Automatic attribute inference}: Nationality and musical genre were assigned through automated procedures. While this maximized coverage, it may have introduced systematic errors or excessive simplifications.
 
-  \item \textbf{Semplicità del modello di rete}: Il grafo è monomodale (solo artisti) e non orientato, e non distingue tra collaborazioni occasionali e partnership stabili. Una rappresentazione più ricca, magari pesata in base al numero di tracce condivise o arricchita con metadati temporali, avrebbe permesso analisi più accurata.
+  \item \textbf{Static versus dynamic analysis}: The network was treated as a fixed snapshot in time. A longitudinal approach would have allowed studying how communities form, how artists' centrality changes in response to events (album release, chart entry), and how collaborative strategies evolve across different career stages.
 
-  \item \textbf{Limiti interpretativi dell'approccio strutturale}: L'analisi quantitativa identifica pattern di connessione, si può misurare che un artista collega due comunità musicali, ma non sappiamo se si tratti di una scelta creativa consapevole, di una relazione personale, di una strategia commerciale. Senza integrare i dati strutturali con fonti qualitative, come interviste, analisi dei testi, ricostruzione dei contesti produttivi o dinamiche di mercato, le conclusioni sulle “strategie collaborative” o sul “ruolo sociale” degli artisti restano ipotesi plausibili ma non troppo dettagliate.
+  \item \textbf{Simplicity of the network model}: The graph is unimodal (only artists) and undirected, and does not distinguish between occasional collaborations and stable partnerships. A richer representation, perhaps weighted according to the number of shared tracks or enriched with temporal metadata, would have enabled more accurate analysis.
+
+  \item \textbf{Interpretive limits of the structural approach}: Quantitative analysis identifies connection patterns; one can measure that an artist connects two musical communities, but it is not known whether this is a conscious creative choice, a personal relationship, or a commercial strategy. Without integrating structural data with qualitative sources, such as interviews, lyric analysis, reconstruction of production contexts, or market dynamics, conclusions about "collaborative strategies" or the "social role" of artists remain plausible yet not overly detailed hypotheses.
 \end{itemize}
 
 \begin{thebibliography}{9}
