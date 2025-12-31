@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.7.17)  31 DEC 2025 10:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.7.17)  31 DEC 2025 11:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -492,13 +492,13 @@ Overfull \hbox (9.47484pt too wide) in paragraph at lines 219--222
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5] [6]
-<network_size_eu.png, id=139, 1435.0413pt x 426.393pt>
+<network_size_eu.png, id=126, 1435.0413pt x 426.393pt>
 File: network_size_eu.png Graphic file (type png)
 <use network_size_eu.png>
-Package pdftex.def Info: network_size_eu.png  used on input line 358.
+Package pdftex.def Info: network_size_eu.png  used on input line 362.
 (pdftex.def)             Requested size: 430.31812pt x 127.86032pt.
 
-Overfull \hbox (0.84265pt too wide) in paragraph at lines 381--382
+Overfull \hbox (0.84265pt too wide) in paragraph at lines 385--386
 []\T1/ptm/b/n/12 Poland \T1/ptm/m/n/12 (3,391 col-lab-o-ra-tions) shows sur-pris-ing in-ten-sity, sur-pass-ing coun-tries with larger
  []
 
@@ -506,15 +506,14 @@ Overfull \hbox (0.84265pt too wide) in paragraph at lines 381--382
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
+[11]
 
 pdfTeX warning: pdflatex (file ./images/eigenvector.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images/eigenvector.pdf, id=168, 597.50829pt x 581.30174pt>
+<images/eigenvector.pdf, id=166, 597.50829pt x 581.30174pt>
 File: images/eigenvector.pdf Graphic file (type pdf)
 <use images/eigenvector.pdf>
 Package pdftex.def Info: images/eigenvector.pdf  used on input line 616.
 (pdftex.def)             Requested size: 226.48395pt x 220.33815pt.
-[11]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -525,7 +524,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [14]
 
 pdfTeX warning: pdflatex (file ./images/louvain.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images/louvain.pdf, id=4509, 595.27998pt x 586.87254pt>
+<images/louvain.pdf, id=4501, 595.27998pt x 586.87254pt>
 File: images/louvain.pdf Graphic file (type pdf)
 <use images/louvain.pdf>
 Package pdftex.def Info: images/louvain.pdf  used on input line 818.
@@ -535,10 +534,10 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 820.
 See the caption package documentation for explanation.
 
-[15 <./images/louvain.pdf>]
+[15]
 
 pdfTeX warning: pdflatex (file ./images/degree.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<images/degree.pdf, id=8823, 597.50829pt x 601.35664pt>
+<images/degree.pdf, id=4507, 597.50829pt x 601.35664pt>
 File: images/degree.pdf Graphic file (type pdf)
 <use images/degree.pdf>
 Package pdftex.def Info: images/degree.pdf  used on input line 870.
@@ -548,17 +547,18 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 872.
 See the caption package documentation for explanation.
 
-<images/DD-AC.png, id=8824, 561.5379pt x 339.669pt>
+[16 <./images/louvain.pdf>]
+<images/DD-AC.png, id=8820, 561.5379pt x 339.669pt>
 File: images/DD-AC.png Graphic file (type png)
 <use images/DD-AC.png>
 Package pdftex.def Info: images/DD-AC.png  used on input line 882.
 (pdftex.def)             Requested size: 217.42265pt x 131.51671pt.
-<images/DDLG.png, id=8825, 563.706pt x 339.669pt>
+<images/DDLG.png, id=8821, 563.706pt x 339.669pt>
 File: images/DDLG.png Graphic file (type png)
 <use images/DDLG.png>
 Package pdftex.def Info: images/DDLG.png  used on input line 886.
 (pdftex.def)             Requested size: 217.42265pt x 131.00879pt.
-[16 <./images/degree.pdf>] [17 <./images/DD-AC.png> <./images/DDLG.png>]
+ [17 <./images/degree.pdf> <./images/DD-AC.png> <./images/DDLG.png>]
 Underfull \hbox (badness 7238) in paragraph at lines 934--937
 []\T1/ptm/m/it/12 Network Anal-y-sis Project Repos-i-tory\T1/ptm/m/n/12 , GitHub, []$\T1/cmtt/m/n/12 https : / / github . com / edefbo1 /
  []
@@ -578,26 +578,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 950--954
 []$\T1/cmtt/m/n/12 https : / / www . kaggle . com / datasets / jfreyberg / spotify -[] artist -[] feature -[]
  []
 
-[18] (main.aux)
+[18] [19] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 81ACE238B8E07584BE51EAD53A6A9D8B;4140.
+(rerunfilecheck)             Checksum: 93BB5560236722AC2E2BBA13A738BD52;3197.
  ) 
 Here is how much of TeX's memory you used:
- 12921 strings out of 474486
- 205205 string characters out of 5742811
- 1941542 words of memory out of 5000000
- 34944 multiletter control sequences out of 15000+600000
+ 12922 strings out of 474486
+ 205220 string characters out of 5742811
+ 1940542 words of memory out of 5000000
+ 34943 multiletter control sequences out of 15000+600000
  602849 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,79p,692b,579s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,692b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Giorgia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Giorgia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (18 pages, 2850703 bytes).
+Output written on main.pdf (19 pages, 2849412 bytes).
 PDF statistics:
- 13247 PDF objects out of 15390 (max. 8388607)
- 80 named destinations out of 1000 (max. 500000)
- 199 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13244 PDF objects out of 15390 (max. 8388607)
+ 82 named destinations out of 1000 (max. 500000)
+ 175 words of extra memory for PDF output out of 10000 (max. 10000000)
 
