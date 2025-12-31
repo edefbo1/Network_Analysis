@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.12.8)  31 DEC 2025 11:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.12.8)  31 DEC 2025 11:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -473,113 +473,108 @@ Overfull \hbox (8.12477pt too wide) in paragraph at lines 114--115
 
 [2{c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 206.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 227.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 206.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 227.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 206.
- [4]
-Overfull \hbox (9.47484pt too wide) in paragraph at lines 228--231
-[]\T1/ptm/m/n/12 Genres and na-tion-al-i-ties are man-aged as node at-tributes (\T1/cmtt/m/n/12 genre\T1/ptm/m/n/12 , \T1/cmtt/m/n/12 nationality\T1/ptm/m/n/12 ); intra/inter-
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[5] [6]
-<network_size_eu.png, id=127, 1435.0413pt x 426.393pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 227.
+ [4] [5]
+<network_size_eu.png, id=123, 1435.0413pt x 426.393pt>
 File: network_size_eu.png Graphic file (type png)
 <use network_size_eu.png>
-Package pdftex.def Info: network_size_eu.png  used on input line 371.
+Package pdftex.def Info: network_size_eu.png  used on input line 325.
 (pdftex.def)             Requested size: 430.31812pt x 127.86032pt.
 
-Overfull \hbox (0.84265pt too wide) in paragraph at lines 394--395
+Overfull \hbox (0.84265pt too wide) in paragraph at lines 348--349
 []\T1/ptm/b/n/12 Poland \T1/ptm/m/n/12 (3,391 col-lab-o-ra-tions) shows sur-pris-ing in-ten-sity, sur-pass-ing coun-tries with larger
  []
 
-[7 <./network_size_eu.png>] [8] [9] [10]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<images/eigenvector.pdf, id=162, 597.50829pt x 581.30174pt>
+[6 <./network_size_eu.png>] [7] [8] [9]
+<images/eigenvector.pdf, id=157, 597.50829pt x 581.30174pt>
 File: images/eigenvector.pdf Graphic file (type pdf)
 <use images/eigenvector.pdf>
-Package pdftex.def Info: images/eigenvector.pdf  used on input line 610.
+Package pdftex.def Info: images/eigenvector.pdf  used on input line 564.
 (pdftex.def)             Requested size: 226.48395pt x 220.33815pt.
-[11] [12 <./images/eigenvector.pdf>] [13] [14]
-<images/louvain.pdf, id=4547, 595.27998pt x 586.87254pt>
+ [10] [11 <./images/eigenvector.pdf>] [12]
+<images/louvain.pdf, id=4534, 595.27998pt x 586.87254pt>
 File: images/louvain.pdf Graphic file (type pdf)
 <use images/louvain.pdf>
-Package pdftex.def Info: images/louvain.pdf  used on input line 740.
+Package pdftex.def Info: images/louvain.pdf  used on input line 694.
 (pdftex.def)             Requested size: 181.18439pt x 178.62424pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 742.
+(caption)                particular \caption on input line 696.
 See the caption package documentation for explanation.
 
-<images/degree.pdf, id=4549, 597.50829pt x 601.35664pt>
+[13]
+<images/degree.pdf, id=4543, 597.50829pt x 601.35664pt>
 File: images/degree.pdf Graphic file (type pdf)
 <use images/degree.pdf>
-Package pdftex.def Info: images/degree.pdf  used on input line 792.
+Package pdftex.def Info: images/degree.pdf  used on input line 746.
 (pdftex.def)             Requested size: 181.18439pt x 182.3445pt.
 
+
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 794.
+(caption)                particular \caption on input line 748.
 See the caption package documentation for explanation.
 
-[15 <./images/louvain.pdf>]
-<images/DD-AC.png, id=8905, 561.5379pt x 339.669pt>
+[14 <./images/louvain.pdf>]
+<images/DD-AC.png, id=8901, 561.5379pt x 339.669pt>
 File: images/DD-AC.png Graphic file (type png)
 <use images/DD-AC.png>
-Package pdftex.def Info: images/DD-AC.png  used on input line 804.
+Package pdftex.def Info: images/DD-AC.png  used on input line 758.
 (pdftex.def)             Requested size: 217.42265pt x 131.51671pt.
-<images/DDLG.png, id=8906, 563.706pt x 339.669pt>
+<images/DDLG.png, id=8902, 563.706pt x 339.669pt>
 File: images/DDLG.png Graphic file (type png)
 <use images/DDLG.png>
-Package pdftex.def Info: images/DDLG.png  used on input line 808.
+Package pdftex.def Info: images/DDLG.png  used on input line 762.
 (pdftex.def)             Requested size: 217.42265pt x 131.00879pt.
- [16 <./images/degree.pdf> <./images/DD-AC.png> <./images/DDLG.png>]
-Underfull \hbox (badness 7238) in paragraph at lines 853--856
+ [15 <./images/degree.pdf> <./images/DD-AC.png> <./images/DDLG.png>]
+Underfull \hbox (badness 7238) in paragraph at lines 807--810
 []\T1/ptm/m/it/12 Network Anal-y-sis Project Repos-i-tory\T1/ptm/m/n/12 , GitHub, []$\T1/cmtt/m/n/12 https : / / github . com / edefbo1 /
  []
 
 
-Underfull \hbox (badness 4217) in paragraph at lines 864--867
+Underfull \hbox (badness 4217) in paragraph at lines 818--821
 []\T1/ptm/m/it/12 NetworkX Doc-u-men-ta-tion and Tu-to-rial\T1/ptm/m/n/12 , Net-workX.org, []$\T1/cmtt/m/n/12 https : / / networkx . org /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 869--873
+Underfull \hbox (badness 10000) in paragraph at lines 823--827
 []\T1/ptm/m/n/12 J. Frey-berg, \T1/ptm/m/it/12 Spo-tify Artist Fea-ture Col-lab-o-ra-tion Net-work\T1/ptm/m/n/12 , Kag-gle Dataset,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 869--873
+Underfull \hbox (badness 10000) in paragraph at lines 823--827
 []$\T1/cmtt/m/n/12 https : / / www . kaggle . com / datasets / jfreyberg / spotify -[] artist -[] feature -[]
  []
 
-[17] [18] (./main.aux)
+[16] [17] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-14>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 93BB5560236722AC2E2BBA13A738BD52;3197.
  ) 
 Here is how much of TeX's memory you used:
- 12949 strings out of 467538
- 200683 string characters out of 5423725
- 627680 words of memory out of 5000000
+ 12948 strings out of 467538
+ 200676 string characters out of 5423725
+ 626680 words of memory out of 5000000
  41603 multiletter control sequences out of 15000+600000
  672501 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,79p,796b,619s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,796b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (18 pages, 1991917 bytes).
+Output written on main.pdf (17 pages, 1988266 bytes).
 PDF statistics:
- 13336 PDF objects out of 15390 (max. 8388607)
- 13163 compressed objects within 132 object streams
- 81 named destinations out of 1000 (max. 500000)
+ 13332 PDF objects out of 15390 (max. 8388607)
+ 13160 compressed objects within 132 object streams
+ 80 named destinations out of 1000 (max. 500000)
  175 words of extra memory for PDF output out of 10000 (max. 10000000)
 

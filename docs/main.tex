@@ -200,53 +200,7 @@ fixed before analysis, preserving reproducibility of the results.
 
 \section{Measures and Results}
 \label{measures}
-This section concisely summarizes the main measures used, the technologies employed, and their connection to the study's objectives.
-\subsection*{Network Representation}
-\begin{itemize}
-  \item Undirected graph $G = (V, E)$: nodes = artists (\texttt{spotify\_id}), edges =
-        collaborations between artists present in tracks.
-  \item Python implementation using \texttt{pandas} for node/edge CSV files and
-        \texttt{NetworkX} for graph construction and measure calculation.
-\end{itemize}
 
-\subsection*{Centrality Measures}
-\begin{itemize}
-  \item \textbf{Degree centrality}: normalizes the number of collaborations for each artist, identifies the most connected hubs, and is used to select the top artists in the analysis subgraph.
-  \item \textbf{Betweenness centrality}: measures how often an artist lies on the shortest paths between pairs of nodes, identifying structural "brokers" between different communities and genres.
-  \item \textbf{Closeness centrality}: inverse of the average distance from an artist to all others, quantifies how quickly an artist can reach the rest of the network.
-  \item \textbf{Eigenvector centrality}: assigns higher scores to artists connected to other central artists, capturing membership in the scene's "core".
-\end{itemize}
-
-\subsection*{Community Detection and Bridges}
-\begin{itemize}
-  \item \textbf{Louvain}: identifies communities by maximizing modularity, allowing the association of structural clusters with macro-genres, national scenes, or label groups.
-  \item \textbf{Edge betweenness} and \textbf{Burt's constraint}: respectively identify bridge collaborations between communities and artists with access to \textit{structural holes}, fundamental for the diffusion of styles and content between different worlds.
-\end{itemize}
-
-\subsection*{Genres, Nationality, and Success}
-\begin{itemize}
-  \item Genres and nationalities are managed as node attributes (\texttt{genre},
-        \texttt{nationality}); intra/inter-genre and intra/inter-nationality
-        collaborations are counted to assess assortativity and transnational openness.
-  \item For artists without a genre, the genre is inferred from the most frequent genre
-        in their network neighborhood, with a minimum collaboration threshold to ensure
-        robustness.
-  \item Structural measures are correlated with external indicators (Spotify
-        \texttt{popularity}, number of collaborations, foreign collaborations, chart
-        presence) to study the link between network position, popularity, and
-        international expansion.
-\end{itemize}
-
-\subsection*{Emerging Artists}
-\begin{itemize}
-  \item A \texttt{DataFrame} is constructed with \texttt{popularity} and number of
-        collaborations per artist; thresholds on both indicators define three classes:
-        \emph{emerging}, \emph{intermediate}, \emph{established}.
-  \item The collaboration matrix between classes (emerging–emerging,
-        emerging–established, etc.) shows networking strategies (horizontal among peers
-        vs. linking to established artists) and how these are reflected in growth in
-        centrality and popularity.
-\end{itemize}
 \subsection{General Analysis of the Italian Musical Collaboration Network}
 
 In order to outline the key structural differences and obtain an overview of
