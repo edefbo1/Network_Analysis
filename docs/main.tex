@@ -424,7 +424,7 @@ Table \ref{tab:degree-centrality} presents the ten artists with the highest
 degree centrality:
 \begin{table}[h]
   \centering
-  \caption{Top 10 artisti per Degree Centrality}
+  \caption{Top 3 artisti per Degree Centrality}
   \label{tab:degree-centrality}
   \begin{tabular}{c l r}
     \hline
@@ -436,7 +436,9 @@ degree centrality:
     \hline
   \end{tabular}
 \end{table}
-Table~\ref{tab:degree-centrality} reports the ten artists with the highest degree centrality. Guè emerges as the most connected artist, with 114 distinct collaborations, confirming his central role in the Italian music network. Andrea Bocelli ranks second with 103 collaborations, highlighting his ability to connect across different musical genres. The strong presence of hip hop artists among the top positions reflects the collaborative nature of this genre and its structural relevance within the network. Ennio Morricone’s inclusion in the top ten introduces an element of stylistic and generational diversity.
+
+\FloatBarrier
+Guè emerges as the most connected artist, with 114 distinct collaborations, confirming his central role in the Italian music network. Andrea Bocelli ranks second with 103 collaborations, highlighting his ability to connect across different musical genres. The strong presence of hip hop artists among the top positions reflects the collaborative nature of this genre and its structural relevance within the network. Ennio Morricone’s inclusion in the top ten introduces an element of stylistic and generational diversity.
 
 \paragraph{Eigenvector Centrality}
 
@@ -448,7 +450,7 @@ core of highly influential artists.
 
 \begin{table}[h]
   \centering
-  \caption{Top 10 artists by Eigenvector Centrality}
+  \caption{Top 3 artists by Eigenvector Centrality}
   \label{tab:eigenvector-centrality}
   \begin{tabular}{c l r}
     \hline
@@ -461,9 +463,10 @@ core of highly influential artists.
   \end{tabular}
 \end{table}
 
-Table~\ref{tab:eigenvector-centrality} presents the ten artists with the
+\FloatBarrier
+Table~\ref{tab:eigenvector-centrality} presents the three artists with the
 highest eigenvector centrality. Guè clearly dominates the ranking, with a value
-approximately 25% higher than the second-ranked artist, confirming his central role within the network. The ranking is exclusively composed of hip hop artists, revealing a genre-specific core that defines the structural center of the collaboration network. Artists such as Gemitaiz, Marracash, Jake La Furia, Don Joe, MadMan, and Lazza form a densely interconnected group. Notably, Andrea Bocelli is absent from this ranking despite his high degree centrality, suggesting that his collaborations are less embedded in the network’s central core.
+approximately  0.2573 higher than the second-ranked artist, confirming his central role within the network. The ranking is exclusively composed of hip hop artists, revealing a genre-specific core that defines the structural center of the collaboration network. Artists such as Gemitaiz, Marracash, Jake La Furia, Don Joe, MadMan, and Lazza form a densely interconnected group. Notably, Andrea Bocelli is absent from this ranking despite his high degree centrality, suggesting that his collaborations are less embedded in the network’s central core.
 
 \begin{figure}[H]
   \centering
@@ -481,7 +484,7 @@ access the entire network.
 
 \begin{table}[h]
   \centering
-  \caption{Top 10 artists by Closeness Centrality}
+  \caption{Top 3 artists by Closeness Centrality}
   \label{tab:closeness-centrality}
   \begin{tabular}{c l r}
     \hline
@@ -494,34 +497,20 @@ access the entire network.
   \end{tabular}
 \end{table}
 
-Table~\ref{tab:closeness-centrality} reports the ten artists with the highest
-closeness centrality. Guè again occupies the top position, confirming his
-optimal placement within the network. Artists such as Clementino and J-AX stand
-out more in this metric than in eigenvector centrality, indicating a bridging
-role between different network regions rather than membership in the densest
-core. The presence of Elisa and Rocco Hunt further highlights the ability of
-this network to support efficient connectivity across genres. Overall,
-closeness centrality identifies artists who facilitate rapid information flow
-and collaboration opportunities across the entire musical ecosystem.
+\FloatBarrier
+
+Table~\ref{tab:closeness-centrality} reports the three artists with the highest closeness centrality. Guè again occupies the top position, confirming his optimal placement within the network. In addition to the artists reported in the table, relatively high closeness centrality values are also observed for artists such as Clementino and J-AX, who appear more prominent in this metric than in eigenvector centrality. This pattern suggests a bridging role between different regions of the network rather than strong membership in its densest core. The presence of artists like Elisa and Rocco Hunt further highlights the ability of the network to support efficient connectivity across genres. Overall, closeness centrality identifies artists who facilitate rapid information flow and collaboration opportunities across the entire musical ecosystem.
 
 \paragraph{Betweenness Centrality}
+Betweenness centrality measures how often a node lies on the shortest paths between other pairs of nodes. In a collaboration network, artists with high betweenness act as intermediaries connecting different clusters, even if they do not have many direct collaborations. For computational efficiency, the metric was approximated by sampling 1,000 nodes.
 
-\textbf{Betweenness centrality} measures how often a node lies on the shortest paths between other pairs of nodes. In a collaboration network, artists with high betweenness act as intermediaries connecting different clusters, even if they do not have many direct collaborations. For computational efficiency, the metric was approximated by sampling 1,000 nodes.
+The distribution is highly skewed, with an average value of 0.0018 and a maximum of 0.1250, indicating that only a small number of artists exert substantial control over the flow of connections between different network communities. Andrea Bocelli clearly dominates this metric, highlighting his role as a structural bridge between classical, pop, and other musical genres. In addition to the artists reported in Table~\ref{tab:betweenness-centrality}, relatively high betweenness values are also observed for artists such as Ennio Morricone, DJ Matrix, Jovanotti, and Cristina D’Avena, confirming that betweenness centrality captures a bridging role that is distinct from local or popularity-based measures. Clementino further stands out by combining high centrality across multiple metrics, effectively linking the hip hop core with other regions of the network.
 
-The distribution is highly skewed, with an average of 0.0018 and a maximum of
-0.1250, indicating that only a few artists control the flow of connections
-between different network communities. Andrea Bocelli dominates this metric,
-highlighting his role as a structural bridge between classical, pop, and other
-genres. Artists such as Ennio Morricone, DJ Matrix, Jovanotti, and Cristina
-D’Avena further confirm that betweenness centrality captures a bridging role
-distinct from local centrality. Clementino combines high centrality in multiple
-metrics, linking the hip hop core with other parts of the network.
-Table~\ref{tab:betweenness-centrality} lists the ten artists with the highest
-betweenness centrality.
+Table~\ref{tab:betweenness-centrality} lists the three artists with the highest betweenness centrality.
 
 \begin{table}[h]
   \centering
-  \caption{Top 10 artists by Betweenness Centrality}
+  \caption{Top 3 artists by Betweenness Centrality}
   \label{tab:betweenness-centrality}
   \begin{tabular}{c l r}
     \hline
@@ -573,8 +562,8 @@ inter-popularity collaborations occurring.
 
 This indicates a fluid Italian music scene, where fame does not strongly
 constrain partnerships. While the slightly positive coefficient hints at a weak
-homophilic tendency—very popular artists collaborating somewhat more frequently
-with other popular artists—it is not strong enough to create significant
+homophilic tendency very popular artists collaborating somewhat more frequently
+with other popular artists it is not strong enough to create significant
 structural barriers within the network.
 
 \paragraph{Genre Assortativity and Modularity}
@@ -698,20 +687,13 @@ This heterogeneous connectivity pattern is visible in the Gephi visualization (F
 
 \section{Conclusion}
 \label{conclusion}
-The investigation demonstrates that the graph of Italian musical collaborations on
-Spotify exhibits structural properties typical of real-world complex networks: high sparsity,
-heterogeneous degree distribution with a long tail, and the presence of central hubs.
-The quantitative analysis of centrality metrics reveals a significant concentration of
-relational power within a cohesive core dominated by the Hip Hop/Rap genre, while betweenness
-measures identify strategic bridge nodes connecting distinct stylistic communities. Assortativity
-and modularity coefficients indicate strong homophily based on genre, yet with sufficient
-permeability to ensure global interconnectedness. The transnational comparative analysis,
-based on linear regression between node and edge cardinality, places Italy above the average European trend,
-characterizing it as a case of a hyper-collaborative, non-scalable ecosystem.
-The results confirm the utility of network metrics for dynamically modeling the production structure
-of a cultural sector.
+This network analysis reveals that the Italian musical collaboration ecosystem on Spotify exhibits a complex and stratified structure. The network is characterized by \textbf{high sparsity} (density 0.00314) but efficient "small-world" connectivity (diameter 10, average path length 4.14). The degree distribution is highly heterogeneous: while the majority of artists (54.6\%) have only one collaboration, a small core of central hubs notably \textbf{Guè}, \textbf{Andrea Bocelli}, and \textbf{Clementino} concentrates a very high number of connections, supporting global cohesion.
 
-Qualitative analysis of the quantitative findings of the study.
+Centrality measures show an influence concentration within a \textbf{cohesive core dominated by Hip Hop/Rap} (evident in eigenvector centrality), while betweenness centrality highlights strategic bridge nodes (e.g., Bocelli, Morricone) connecting distinct stylistic communities such as classical, pop, and hip hop. The Italian network occupies an \textbf{intermediate range globally} in size (1,656 nodes, 6th among non-European countries) but stands out for its \textbf{above-average collaborative propensity} (average degree 5.20), positioning itself above the European trend in the node-edge regression.
+
+Assortativity analysis indicates \textbf{strong genre homophily} (coefficient 0.4778), with collaborations predominantly intra-genre, especially in hip hop (1,829 edges) and pop (819 edges). However, significant inter-genre bridges particularly between Hip Hop/Rap and Pop (596 edges) ensure \textbf{permeability and global cohesion}, as confirmed by moderate modularity ($Q=0.2987$). The structure is slightly disassortative by degree ($-0.1052$), suggesting that highly connected artists frequently collaborate with less central ones, fostering integration and mobility.
+
+In summary, the Italian music scene on Spotify emerges as a \textbf{dynamic and balanced ecosystem}, characterized by a hyper-collaborative yet permeable core that combines local specialization with cross-genre openness, establishing itself as a relevant case study within the global digital music landscape.
 
 \section{Critique}
 \label{critique}
