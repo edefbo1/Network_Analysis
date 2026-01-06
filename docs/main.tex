@@ -47,7 +47,7 @@ enable artists to reach new audiences, experiment with different musical
 genres, increase their visibility on streaming platforms, and forge strategic
 connections within the music industry.
 
-Social Network Analysis (SNA) offers powerful methodological tools for studying
+Social Network Analysis offers powerful methodological tools for studying
 these relational dynamics. By representing artists as nodes and their
 collaborations as edges, it is possible to construct a network that captures
 the complexity of interactions in the contemporary musical landscape.
@@ -57,51 +57,32 @@ with a particular emphasis on the Italian music scene as the primary case
 study.
 
 \subsection*{Research Questions}
-Through a network perspective, this work aims to answer fundamental questions
-about the functioning of the Italian musical ecosystem and its positioning in
-the international context:
+From a network perspective, this study addresses the following research
+questions:
 \begin{enumerate}[leftmargin=*, itemsep=4pt]
 
-  \item \textbf{What are the fundamental structural characteristics of the Italian musical
-          collaboration network on Spotify?}
-        Global network metrics: number of nodes and edges, connected components,
-        average and maximum degree, density, diameter, average shortest path length,
-        clustering coefficient, and transitivity.
+  \item \textbf{What are the main structural and connectivity properties of the Italian
+  musical collaboration network?}
+        Global network metrics and degree distribution.
 
-  \item \textbf{How does the Italian scene position itself relative to major European and
-          non-European countries?}
-        Cross-country comparison using network size, number of collaborations, average
-        degree, density, clustering coefficient, connected components, and node–edge
-        linear regression.
+  \item \textbf{How does the Italian musical scene compare with other major countries?}
+        Cross-country comparison of network structure and scale.
 
-  \item \textbf{Who are the most central and influential artists, and what structural role do
-          they occupy?}
-        Degree, eigenvector, closeness, and betweenness centrality.
+  \item \textbf{Which artists occupy central positions, and how do collaborative strategies
+  differ between emerging and established artists?}
+        Centrality analysis and artist stratification.
 
-  \item \textbf{How are connections distributed within the network?}
-        Degree distribution analysis (linear and logarithmic scale).
-
-  \item \textbf{What are the prevalent collaboration patterns? Do artists tend to collaborate
-          with peers similar in terms of connectivity, popularity, or musical genre?}
-        Assortativity coefficients by degree, followers (popularity), and genre; intra- and
-        inter-genre collaboration counts.
-
-  \item \textbf{Do well-defined communities exist in the network? How do they relate to
-          musical genres?}
-        Community detection (Louvain, Edge Betweenness), modularity, and genre purity.
-
-  \item \textbf{What collaborative strategies do emerging artists adopt compared to
-          established artists?}
-        Artist classification by popularity and collaborations; collaboration matrices
-        between classes and centrality differences.
+  \item \textbf{Does the network exhibit assortative mixing and community structures related
+  to musical genres and artist attributes?}
+        Assortativity and community detection analysis.
 
 \end{enumerate}
+
 \section{Datasets}
 \label{datasets}
 
 The initial dataset used for this analysis was downloaded from
-\href{https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network}{Spotify
-  Artist Feature \& Collaboration Network} \cite{kaggle-dataset}. After careful
+Kaggle \cite{kaggle-dataset}. After careful
 inspection, it was considered a reliable source, as it is derived from publicly
 available data provided by the Spotify API and already pre-processed to
 represent collaboration relationships among artists. The resulting dataset is
@@ -110,26 +91,21 @@ enable the investigation of social, cultural, and structural mechanisms.
 
 The dataset consists of two main files:
 \begin{itemize}
-  \item \textbf{nodes.csv} -- contains the nodes of the graph, where each node represents an artist. The columns include:
-        \begin{itemize}
-          \item \texttt{id}: unique identifier of the artist.
-          \item \texttt{name}: name of the artist.
-          \item \texttt{followers}: number of followers of the artist on Spotify.
-          \item \texttt{popularity}: popularity index (0--100), computed by Spotify based on recent streams and overall visibility.
-          \item \texttt{genres}: list of genres associated with the artist.
-          \item \texttt{chart\_hits}: List showing the number of Spotify chart hits in different countries.
-        \end{itemize}
-  \item \textbf{edges.csv} -- contains the edges of the graph, representing a collaboration between two artists. The columns include:
-        \begin{itemize}
-          \item \texttt{source}: ID of the collaborating artist.
-          \item \texttt{target}: ID of the artist being collaborated with.
-        \end{itemize}
+  \item \textbf{nodes.csv} contains the nodes of the graph, where each node
+  represents an artist. For each artist, the file provides a unique identifier,
+  name, number of Spotify followers, a popularity score,
+  a list of associated musical genres, and information about chart hits in
+  different countries.
+  \item \textbf{edges.csv} contains the edges of the graph, representing
+  collaborations between pairs of artists. Each row specifies a source artist
+  and a target artist through their corresponding identifiers.
 \end{itemize}
 
 The initial objective was to enrich the graph with additional artist-level
 information, specifically \textbf{nationality} and \textbf{dominant musical
-  genre}, in order to enable more in-depth social and cultural analyses of the
+genre}, in order to enable more in-depth social and cultural analyses of the
 network.
+
 
 \subsection{Artist Nationality Enrichment}
 \label{subsec:nationality}
@@ -146,10 +122,6 @@ adopted:
   \item \textbf{Completion using an external dataset (MusicBrainz).}
         For artists whose nationality could not be inferred in the first step, data from the \texttt{MusicBrainz Dump (mbdump)} \cite{musicbrainz} were integrated. A direct matching based solely on artist names posed significant challenges due to the presence of homonyms with different nationalities. To mitigate this issue, the integration was performed exclusively on artists that remained unclassified after the first inference step.
 \end{enumerate}
-
-This hybrid procedure increased the coverage of nationality information and
-enabled a more accurate subsequent analysis, particularly when comparing
-artistic communities across different countries.
 
 \subsection{Addition of Musical Genre}
 
@@ -183,28 +155,24 @@ network and artistic community analyses.
 
 \section{Validity and Reliability}
 \label{validity-reliability}
-The dataset provides a realistic representation of musical collaborations on
-Spotify, as it is derived from Spotify API data and models collaborations as
-reciprocal relationships between artists. This abstraction is suitable for
-capturing structural properties of the contemporary music collaboration
-ecosystem.
-This modeling choice primarily supports the analysis of structural properties,
-while abstracting away semantic and contractual aspects of collaborations.
-Limitations arise from platform-specific biases and data incompleteness, since
-not all collaborations or dimensions of artistic influence are observable on
-Spotify. Additionally, inferred attributes such as nationality and genre may
-introduce minor approximations, especially for artists with hybrid identities.
-These effects are mitigated by conservative, multi-stage enrichment procedures
-designed to reduce systematic bias. Reliability is ensured through the use of
-public data sources and deterministic preprocessing pipelines. All enrichment
-steps follow clearly defined and ordered rules, allowing the analysis to be
-replicated with the same inputs.
+The dataset represents a realistic abstraction of musical collaborations on
+Spotify, derived from Spotify API data and modeled as reciprocal relationships
+between artists. This modeling choice aligns with network theory and is suitable
+for analyzing structural properties of the collaboration ecosystem, while
+abstracting from semantic and contractual aspects.
 
-The only partially non-deterministic component is the AI-assisted genre
-classification; however, it is applied to a limited subset and its outputs are
-fixed before analysis, preserving reproducibility of the results. This choice
-slightly affects construct validity but does not compromise reproducibility, as
-classifications are fixed prior to network analysis.
+Limitations mainly arise from platform-specific biases, partial data
+incompleteness, and approximations in inferred attributes such as nationality
+and dominant genre. These effects are mitigated through conservative,
+rule-based, multi-stage enrichment procedures, supporting construct validity.
+
+Reliability is ensured by a rigorous and transparent analytical methodology
+implemented using established and reliable software tools. All preprocessing
+and analysis steps are deterministic and reproducible. The only partially
+non-deterministic component is AI-assisted genre classification; however, its
+outputs are fixed prior to analysis, preserving reproducibility and limiting its
+impact on validity.
+
 
 \section{Measures and Results}
 \label{measures}
@@ -417,8 +385,6 @@ number of collaborations, while a small group of nodes concentrates a
 significantly high number of connections.
 
 \bigskip
-Table \ref{tab:degree-centrality} presents the ten artists with the highest
-degree centrality:
 \begin{table}[h]
   \centering
   \caption{Top 3 artisti per Degree Centrality}
@@ -461,8 +427,7 @@ core of highly influential artists.
 \end{table}
 
 \FloatBarrier
-Table~\ref{tab:eigenvector-centrality} presents the three artists with the
-highest eigenvector centrality. Guè clearly dominates the ranking, with a value
+Guè clearly dominates the ranking, with a value
 approximately  0.2573 higher than the second-ranked artist, confirming his central role within the network. The ranking is exclusively composed of hip hop artists, revealing a genre-specific core that defines the structural center of the collaboration network. Artists such as Gemitaiz, Marracash, Jake La Furia, Don Joe, MadMan, and Lazza form a densely interconnected group. Notably, Andrea Bocelli is absent from this ranking despite his high degree centrality, suggesting that his collaborations are less embedded in the network’s central core.
 
 \begin{figure}[H]
@@ -496,8 +461,7 @@ access the entire network.
 
 \FloatBarrier
 
-Table~\ref{tab:closeness-centrality} reports the three artists with the highest
-closeness centrality. Guè again occupies the top position, confirming his
+Guè again occupies the top position, confirming his
 optimal placement within the network. In addition to the artists reported in
 the table, relatively high closeness centrality values are also observed for
 artists such as Clementino and J-AX, who appear more prominent in this metric
@@ -528,9 +492,6 @@ betweenness centrality captures a bridging role that is distinct from local or
 popularity-based measures. Clementino further stands out by combining high
 centrality across multiple metrics, effectively linking the hip hop core with
 other regions of the network.
-
-Table~\ref{tab:betweenness-centrality} lists the three artists with the highest
-betweenness centrality.
 
 \begin{table}[h]
   \centering
@@ -621,7 +582,7 @@ network cohesion.
   \end{tabular}
 \end{table}
 
-Table~\ref{tab:genre-pairs} lists the ten most frequent genre pairs. Hip Hop /
+Hip Hop /
 Rap dominates with 1829 intra-genre collaborations, followed by Pop with 819.
 The Hip Hop / Rap + Pop combination is the most frequent cross-genre connection
 (596 edges), acting as a structural bridge between the two major genres. Other
@@ -683,18 +644,17 @@ The Edge Betweenness (Girvan--Newman) algorithm produced 17 communities,
 resulting in a coarser partition than Louvain. Communities are generally less
 pure, with genre purity often below 0.5, highlighting the role of bridge nodes
 and cross-genre collaborations rather than clear genre separation.
+\newpage
 \subsubsection{Degree Distribution}
-
 \noindent
 \begin{wrapfigure}{r}{0.45\textwidth} % r = destra, larghezza 45%
   \centering
-  \vspace{-10pt} % Riduce lo spazio superiore per allineare l'immagine al testo
+  \vspace{-20pt} % Riduce lo spazio superiore per allineare l'immagine al testo
   \includegraphics[width=\linewidth]{images/degree.pdf}
   \captionof{figure}{Artist collaboration network visualized in Gephi with node size proportional to degree.}
   \label{fig:degree_gephi}
-  \vspace{-20pt} % Riduce lo spazio bianco sotto la didascalia
+  \vspace{-35pt} % Riduce lo spazio bianco sotto la didascalia
 \end{wrapfigure}
-
 The analysis of the degree distribution provides insight into the global
 structure of the artist collaboration network. The minimum degree of 1 reflects
 the presence of artists involved in a single collaboration, while the maximum
@@ -722,23 +682,25 @@ maintaining global connectivity. \vspace{1em}
 
 \section{Conclusion}
 \label{conclusion}
-This network analysis reveals that the Italian musical collaboration ecosystem on Spotify exhibits a complex and stratified structure. The network is characterized by \textbf{high sparsity} (density 0.00314) but efficient "small-world" connectivity (diameter 10, average path length 4.14). The degree distribution is highly heterogeneous: while the majority of artists (54.6\%) have only one collaboration, a small core of central hubs notably \textbf{Guè}, \textbf{Andrea Bocelli}, and \textbf{Clementino} concentrates a very high number of connections, supporting global cohesion.
+This network analysis reveals that the Italian musical collaboration ecosystem 
+on Spotify exhibits a complex and stratified structure. The network is characterized 
+by \textbf{high sparsity} but efficient "small-world" connectivity. The degree distribution is highly 
+heterogeneous: while the majority of artists  have only one collaboration, 
+a small core of central hubs notably \textbf{Guè}, \textbf{Andrea Bocelli}, and 
+\textbf{Clementino} concentrates a very high number of connections, supporting 
+global cohesion.
 
 Centrality measures show an influence concentration within a \textbf{cohesive
-  core dominated by Hip Hop/Rap} (evident in eigenvector centrality), while
-betweenness centrality highlights strategic bridge nodes (e.g., Bocelli,
-Morricone) connecting distinct stylistic communities such as classical, pop,
+  core dominated by Hip Hop/Rap}, while
+betweenness centrality highlights strategic bridge nodes connecting distinct stylistic communities such as classical, pop,
 and hip hop. The Italian network occupies an \textbf{intermediate range
-  globally} in size (1,656 nodes, 6th among non-European countries) but stands
-out for its \textbf{above-average collaborative propensity} (average degree
-5.20), positioning itself above the European trend in the node-edge regression.
+  globally} in size but stands
+out for its \textbf{above-average collaborative propensity}, positioning itself above the European trend in the node-edge regression.
 
-Assortativity analysis indicates \textbf{strong genre homophily} (coefficient
-0.4778), with collaborations predominantly intra-genre, especially in hip hop
-(1,829 edges) and pop (819 edges). However, significant inter-genre bridges
-particularly between Hip Hop/Rap and Pop (596 edges) ensure
-\textbf{permeability and global cohesion}, as confirmed by moderate modularity
-($Q=0.2987$). The structure is slightly disassortative by degree ($-0.1052$),
+Assortativity analysis indicates \textbf{strong genre homophily}, with collaborations predominantly intra-genre, especially in hip hop
+and pop. However, significant inter-genre bridges
+particularly between Hip Hop/Rap and Pop ensure
+\textbf{permeability and global cohesion}, as confirmed by moderate modularity. The structure is slightly disassortative by degree,
 suggesting that highly connected artists frequently collaborate with less
 central ones, fostering integration and mobility.
 
