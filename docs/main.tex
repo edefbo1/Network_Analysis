@@ -57,8 +57,6 @@ with a particular emphasis on the Italian music scene as the primary case
 study.
 
 \subsection*{Research Questions}
-From a network perspective, this study addresses the following research
-questions:
 \begin{enumerate}[leftmargin=*, itemsep=4pt]
 
   \item \textbf{What are the main structural and connectivity properties of the Italian
@@ -433,7 +431,7 @@ approximately  0.2573 higher than the second-ranked artist, confirming his centr
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.25\linewidth]{images/eigenvector.pdf}
+  \includegraphics[width=\linewidth]{images/eigenvectorW.pdf}
   \caption{Gephi representation of Eigenvector}
   \label{fig:placeholder}
 \end{figure}
@@ -607,16 +605,7 @@ their genre purity were evaluated.
 
 \noindent
 \subsubsection*{Louvain}
-
-\begin{wrapfigure}{r}{0.35\textwidth} % r = right, larghezza 50%
-  \centering
-  \vspace{-15pt} % Regola per allineare l'immagine alla prima riga di testo
-  \includegraphics[width=\linewidth]{images/louvain.pdf}
-  \caption{Community structure obtained by applying the Louvain algorithm in Gephi.}
-  \label{fig:louvain}
-  \vspace{-25pt} % Riduce lo spazio sotto la caption
-\end{wrapfigure}
-
+\begin{minipage}[t]{0.53\textwidth}
 The Louvain algorithm identified a total of 34 communities, revealing a
 relatively fragmented network structure. Several communities exhibit high genre
 homogeneity, particularly for \emph{Hip Hop / Rap} and \emph{Pop}, with purity
@@ -624,12 +613,20 @@ values exceeding 0.6 and reaching 1.0 in smaller clusters. This pattern is
 visually reflected in the Louvain-based Gephi layout
 (Figure~\ref{fig:louvain}). Overall, this indicates that collaborations are not
 strictly constrained by genre boundaries, especially within larger communities.
-
 \subsubsection*{Louvain versus Genre Assortativity}
 The community detection results can be interpreted using genre assortativity
 and modularity measures. The genre assortativity coefficient
 ($r = 0.4778$) indicates a clear homophilic tendency, with artists more likely
-to collaborate within the same or closely related macro-genres.
+to collaborate within the same or closely related macro-genres.\vspace{3pt}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.43\textwidth}
+  \centering
+  \vspace{0pt}% Assicura allineamento top consistente
+  \includegraphics[width=\linewidth]{images/louvain.pdf}
+  \captionof{figure}{Community structure obtained by applying the Louvain algorithm in Gephi.}
+  \label{fig:louvain}
+\end{minipage}
 
 The moderate modularity value ($Q = 0.2987$) suggests that genre does not
 induce a strong structural separation, due to frequent cross-genre
@@ -645,17 +642,11 @@ The Edge Betweenness (Girvan--Newman) algorithm produced 17 communities,
 resulting in a coarser partition than Louvain. Communities are generally less
 pure, with genre purity often below 0.5, highlighting the role of bridge nodes
 and cross-genre collaborations rather than clear genre separation.
-\newpage
+
 \subsubsection{Degree Distribution}
+
 \noindent
-\begin{wrapfigure}{r}{0.35\textwidth} % r = destra, larghezza 45%
-  \centering
-  \vspace{-20pt} % Riduce lo spazio superiore per allineare l'immagine al testo
-  \includegraphics[width=\linewidth]{images/degree.pdf}
-  \captionof{figure}{Artist collaboration network visualized in Gephi with node size proportional to degree.}
-  \label{fig:degree_gephi}
-  \vspace{-35pt} % Riduce lo spazio bianco sotto la didascalia
-\end{wrapfigure}
+\begin{minipage}[t]{0.53\textwidth}
 The analysis of the degree distribution provides insight into the global
 structure of the artist collaboration network. The minimum degree of 1 reflects
 the presence of artists involved in a single collaboration, while the maximum
@@ -666,7 +657,17 @@ This heterogeneous connectivity pattern is visible in the Gephi visualization
 (Figure~\ref{fig:degree_gephi}), where node size is proportional to degree,
 indicating a strongly right-skewed distribution. This structure is typical of
 complex networks, where a small number of hubs play a central role in
-maintaining global connectivity. \vspace{1em}
+maintaining global connectivity.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.43\textwidth}
+  \centering
+  \vspace{0pt}
+  \includegraphics[width=\linewidth]{images/degree.pdf}
+  \captionof{figure}{Artist collaboration network visualized in Gephi with node size proportional to degree.}
+  \label{fig:degree_gephi}
+\end{minipage}
+
 
 \begin{figure}[H]
   \centering
